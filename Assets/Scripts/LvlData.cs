@@ -10,4 +10,6 @@ public class LvlData : ScriptableObject
     
     public float max_dist;
     public float min_dist;
+
+    public Color[] color;
 }

@@ -67,11 +67,18 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Scripts\AlphaRaycastFilter.cs" />
-    <Compile Include="Assets\Scripts\Ball.cs" />
-    <Compile Include="Assets\Scripts\BallMove.cs" />
+    <Compile Include="Assets\Scripts\Ball\Ball.cs" />
+    <Compile Include="Assets\Scripts\Ball\BallMove.cs" />
+    <Compile Include="Assets\Scripts\DestroyOnExit.cs" />
     <Compile Include="Assets\Scripts\GameController.cs" />
-    <Compile Include="Assets\Scripts\LvlData.cs" />
+    <Compile Include="Assets\Scripts\Line.cs" />
     <Compile Include="Assets\Scripts\Sector.cs" />
+    <Compile Include="Assets\Scripts\SpawnWaves.cs" />
+    <Compile Include="Assets\Scripts\SpriteStretch.cs" />
+    <Compile Include="Assets\Scripts\System\Edges.cs" />
+    <Compile Include="Assets\Scripts\System\LvlData.cs" />
+    <Compile Include="Assets\Scripts\System\Pool.cs" />
+    <Compile Include="Assets\Scripts\System\PoolRef.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="GenerateTargetFrameworkMonikerAttribute" />

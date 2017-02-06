@@ -2,13 +2,13 @@
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-public class Sector : MonoBehaviour, IPointerClickHandler
+public class Sector : MonoBehaviour, IPointerClickHandler, IPointerEnterHandler
 {
-    Color color;
+    Color sect_color;
     
     void Start()
     {
-        color = GetComponent<Image>().color;
+        sect_color = GetComponent<Image>().color;
     }
 
     #region IPointerClickHandler implementation
@@ -16,8 +16,19 @@ public class Sector : MonoBehaviour, IPointerClickHandler
     public void OnPointerClick(PointerEventData eventData)
     {
         //print("Clicked me!"+gameObject.name);
-        Ball.ball.SetColor(color);
+        Ball.ball.SetColor(sect_color);
     }
 
+    public void OnPointerEnter(PointerEventData eventData)
+    {
+        //print("Clicked me!"+gameObject.name);
+        Ball.ball.SetColor(sect_color);
+    }
+
+    public void InitSector(Color color)
+    {
+        GetComponent<Image>().color = color;
+        sect_color = color;
+    }
     #endregion
 }

@@ -19,4 +19,7 @@ public class LvlData : ScriptableObject
 
     [Header("Sectors")]
     public Color[] colors;
+
+    [Header("Level")]
+    public int lines_to_chng_lvl;
 }

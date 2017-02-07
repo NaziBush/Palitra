@@ -31,6 +31,8 @@ public class Ball : MonoBehaviour
     {
         if (other.CompareTag("Line"))
         {
+            EventManager.TriggerEvent("LinePassed");
+
             if (sprite_rend.color == other.GetComponent<SpriteRenderer>().color)
             {
                 lines_checked++;

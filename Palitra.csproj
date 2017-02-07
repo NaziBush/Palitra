@@ -76,6 +76,7 @@
     <Compile Include="Assets\Scripts\SpawnWaves.cs" />
     <Compile Include="Assets\Scripts\SpriteStretch.cs" />
     <Compile Include="Assets\Scripts\System\Edges.cs" />
+    <Compile Include="Assets\Scripts\System\EventManager.cs" />
     <Compile Include="Assets\Scripts\System\LvlData.cs" />
     <Compile Include="Assets\Scripts\System\Pool.cs" />
     <Compile Include="Assets\Scripts\System\PoolRef.cs" />

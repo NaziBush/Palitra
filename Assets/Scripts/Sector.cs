@@ -11,6 +11,20 @@ public class Sector : MonoBehaviour, IPointerClickHandler, IPointerEnterHandler
         sect_color = GetComponent<Image>().color;
     }
 
+    //void OnEnable()
+    //{
+    //    EventManager.StartListening("ChangeLvl", ChangeLevel);
+    //}
+
+    //void OnDisable()
+    //{
+    //    EventManager.StopListening("ChangeLvl", ChangeLevel);
+    //}
+
+    //void ChangeLevel()
+    //{
+
+    //}
     #region IPointerClickHandler implementation
 
     public void OnPointerClick(PointerEventData eventData)

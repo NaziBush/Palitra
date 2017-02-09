@@ -3,7 +3,7 @@ using System.Collections;
 
 public class SpawnWaves : MonoBehaviour
 {
-    float start_delay=5.0f;
+    float start_delay = 2.0f;
     public Pool pool;
     [Space(20)]
     public float startWait;
@@ -67,25 +67,29 @@ public class SpawnWaves : MonoBehaviour
     IEnumerator Delay()
     {
         is_spawning = false;
+
         yield return new WaitForSeconds(start_delay);
-        edge = Edges.topEdge;
+
+        
         Dist = GameController.game_controller.GetLvlData().max_dist;
+        edge = Edges.topEdge - Dist + 0.5f;
         //SpawnWave();
         is_spawning = true;
     }
 
     void Update()
     {
-        if ((is_spawning)&&(Edges.topEdge >= edge+dist)&&(lines_spawned < GameController.game_controller.GetLvlData().lines_to_chng_lvl))
+        //print(Time.time);
+        if ((is_spawning)&&(Edges.topEdge >= edge+Dist)&&(lines_spawned < GameController.game_controller.GetLvlData().lines_to_chng_lvl))
         {
-            lines_spawned++;
-            edge += Dist;
             SpawnWave();
         }
     }
 
     void SpawnWave()
     {
+        lines_spawned++;
+        edge += Dist;
         pool.Activate(new Vector2(0.0f, edge), Quaternion.identity);
     }
 

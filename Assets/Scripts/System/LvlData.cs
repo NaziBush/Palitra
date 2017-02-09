@@ -22,4 +22,8 @@ public class LvlData : ScriptableObject
 
     [Header("Level")]
     public int lines_to_chng_lvl;
+
+    [Header("Coins")]
+    public int lines_to_coin;
+    public int coins_reward;
 }

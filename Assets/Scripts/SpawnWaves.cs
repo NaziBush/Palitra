@@ -3,13 +3,14 @@ using System.Collections;
 
 public class SpawnWaves : MonoBehaviour
 {
+    public static SpawnWaves spawn;
     float start_delay = 2.0f;
     public Pool pool;
     [Space(20)]
     public float startWait;
 
     
-    float dist;
+    public float dist;
     float edge;
     int lines_passed;
     int lines_spawned;
@@ -30,6 +31,10 @@ public class SpawnWaves : MonoBehaviour
         }
     }
 
+    void Awake()
+    {
+        spawn = this;
+    }
     void Start ()
     {
         lines_passed = 0;

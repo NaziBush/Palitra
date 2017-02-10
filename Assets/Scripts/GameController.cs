@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class GameController : MonoBehaviour
 {
@@ -13,14 +14,14 @@ public class GameController : MonoBehaviour
 
     int lines_passed;
 
-
-    static bool is_paused;
-    static float saved_time_scale;
-    public GameObject pause_menu;
+    public int GetCurrentLvl()
+    {
+        return lvl_number;
+    }
 
     void Awake()
     {
-        is_paused = false;
+        
         game_controller = this;
     }
     void Start()
@@ -83,24 +84,10 @@ public class GameController : MonoBehaviour
         }
     }
 
-    public void Pause()
-    {
-        if (!is_paused)
-        {
-            saved_time_scale = Time.timeScale;
-            Time.timeScale = 0.0f;
-            is_paused = true;
-            pause_menu.SetActive(true);
-        }
-    }
 
-    public void UnPause()
+
+    public void GameOver()
     {
-        if (is_paused)
-        {
-            Time.timeScale = saved_time_scale;
-            is_paused = false;
-            pause_menu.SetActive(false);
-        }
+        SceneManager.LoadScene("Main");
     }
 }

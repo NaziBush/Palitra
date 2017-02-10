@@ -7,6 +7,7 @@ public class Ball : MonoBehaviour
     public static Ball ball;
     BallMove ball_move;
     SpriteRenderer sprite_rend;
+    bool shield;
 
     int lines_checked;
 
@@ -18,6 +19,7 @@ public class Ball : MonoBehaviour
 
     void Start()
     {
+        shield = false;
         sprite_rend = GetComponent<SpriteRenderer>();
         ball_move = GetComponent<BallMove>();
     }
@@ -25,6 +27,21 @@ public class Ball : MonoBehaviour
 	public void SetColor(Color color)
     {
         sprite_rend.color = color;
+    }
+
+    void OnEnable()
+    {
+        EventManager.StartListening("ChangeLvl", ChangeLvl);
+    }
+    void OnDisable()
+    {
+        EventManager.StopListening("ChangeLvl", ChangeLvl);
+    }
+    
+
+    void ChangeLvl()
+    {
+        shield = true;
     }
 
     void OnTriggerEnter2D(Collider2D other)
@@ -40,6 +57,17 @@ public class Ball : MonoBehaviour
                 {
                     ball_move.IncreaseSpeed(GameController.game_controller.GetLvlData().accel);
                     lines_checked = 0;
+                }
+            }
+            else
+            {
+                if (shield)
+                {
+                    shield = false;
+                }
+                else
+                {
+                    GameController.game_controller.GameOver();
                 }
             }
         }

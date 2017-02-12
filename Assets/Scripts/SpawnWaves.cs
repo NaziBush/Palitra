@@ -1,15 +1,22 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 
 public class SpawnWaves : MonoBehaviour
 {
     public static SpawnWaves spawn;
     float start_delay = 2.0f;
-    public Pool pool;
+    public Pool normal_pool;
+    public Pool chngbl_pool;
+
+    Pool[] pool=new Pool[2];
+
     [Space(20)]
     public float startWait;
 
-    
+    public enum PoolType { Normal, Chngbl};
+    List<PoolType> lines= new List<PoolType>();
+
     public float dist;
     float edge;
     int lines_passed;
@@ -37,6 +44,10 @@ public class SpawnWaves : MonoBehaviour
     }
     void Start ()
     {
+        pool[(int)PoolType.Normal] = normal_pool;
+        pool[(int)PoolType.Chngbl] = chngbl_pool;
+
+        ReserveLines();
         lines_passed = 0;
         lines_spawned = 0;
         StartCoroutine(Delay());
@@ -50,6 +61,24 @@ public class SpawnWaves : MonoBehaviour
     { 
         EventManager.StopListening("LinePassed", LinePassed);
         EventManager.StopListening("ChangeLvl", ChangeLvl);
+    }
+
+    void ReserveLines()
+    {
+        lines.Clear();
+        for (int i = 0;i < GameController.game_controller.GetLvlData().changable_lines_count;i++)
+        {
+            lines.Add(PoolType.Chngbl);
+        }
+        for (int i = 0; i < GameController.game_controller.GetLvlData().normal_lines_count;i++)
+        {
+            lines.Add(PoolType.Normal);
+        }
+    }
+
+    Pool GetPool(PoolType id)
+    {
+        return pool[(int)id];
     }
 
     void LinePassed()
@@ -66,6 +95,7 @@ public class SpawnWaves : MonoBehaviour
     {
         lines_passed = 0;
         lines_spawned = 0;
+        ReserveLines();
         StartCoroutine(Delay());
 
     }
@@ -74,7 +104,6 @@ public class SpawnWaves : MonoBehaviour
         is_spawning = false;
 
         yield return new WaitForSeconds(start_delay);
-
         
         Dist = GameController.game_controller.GetLvlData().max_dist;
         edge = Edges.topEdge - Dist + 0.5f;
@@ -93,9 +122,12 @@ public class SpawnWaves : MonoBehaviour
 
     void SpawnWave()
     {
+        PoolType current_line = lines[Random.Range(0,lines.Count)];
+        lines.Remove(current_line);
+
         lines_spawned++;
         edge += Dist;
-        pool.Activate(new Vector2(0.0f, edge), Quaternion.identity);
+        pool[(int)current_line].Activate(new Vector2(0.0f, edge), Quaternion.identity);
     }
 
 

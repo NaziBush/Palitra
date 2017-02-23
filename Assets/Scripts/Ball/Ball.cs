@@ -5,6 +5,7 @@ using UnityEngine.UI;
 public class Ball : MonoBehaviour
 {
     public static Ball ball;
+    [HideInInspector]
     public Transform tran;
     BallMove ball_move;
     public SpriteRenderer sprite_rend;
@@ -23,6 +24,7 @@ public class Ball : MonoBehaviour
         shield = false;
         ball_move = GetComponent<BallMove>();
         tran = GetComponent<Transform>();
+        SetColor(GameController.game_controller.GetLvlData().colors[0]);
     }
 
 	public void SetColor(Color color)
@@ -54,20 +56,23 @@ public class Ball : MonoBehaviour
         }
         else
         {
-            if (shield)
-            {
-                shield = false;
-            }
-            else
-            {
-                GameController.game_controller.GameOver();
-            }
+            print(line_color);
+            print(sprite_rend.color);
+            //if (shield)
+            //{
+            //    shield = false;
+            //}
+            //else
+            //{
+            //    GameController.game_controller.GameOver();
+            //}
         }
     }
 
     void ChangeLvl()
     {
         shield = true;
+        //SetColor(GameController.game_controller.GetLvlData().colors[0]);
     }
 
 

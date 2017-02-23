@@ -4,6 +4,7 @@ using System.Collections;
 public class Line : MonoBehaviour
 {
     SpriteRenderer sprite_rend;
+    Color line_color;
     float height;
     Transform tran;
     bool active;
@@ -23,14 +24,21 @@ public class Line : MonoBehaviour
     {
         active = true;
         Color[] colors = GameController.game_controller.GetLvlData().colors;
-        sprite_rend.color = colors[Random.Range(0, colors.Length)];
+        ChangeColor(colors[Random.Range(0, colors.Length)]);
+        
+    }
+
+    public void ChangeColor(Color new_color)
+    {
+        line_color = new_color;
+        sprite_rend.color = new_color;
     }
 
     void Update()
     {
         if ((active)&&(tran.position.y-height < Ball.ball.tran.position.y))
         {
-            Ball.ball.LinePassed(sprite_rend.color);
+            Ball.ball.LinePassed(line_color);
             active = false;
         }
     }

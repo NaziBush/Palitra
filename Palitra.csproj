@@ -70,6 +70,9 @@
     <Compile Include="Assets\Scripts\Ball\Ball.cs" />
     <Compile Include="Assets\Scripts\Ball\BallMove.cs" />
     <Compile Include="Assets\Scripts\GameController.cs" />
+    <Compile Include="Assets\Scripts\Lines\Block.cs" />
+    <Compile Include="Assets\Scripts\Lines\BlockManager.cs" />
+    <Compile Include="Assets\Scripts\Lines\BlockMove.cs" />
     <Compile Include="Assets\Scripts\Lines\ChangeColor.cs" />
     <Compile Include="Assets\Scripts\Lines\DestroyOnExit.cs" />
     <Compile Include="Assets\Scripts\Lines\Line.cs" />
@@ -87,6 +90,18 @@
     <Compile Include="Assets\Scripts\UI\Pause.cs" />
     <Compile Include="Assets\Scripts\UI\Touchable.cs" />
     <Compile Include="Assets\Scripts\UIController.cs" />
+    <Compile Include="Assets\SpriteMask\Scripts\ClearStencilBufferComponent.cs" />
+    <Compile Include="Assets\SpriteMask\Scripts\SkipMasking.cs" />
+    <Compile Include="Assets\SpriteMask\Scripts\SpriteMask.cs" />
+    <Compile Include="Assets\SpriteMask\Scripts\SpriteMaskingComponent.cs" />
+    <Compile Include="Assets\SpriteMask\Scripts\SpriteMaskingPart.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Assets\SpriteMask\Readme.txt" />
+    <None Include="Assets\SpriteMask\Resources\ClearStencil.shader" />
+    <None Include="Assets\SpriteMask\Resources\SpriteDefault.shader" />
+    <None Include="Assets\SpriteMask\Resources\SpriteDiffuse.shader" />
+    <None Include="Assets\SpriteMask\Resources\SpriteMask.shader" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="GenerateTargetFrameworkMonikerAttribute" />

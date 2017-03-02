@@ -1,5 +1,5 @@
 ﻿using UnityEngine;
-using System.Collections;
+using System.Collections.Generic;
 using UnityEngine.UI;
 
 public class Ball : MonoBehaviour
@@ -56,19 +56,57 @@ public class Ball : MonoBehaviour
         }
         else
         {
-            print(line_color);
-            print(sprite_rend.color);
-            //if (shield)
-            //{
-            //    shield = false;
-            //}
-            //else
-            //{
-            //    GameController.game_controller.GameOver();
-            //}
+            //print(line_color);
+            //print(sprite_rend.color);
+            if (shield)
+            {
+                shield = false;
+            }
+            else
+            {
+                GameController.game_controller.GameOver();
+            }
         }
     }
 
+
+    public void LinePassed(List<Color> line_color)
+    {
+        EventManager.TriggerEvent("LinePassed");
+        lines_checked++;
+
+        bool passed=false;
+
+        foreach (Color item in line_color)
+        {
+            if (item==sprite_rend.color)
+            {
+                passed = true;
+                break;
+            }
+        }
+        if (passed)
+        {
+            if (lines_checked >= GameController.game_controller.GetLvlData().lines_to_accel)
+            {
+                ball_move.IncreaseSpeed(GameController.game_controller.GetLvlData().accel);
+                lines_checked = 0;
+            }
+        }
+        else
+        {
+            //print(line_color);
+            //print(sprite_rend.color);
+            if (shield)
+            {
+                shield = false;
+            }
+            else
+            {
+                GameController.game_controller.GameOver();
+            }
+        }
+    }
     void ChangeLvl()
     {
         shield = true;

@@ -5,17 +5,17 @@ using System.Collections;
 [CreateAssetMenu()]
 public class LvlData : ScriptableObject
 {
-    [Header("Lines")]
+    [Header("Dist")]
     public float max_dist;
     public float min_dist;
-    public int lines_to_chng_dist;
-    public int changable_lines_count;
-    public int normal_lines_count;
-    public int block_lines_count;
     public float chng_dist_val;
 
+    [Header("Lines")]
+    public int lines_to_chng_dist;
+    public int changable_lines_count;
+    public int block_lines_count;
+    public int lines_to_chng_lvl;
     
-
     [Header("Ball")]
     public float min_speed;
     public float max_speed;
@@ -24,9 +24,6 @@ public class LvlData : ScriptableObject
 
     [Header("Sectors")]
     public Color[] colors;
-
-    [Header("Level")]
-    public int lines_to_chng_lvl;
 
     [Header("Coins")]
     public int lines_to_coin;

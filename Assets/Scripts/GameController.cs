@@ -28,6 +28,7 @@ public class GameController : MonoBehaviour
     {
         lvl_number = 0;
         InitLvl();
+        EventManager.TriggerEvent("ChangeLvl");
     }
 
     void OnEnable()

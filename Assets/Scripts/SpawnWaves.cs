@@ -17,6 +17,7 @@ public class SpawnWaves : MonoBehaviour
 
     public enum PoolType { Normal, Chngbl,Blocks};
     List<PoolType> lines= new List<PoolType>();
+    int normal_lines_count;
 
     public float dist;
     float edge;
@@ -72,7 +73,7 @@ public class SpawnWaves : MonoBehaviour
         {
             lines.Add(PoolType.Chngbl);
         }
-        for (int i = 0; i < GameController.game_controller.GetLvlData().normal_lines_count;i++)
+        for (int i = 0; i < normal_lines_count;i++)
         {
             lines.Add(PoolType.Normal);
         }
@@ -102,6 +103,12 @@ public class SpawnWaves : MonoBehaviour
     {
         lines_passed = 0;
         lines_spawned = 0;
+        normal_lines_count = GameController.game_controller.GetLvlData().lines_to_chng_lvl - 
+            GameController.game_controller.GetLvlData().changable_lines_count - 
+            GameController.game_controller.GetLvlData().block_lines_count;
+        if (normal_lines_count < 0)
+            normal_lines_count = 0;
+
         ReserveLines();
         StartCoroutine(Delay());
 

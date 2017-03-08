@@ -70,7 +70,7 @@ public class Ball : MonoBehaviour
     }
 
 
-    public void LinePassed(List<Color> line_color)
+    public void LinePassed(List<Color> line_color,bool invert)
     {
         EventManager.TriggerEvent("LinePassed");
         lines_checked++;
@@ -79,12 +79,16 @@ public class Ball : MonoBehaviour
 
         foreach (Color item in line_color)
         {
-            if (item==sprite_rend.color)
+            if (item == sprite_rend.color)
             {
                 passed = true;
                 break;
             }
         }
+
+        if (invert)
+            passed = !passed;
+
         if (passed)
         {
             if (lines_checked >= GameController.game_controller.GetLvlData().lines_to_accel)

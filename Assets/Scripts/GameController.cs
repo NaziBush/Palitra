@@ -21,14 +21,14 @@ public class GameController : MonoBehaviour
 
     void Awake()
     {
-        
         game_controller = this;
-    }
-    void Start()
-    {
         lvl_number = 0;
         InitLvl();
         EventManager.TriggerEvent("ChangeLvl");
+    }
+    void Start()
+    {
+        
     }
 
     void OnEnable()

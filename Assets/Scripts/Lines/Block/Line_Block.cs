@@ -1,13 +1,13 @@
 ﻿using UnityEngine;
 using System.Collections.Generic;
+using System;
 
 public class Line_Block : Line
 {
     BlockManager block_manager;
 
-    protected override void Start()
+    protected override void InitLine()
     {
-        base.Start();
         block_manager = GetComponent<BlockManager>();
     }
 
@@ -16,8 +16,12 @@ public class Line_Block : Line
         if ((active) && (tran.position.y - height < Ball.ball.tran.position.y))
         {
             List<Color> colors = block_manager.CheckCollisions();
-            Ball.ball.LinePassed(colors);
-            active = false;
+            Ball.ball.LinePassed(colors,false);
         }
+    }
+
+    protected override void ChangeColor()
+    {
+        block_manager.SetRandomColors();
     }
 }

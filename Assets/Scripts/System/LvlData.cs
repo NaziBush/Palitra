@@ -14,6 +14,7 @@ public class LvlData : ScriptableObject
     public int lines_to_chng_dist;
     public int changable_lines_count;
     public int block_lines_count;
+    public int invert_lines_count;
     public int lines_to_chng_lvl;
     
     [Header("Ball")]

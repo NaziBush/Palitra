@@ -50,6 +50,16 @@ public class BlockManager : MonoBehaviour
 
         return colors;
     }
+
+    public void SetRandomColors()
+    {
+        if (block_mas != null)
+            foreach (Block item in block_mas)
+        {
+            
+            item.SetRandomColor();
+        }
+    }
 	
 }
 

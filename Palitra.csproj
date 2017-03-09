@@ -75,11 +75,12 @@
     <Compile Include="Assets\Scripts\Lines\Block\BlockMove.cs" />
     <Compile Include="Assets\Scripts\Lines\Block\Line_Block.cs" />
     <Compile Include="Assets\Scripts\Lines\ChangeColor.cs" />
+    <Compile Include="Assets\Scripts\Lines\Closing\Runtime_Closing.cs" />
     <Compile Include="Assets\Scripts\Lines\DestroyOnExit.cs" />
+    <Compile Include="Assets\Scripts\Lines\Invert\Line_Invert.cs" />
+    <Compile Include="Assets\Scripts\Lines\Invert\Part.cs" />
     <Compile Include="Assets\Scripts\Lines\Line.cs" />
     <Compile Include="Assets\Scripts\Lines\Line_Default.cs" />
-    <Compile Include="Assets\Scripts\Lines\Line_Invert\Line_Invert.cs" />
-    <Compile Include="Assets\Scripts\Lines\Line_Invert\Part.cs" />
     <Compile Include="Assets\Scripts\Lines\SpriteStretch.cs" />
     <Compile Include="Assets\Scripts\Score.cs" />
     <Compile Include="Assets\Scripts\Sector.cs" />

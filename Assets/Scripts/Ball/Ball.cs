@@ -17,14 +17,15 @@ public class Ball : MonoBehaviour
     {
         lines_checked = 0;
         ball = this;
-	}
-
-    void Start()
-    {
         shield = false;
         ball_move = GetComponent<BallMove>();
         tran = GetComponent<Transform>();
         SetColor(GameController.game_controller.GetLvlData().colors[0]);
+    }
+
+    void Start()
+    {
+        
     }
 
 	public void SetColor(Color color)

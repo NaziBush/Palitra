@@ -14,7 +14,7 @@ public class SpriteStretch : MonoBehaviour
     Transform _thisTransform;
     Camera mainCam;
 
-    void Start()
+    void Awake()
     {
         _thisTransform = transform;
         sprite = GetComponent<SpriteRenderer>();

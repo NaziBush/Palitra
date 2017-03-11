@@ -13,7 +13,7 @@ public abstract class Line : MonoBehaviour
         CheckIfCrossed();
     }
 
-    void CheckIfCrossed()
+    protected virtual void CheckIfCrossed()
     {
         if ((active) && (tran.position.y - height < Ball.ball.tran.position.y))
         {
@@ -46,6 +46,6 @@ public abstract class Line : MonoBehaviour
     //    yield return new WaitForEndOfFrame();
 
     //}
-    protected abstract void ChangeColor();
+    public abstract void ChangeColor();
     protected abstract void CheckIfPassed();
 }

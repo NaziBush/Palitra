@@ -75,6 +75,7 @@
     <Compile Include="Assets\Scripts\Lines\Block\BlockMove.cs" />
     <Compile Include="Assets\Scripts\Lines\Block\Line_Block.cs" />
     <Compile Include="Assets\Scripts\Lines\ChangeColor.cs" />
+    <Compile Include="Assets\Scripts\Lines\Closing\Line_Closing.cs" />
     <Compile Include="Assets\Scripts\Lines\Closing\Runtime_Closing.cs" />
     <Compile Include="Assets\Scripts\Lines\DestroyOnExit.cs" />
     <Compile Include="Assets\Scripts\Lines\Invert\Line_Invert.cs" />

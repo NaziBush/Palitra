@@ -47,6 +47,7 @@ public class SpawnWaves : MonoBehaviour
     {
         spawn = this;
     }
+
     void Start ()
     {
         pool[(int)PoolType.Normal] = normal_pool;

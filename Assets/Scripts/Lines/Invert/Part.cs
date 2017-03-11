@@ -23,4 +23,12 @@ public class Part : MonoBehaviour
                 [Random.Range(0, GameController.game_controller.GetLvlData().colors.Length)];
         }
     }
+
+    public void SetGreyColor()
+    {
+        if (sprite_rend != null)
+        {
+            sprite_rend.color = Color.gray;
+        }
+    }
 }

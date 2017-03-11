@@ -20,7 +20,7 @@ public class Line_Block : Line
         }
     }
 
-    protected override void ChangeColor()
+    public override void ChangeColor()
     {
         block_manager.SetRandomColors();
     }

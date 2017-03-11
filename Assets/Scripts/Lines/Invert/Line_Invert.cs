@@ -6,7 +6,7 @@ public class Line_Invert : Line
 {
     public Part[] parts;
 
-    protected override void ChangeColor()
+    public override void ChangeColor()
     {
         foreach (Part item in parts)
         {
@@ -24,4 +24,12 @@ public class Line_Invert : Line
 
         Ball.ball.LinePassed(colors, true);
     }
+
+    //protected override void InitLine()
+    //{
+    //    foreach (Part item in parts)
+    //    {
+    //        item.SetGreyColor();
+    //    }
+    //}
 }

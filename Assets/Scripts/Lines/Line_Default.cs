@@ -6,7 +6,7 @@ public class Line_Default : Line
 {
     Color line_color;
 
-    protected override void ChangeColor()
+    public override void ChangeColor()
     {
         Color[] colors = GameController.game_controller.GetLvlData().colors;
         Color new_color=colors[UnityEngine.Random.Range(0, colors.Length)];

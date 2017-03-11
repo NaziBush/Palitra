@@ -9,6 +9,7 @@ public class Ball : MonoBehaviour
     public Transform tran;
     BallMove ball_move;
     public SpriteRenderer sprite_rend;
+    public float size_x;
     bool shield;
 
     int lines_checked;
@@ -21,6 +22,7 @@ public class Ball : MonoBehaviour
         ball_move = GetComponent<BallMove>();
         tran = GetComponent<Transform>();
         SetColor(GameController.game_controller.GetLvlData().colors[0]);
+        size_x = sprite_rend.sprite.bounds.extents.x * tran.localScale.x;
     }
 
     void Start()
@@ -68,14 +70,15 @@ public class Ball : MonoBehaviour
                 GameController.game_controller.GameOver();
             }
         }
+        
     }
 
 
     public void LinePassed(List<Color> line_color,bool invert)
     {
+
         EventManager.TriggerEvent("LinePassed");
         lines_checked++;
-
         bool passed=false;
 
         foreach (Color item in line_color)
@@ -111,7 +114,9 @@ public class Ball : MonoBehaviour
                 GameController.game_controller.GameOver();
             }
         }
+        
     }
+
     void ChangeLvl()
     {
         shield = true;

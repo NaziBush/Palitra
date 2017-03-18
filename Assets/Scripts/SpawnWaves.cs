@@ -11,13 +11,14 @@ public class SpawnWaves : MonoBehaviour
     public Pool blocks_pool;
     public Pool invert_pool;
     public Pool closing_pool;
+    public Pool multiple_pool;
 
     Pool[] pool=new Pool[(int)PoolType.Count];
 
     [Space(20)]
     public float startWait;
 
-    public enum PoolType { Normal, Chngbl,Blocks,Invert,Closing,Count};
+    public enum PoolType { Normal, Chngbl,Blocks,Invert,Closing,Multiple,Count};
     List<PoolType> lines= new List<PoolType>();
     int normal_lines_count;
 
@@ -55,6 +56,7 @@ public class SpawnWaves : MonoBehaviour
         pool[(int)PoolType.Blocks] = blocks_pool;
         pool[(int)PoolType.Invert] = invert_pool;
         pool[(int)PoolType.Closing] = closing_pool;
+        pool[(int)PoolType.Multiple] = multiple_pool;
 
         ReserveLines();
         lines_passed = 0;
@@ -96,6 +98,10 @@ public class SpawnWaves : MonoBehaviour
         {
             lines.Add(PoolType.Closing);
         }
+        for (int i = 0; i < GameController.game_controller.GetLvlData().multiple_lines_count; i++)
+        {
+            lines.Add(PoolType.Multiple);
+        }
     }
 
     Pool GetPool(PoolType id)
@@ -121,7 +127,8 @@ public class SpawnWaves : MonoBehaviour
             GameController.game_controller.GetLvlData().changable_lines_count - 
             GameController.game_controller.GetLvlData().block_lines_count -
             GameController.game_controller.GetLvlData().invert_lines_count -
-            GameController.game_controller.GetLvlData().closing_lines_count;
+            GameController.game_controller.GetLvlData().closing_lines_count-
+            GameController.game_controller.GetLvlData().multiple_lines_count;
         if (normal_lines_count < 0)
             normal_lines_count = 0;
 

@@ -32,7 +32,7 @@ public class Line_Closing : Line
 
     protected override void CheckIfCrossed()
     {
-        if ((runt_close.CheckIfCrossBall())&&(active))
+        if ((runt_close.cross_ball)&&(active))
         {
             CheckIfPassed();
             active = false;

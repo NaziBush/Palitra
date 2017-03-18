@@ -12,8 +12,10 @@ public class Runtime_Closing : MonoBehaviour
     float k;
     bool set_start;
     Line_Closing line_close;
+    public bool cross_ball;
+    bool go_back;
 
-    public bool CheckIfCrossBall()
+    bool CheckIfCrossBall()
     {
         if (tran.position.x+half_width>-Ball.ball.size_x)
         {
@@ -32,6 +34,7 @@ public class Runtime_Closing : MonoBehaviour
 
     void OnEnable()
     {
+        go_back = false;
         tran.position = new Vector3(Edges.leftEdge-1.0f, tran.position.y, 0.0f);
         tran_right.position = new Vector3(-tran.position.x, tran.position.y, 0.0f);
         set_start = false;
@@ -50,8 +53,14 @@ public class Runtime_Closing : MonoBehaviour
         float x = (tran.position.y - Ball.ball.tran.position.y) * k;
 
         x = -x;
-        if (CheckIfCrossBall())
+        cross_ball = CheckIfCrossBall();
+        if (cross_ball)
+        {
+            go_back = true;
+            tran.Translate(Vector2.left * Time.deltaTime);
+            tran_right.position = new Vector3(-tran.position.x, tran.position.y, 0.0f);
             return;
+        }
         //if (x>tran.position.x)
         tran.position = new Vector3(x-half_width, tran.position.y, 0.0f);
         tran_right.position = new Vector3(-tran.position.x, tran.position.y, 0.0f);

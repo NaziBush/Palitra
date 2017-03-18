@@ -48,4 +48,9 @@ public abstract class Line : MonoBehaviour
     //}
     public abstract void ChangeColor();
     protected abstract void CheckIfPassed();
+
+    public void Disable()
+    {
+        active = false;
+    }
 }

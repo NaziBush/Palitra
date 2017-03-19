@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+//using System;
 using System.Collections;
 using System.Collections.Generic;
 
@@ -80,15 +81,71 @@ public class Multiple_BlockManager : MonoBehaviour
         block_mas = GetComponentsInChildren<Multiple_Block>();
     }
 
-    public void SetRandomColors()
+    public IEnumerator SetRandomColors()
     {
-       
-        if (block_mas != null)
-            foreach (Multiple_Block item in block_mas)
+        //print("sfg");
+        while (block_mas == null)
+        yield return new WaitForEndOfFrame();
+
+
+        //создаем и заполняем массив цветов
+        int color_count = GameController.game_controller.GetLvlData().colors.Length > block_count ?
+            GameController.game_controller.GetLvlData().colors.Length : block_count;
+
+            Color[] colors = new Color[color_count];
+            for (int i = 0; i < color_count; i++)
             {
-                Color color = GameController.game_controller.GetLvlData().colors
-           [Random.Range(0, GameController.game_controller.GetLvlData().colors.Length)];
-                item.SetColor(color);
+
+                if (i < 3)
+                {
+                    colors[i] = GameController.game_controller.GetLvlData().colors[i];
+                    Debug.Log(colors[i]);
+                }
+                else
+                {
+                    colors[i] = GameController.game_controller.GetLvlData().colors
+                        [Random.Range(0, GameController.game_controller.GetLvlData().colors.Length)];
+                }
             }
+            //перемешиваем массив цветов
+            new System.Random().Shuffle(colors);
+            //присваеваем цвета блокам
+            for (int i = 0; i < block_count; i++)
+            {
+                block_mas[i].SetColor(colors[i]);
+            }
+        
+      
     }
+
+    //public void SetRandomColors()
+    //{
+    //    //print("sfg");
+    //    if (block_mas != null)
+    //    {
+    //        //создаем и заполняем массив цветов
+    //        Color[] colors = new Color[block_count];
+    //        for (int i = 0; i < block_count; i++)
+    //        {
+
+    //            if (i < 3)
+    //            {
+    //                colors[i] = GameController.game_controller.GetLvlData().colors[i];
+    //                Debug.Log(colors[i]);
+    //            }
+    //            else
+    //            {
+    //                colors[i] = GameController.game_controller.GetLvlData().colors
+    //                    [Random.Range(0, GameController.game_controller.GetLvlData().colors.Length)];
+    //            }
+    //        }
+    //        //перемешиваем массив цветов
+    //        new System.Random().Shuffle(colors);
+    //        //присваеваем цвета блокам
+    //        for (int i = 0; i < block_count; i++)
+    //        {
+    //            block_mas[i].SetColor(colors[i]);
+    //        }
+    //    }
+    //}
 }

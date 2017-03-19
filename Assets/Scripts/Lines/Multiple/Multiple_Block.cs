@@ -10,6 +10,7 @@ public class Multiple_Block : MonoBehaviour
     void OnEnable()
     {
         gameObject.SetActive(true);
+        hp = Random.Range(1,5);
         calc_numb.SetNumber(hp);
     }
 	

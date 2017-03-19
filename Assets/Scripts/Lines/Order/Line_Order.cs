@@ -1,14 +1,12 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class Line_Multiple : Line
+public class Line_Order : Line
 {
-
-    Multiple_BlockManager block_manager;
 
     protected override void InitLine()
     {
-        block_manager = GetComponent<Multiple_BlockManager>();
+       // block_manager = GetComponent<Multiple_BlockManager>();
     }
 
     protected override void CheckIfPassed()
@@ -21,6 +19,6 @@ public class Line_Multiple : Line
 
     public override void ChangeColor()
     {
-        StartCoroutine(block_manager.SetRandomColors());
+        //block_manager.SetRandomColors();
     }
 }

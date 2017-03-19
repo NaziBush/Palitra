@@ -85,6 +85,8 @@
     <Compile Include="Assets\Scripts\Lines\Multiple\Line_Multiple.cs" />
     <Compile Include="Assets\Scripts\Lines\Multiple\Multiple_Block.cs" />
     <Compile Include="Assets\Scripts\Lines\Multiple\Multiple_BlockManager.cs" />
+    <Compile Include="Assets\Scripts\Lines\Order\BlockManager_Order.cs" />
+    <Compile Include="Assets\Scripts\Lines\Order\Line_Order.cs" />
     <Compile Include="Assets\Scripts\Lines\SpriteStretch.cs" />
     <Compile Include="Assets\Scripts\Score.cs" />
     <Compile Include="Assets\Scripts\Sector.cs" />
@@ -96,6 +98,7 @@
     <Compile Include="Assets\Scripts\System\NumberPicData.cs" />
     <Compile Include="Assets\Scripts\System\Pool.cs" />
     <Compile Include="Assets\Scripts\System\PoolRef.cs" />
+    <Compile Include="Assets\Scripts\System\RandomizeMas.cs" />
     <Compile Include="Assets\Scripts\UI\Button_Start.cs" />
     <Compile Include="Assets\Scripts\UI\Continue.cs" />
     <Compile Include="Assets\Scripts\UI\Pause.cs" />

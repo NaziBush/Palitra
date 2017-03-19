@@ -89,6 +89,7 @@
     <Compile Include="Assets\Scripts\Lines\Order\Block_Order.cs" />
     <Compile Include="Assets\Scripts\Lines\Order\Line_Order.cs" />
     <Compile Include="Assets\Scripts\Lines\SpriteStretch.cs" />
+    <Compile Include="Assets\Scripts\Lines\Switch\Line_Switch.cs" />
     <Compile Include="Assets\Scripts\Score.cs" />
     <Compile Include="Assets\Scripts\Sector.cs" />
     <Compile Include="Assets\Scripts\SpawnWaves.cs" />

@@ -19,6 +19,9 @@ public class Line_Default : Line
     }
     protected override void CheckIfPassed()
     {
-        Ball.ball.LinePassed(line_color);
+        if ((active) && (tran.position.y - height < Ball.ball.tran.position.y))
+        {
+            Ball.ball.LinePassed(line_color);
+        }
     }
 }

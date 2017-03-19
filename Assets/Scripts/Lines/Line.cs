@@ -53,4 +53,9 @@ public abstract class Line : MonoBehaviour
     {
         active = false;
     }
+
+    public bool CheckIfActive()
+    {
+        return active;
+    }
 }

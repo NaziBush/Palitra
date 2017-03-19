@@ -3,10 +3,11 @@ using System.Collections;
 
 public class Line_Order : Line
 {
+    BlockManager_Order block_manager;
 
     protected override void InitLine()
     {
-       // block_manager = GetComponent<Multiple_BlockManager>();
+        block_manager = GetComponent<BlockManager_Order>();
     }
 
     protected override void CheckIfPassed()
@@ -19,6 +20,6 @@ public class Line_Order : Line
 
     public override void ChangeColor()
     {
-        //block_manager.SetRandomColors();
+        StartCoroutine(block_manager.SetRandomColors());
     }
 }

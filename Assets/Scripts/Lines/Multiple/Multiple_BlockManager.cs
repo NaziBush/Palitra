@@ -99,7 +99,7 @@ public class Multiple_BlockManager : MonoBehaviour
                 if (i < 3)
                 {
                     colors[i] = GameController.game_controller.GetLvlData().colors[i];
-                    Debug.Log(colors[i]);
+                    //Debug.Log(colors[i]);
                 }
                 else
                 {

@@ -60,9 +60,10 @@ public class SpawnWaves : MonoBehaviour
         pool[(int)PoolType.Multiple] = multiple_pool;
         pool[(int)PoolType.Order] = order_pool;
 
-        ReserveLines();
-        lines_passed = 0;
-        lines_spawned = 0;
+        ChangeLvl();
+        //ReserveLines();
+        //lines_passed = 0;
+        //lines_spawned = 0;
         StartCoroutine(Delay());
     }
     void OnEnable()

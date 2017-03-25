@@ -2,10 +2,12 @@
 
 public class Pool : MonoBehaviour
 {
+    public PoolType pool_type;
     private GameObject[] stck;
     private int tos;
     public GameObject obj;
     public int size;
+
 
     public void Awake() 
     {

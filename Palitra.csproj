@@ -96,6 +96,7 @@
     <Compile Include="Assets\Scripts\System\Calc_Numbers.cs" />
     <Compile Include="Assets\Scripts\System\Edges.cs" />
     <Compile Include="Assets\Scripts\System\EventManager.cs" />
+    <Compile Include="Assets\Scripts\System\LineHandler.cs" />
     <Compile Include="Assets\Scripts\System\LvlData.cs" />
     <Compile Include="Assets\Scripts\System\NumberPicData.cs" />
     <Compile Include="Assets\Scripts\System\Pool.cs" />

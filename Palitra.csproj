@@ -70,6 +70,14 @@
     <Compile Include="Assets\Scripts\Ball\Ball.cs" />
     <Compile Include="Assets\Scripts\Ball\BallMove.cs" />
     <Compile Include="Assets\Scripts\GameController.cs" />
+    <Compile Include="Assets\Scripts\LineProp\BlockProp.cs" />
+    <Compile Include="Assets\Scripts\LineProp\ClosingInvertProp.cs" />
+    <Compile Include="Assets\Scripts\LineProp\ClosingProp.cs" />
+    <Compile Include="Assets\Scripts\LineProp\ComboProp.cs" />
+    <Compile Include="Assets\Scripts\LineProp\LineInvertProp.cs" />
+    <Compile Include="Assets\Scripts\LineProp\LineProp.cs" />
+    <Compile Include="Assets\Scripts\LineProp\MultipleProp.cs" />
+    <Compile Include="Assets\Scripts\LineProp\SwitchProp.cs" />
     <Compile Include="Assets\Scripts\Lines\Block\Block.cs" />
     <Compile Include="Assets\Scripts\Lines\Block\BlockManager.cs" />
     <Compile Include="Assets\Scripts\Lines\Block\BlockMove.cs" />

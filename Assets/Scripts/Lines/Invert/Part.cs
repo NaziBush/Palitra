@@ -24,6 +24,14 @@ public class Part : MonoBehaviour
         }
     }
 
+    public void SetColor(Color color)
+    {
+        if (sprite_rend != null)
+        {
+            sprite_rend.color = color;
+        }
+    }
+
     public void SetGreyColor()
     {
         if (sprite_rend != null)

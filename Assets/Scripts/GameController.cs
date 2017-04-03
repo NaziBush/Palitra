@@ -12,6 +12,8 @@ public class GameController : MonoBehaviour
     Sector[] sectors;
     int lvl_number;
 
+    //LineProp[] line_prop;
+
     int lines_passed;
 
     public int GetCurrentLvl()
@@ -83,6 +85,11 @@ public class GameController : MonoBehaviour
         {
             sectors[i].InitSector(lvl_data[lvl_number].colors[i]);
         }
+
+        //line_prop = new LineProp[2];
+        //line_prop[0] = new LineProp();
+        //line_prop[1] = new LineChngblData();
+        
     }
 
 

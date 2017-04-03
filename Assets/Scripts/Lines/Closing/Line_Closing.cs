@@ -5,14 +5,28 @@ public class Line_Closing : Line
 {
 
     public Part[] parts;
+    public bool same_color=false;
     Runtime_Closing runt_close;
 
     public override void ChangeColor()
     {
-        foreach (Part item in parts)
+        if (same_color)
         {
-            item.SetRandomColor();
+            Color color= GameController.game_controller.GetLvlData().colors
+                [Random.Range(0, GameController.game_controller.GetLvlData().colors.Length)];
+            foreach (Part item in parts)
+            {
+                item.SetColor(color);
+            }
         }
+        else
+        {
+            foreach (Part item in parts)
+            {
+                item.SetRandomColor();
+            }
+        }
+        
     }
 
     protected override void InitLine()

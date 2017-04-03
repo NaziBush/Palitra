@@ -105,6 +105,8 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\Editor\LineEditor.cs" />
+    <Compile Include="Assets\Editor\LinePropDrawer.cs" />
     <Compile Include="Assets\SpriteMask\Scripts\Editor\ClearStencilBufferComponentEditor.cs" />
     <Compile Include="Assets\SpriteMask\Scripts\Editor\SpriteMaskEditor.cs" />
   </ItemGroup>

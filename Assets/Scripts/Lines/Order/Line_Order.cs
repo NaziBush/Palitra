@@ -12,10 +12,9 @@ public class Line_Order : Line
 
     protected override void CheckIfPassed()
     {
-        if ((active) && (tran.position.y - height < Ball.ball.tran.position.y))
-        {
-            Ball.ball.LinePassed(Color.black);
-        }
+        //если линия активна, то она в любом случае не проходит
+        Ball.ball.LinePassed(Color.black);
+        
     }
 
     public override void ChangeColor()

@@ -7,7 +7,7 @@ public class BlockManager : MonoBehaviour
     public GameObject block;
     public Transform block_holder;
     Block[] block_mas;
-    float block_size;
+    public float block_size;
     float window_size;
     public static float spawn_point;
 

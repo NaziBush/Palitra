@@ -59,6 +59,7 @@ public class Multiple_BlockManager : MonoBehaviour
                 if (active_block_count<=0)
                 {
                     line.Disable();
+                    EventManager.TriggerEvent("LinePassed");
                 }
             }
         }

@@ -13,10 +13,12 @@ public class Line_Multiple : Line
 
     protected override void CheckIfPassed()
     {
-        if ((active) && (tran.position.y - height < Ball.ball.tran.position.y))
-        {
+        //if ((active) && (tran.position.y - height < Ball.ball.tran.position.y))
+        //{
+        //если линия активна, то не проходит
+        //событие LinePassed вызывается в BlockManager
             Ball.ball.LinePassed(Color.black);
-        }
+        //}
     }
 
     public override void ChangeColor()

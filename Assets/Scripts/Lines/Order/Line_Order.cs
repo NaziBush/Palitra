@@ -13,6 +13,7 @@ public class Line_Order : Line
     protected override void CheckIfPassed()
     {
         //если линия активна, то она в любом случае не проходит
+        //событие LinePassed вызывается в BlockManager
         Ball.ball.LinePassed(Color.black);
         
     }

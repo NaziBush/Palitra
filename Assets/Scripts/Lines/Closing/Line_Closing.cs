@@ -56,9 +56,10 @@ public class Line_Closing : Line
     protected override void OnEnable()
     {
         active = true;
-        foreach (Part item in parts)
-        {
-            item.SetGreyColor();
-        }
+        //foreach (Part item in parts)
+        //{
+        //    item.SetGreyColor();
+        //}
+        ChangeColor();
     }
 }

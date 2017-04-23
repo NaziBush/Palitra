@@ -5,12 +5,28 @@ public class Multiple_Block : MonoBehaviour
 {
     SpriteRenderer sprite_rend;
     Calc_Numbers calc_numb;
+    public int block_count;
     int hp = 3;
 
     void OnEnable()
     {
         gameObject.SetActive(true);
-        hp = Random.Range(1,5);
+        
+        switch (block_count)
+        {
+            case 1:
+                hp = Random.Range(GameController.game_controller.GetLvlData().multiple_prop_1_part.min_taps,
+                GameController.game_controller.GetLvlData().multiple_prop_1_part.max_taps);
+                break;
+            case 2:
+                hp = Random.Range(GameController.game_controller.GetLvlData().multiple_prop_2_parts.min_taps,
+                GameController.game_controller.GetLvlData().multiple_prop_2_parts.max_taps);
+                break;
+            case 3:
+                hp = Random.Range(GameController.game_controller.GetLvlData().multiple_prop_3_parts.min_taps,
+                GameController.game_controller.GetLvlData().multiple_prop_3_parts.max_taps);
+                break;
+        }
         calc_numb.SetNumber(hp);
     }
 	
@@ -18,7 +34,8 @@ public class Multiple_Block : MonoBehaviour
     {
         sprite_rend = GetComponent<SpriteRenderer>();
         calc_numb = GetComponentInChildren<Calc_Numbers>();
-	}
+        //block_manager = transform.parent.GetComponentInParent<Multiple_BlockManager>();
+    }
 	
 	public void SetColor(Color color)
     {

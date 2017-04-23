@@ -167,6 +167,7 @@ public class SpawnWaves : MonoBehaviour
         StartCoroutine(Delay());
 
     }
+
     IEnumerator Delay()
     {
         is_spawning = false;
@@ -174,7 +175,7 @@ public class SpawnWaves : MonoBehaviour
         yield return new WaitForSeconds(start_delay);
         
         Dist = GameController.game_controller.GetLvlData().max_dist;
-        edge = Edges.topEdge - Dist + 0.5f;
+        edge = Edges.topEdge + Dist + 0.5f;
         //SpawnWave();
         is_spawning = true;
     }

@@ -58,8 +58,9 @@ public class Multiple_BlockManager : MonoBehaviour
                 }
                 if (active_block_count<=0)
                 {
+                    //EventManager.TriggerEvent("LinePassed");
+                    Ball.ball.LinePassed(Ball.ball.sprite_rend.color);
                     line.Disable();
-                    EventManager.TriggerEvent("LinePassed");
                 }
             }
         }
@@ -77,6 +78,7 @@ public class Multiple_BlockManager : MonoBehaviour
             Color color = GameController.game_controller.GetLvlData().colors
             [Random.Range(0, GameController.game_controller.GetLvlData().colors.Length)];
             obj.GetComponent<Multiple_Block>().SetColor(color);
+            obj.GetComponent<Multiple_Block>().block_count=block_count;
             obj.transform.SetParent(block_holder);
         }
         block_mas = GetComponentsInChildren<Multiple_Block>();

@@ -48,8 +48,7 @@ public class Ball : MonoBehaviour
 
     public void LinePassed(Color line_color)
     {
-        
-
+        lines_checked++;
         if (line_color == sprite_rend.color)
         {
             if (lines_checked >= GameController.game_controller.GetLvlData().lines_to_accel)
@@ -72,14 +71,12 @@ public class Ball : MonoBehaviour
             }
         }
         EventManager.TriggerEvent("LinePassed");
-        lines_checked++;
+        
     }
 
 
     public void LinePassed(List<Color> line_color,bool invert)
     {
-
-        
         bool passed=false;
 
         foreach (Color item in line_color)

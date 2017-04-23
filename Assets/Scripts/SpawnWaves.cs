@@ -9,7 +9,7 @@ public enum PoolType { Normal, Switch, Blocks, Invert_one_color, Invert_two_colo
 public class SpawnWaves : MonoBehaviour
 {
     public static SpawnWaves spawn;
-    float start_delay = 2.0f;
+    float start_delay = 0.2f;
     
     LineHandler[] line_handler;
 
@@ -167,6 +167,7 @@ public class SpawnWaves : MonoBehaviour
         StartCoroutine(Delay());
 
     }
+
     IEnumerator Delay()
     {
         is_spawning = false;
@@ -174,7 +175,7 @@ public class SpawnWaves : MonoBehaviour
         yield return new WaitForSeconds(start_delay);
         
         Dist = GameController.game_controller.GetLvlData().max_dist;
-        edge = Edges.topEdge - Dist + 0.5f;
+        edge = Edges.topEdge + Dist + 0.5f;
         //SpawnWave();
         is_spawning = true;
     }
@@ -195,6 +196,9 @@ public class SpawnWaves : MonoBehaviour
 
         lines_spawned++;
         edge += Dist;
+        //if (current_line==PoolType.Blocks)
+        //    line_handler[(int)current_line].pool.Activate(new Vector2(-5.0f, edge), Quaternion.identity);
+        //else
         line_handler[(int)current_line].pool.Activate(new Vector2(0.0f, edge), Quaternion.identity);
     }
 

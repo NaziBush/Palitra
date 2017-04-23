@@ -12,6 +12,10 @@ public class Part : MonoBehaviour
 
     public Color GetColor()
     {
+        if (sprite_rend==null)
+        {
+            sprite_rend = GetComponent<SpriteRenderer>();
+        }
         return sprite_rend.color;
     }
 
@@ -26,6 +30,10 @@ public class Part : MonoBehaviour
 
     public void SetColor(Color color)
     {
+        if (sprite_rend == null)
+        {
+            sprite_rend = GetComponent<SpriteRenderer>();
+        }
         if (sprite_rend != null)
         {
             sprite_rend.color = color;
@@ -34,6 +42,10 @@ public class Part : MonoBehaviour
 
     public void SetGreyColor()
     {
+        if (sprite_rend == null)
+        {
+            sprite_rend = GetComponent<SpriteRenderer>();
+        }
         if (sprite_rend != null)
         {
             sprite_rend.color = Color.gray;

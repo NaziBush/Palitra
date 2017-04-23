@@ -81,7 +81,7 @@ public class LvlData : ScriptableObject
     //public int multiple_lines_count;
     //[HideInInspector]
     //public int order_lines_count;
-    //[HideInInspector]
+    [HideInInspector]
     public int lines_to_chng_lvl;
 
 

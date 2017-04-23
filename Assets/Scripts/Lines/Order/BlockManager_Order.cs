@@ -51,6 +51,7 @@ public class BlockManager_Order : MonoBehaviour
                 if (current_block >= block_count)
                 {
                     line.Disable();
+                    EventManager.TriggerEvent("LinePassed");
                     arrow.gameObject.SetActive(false);
 
                     return;

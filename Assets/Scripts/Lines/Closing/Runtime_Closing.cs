@@ -74,6 +74,6 @@ public class Runtime_Closing : MonoBehaviour
         start_x = tran.position.x + half_width;
         k = Mathf.Abs(start_x / start_y);
         set_start = true;
-        line_close.ChangeColor();
+        //line_close.ChangeColor();
     }
 }

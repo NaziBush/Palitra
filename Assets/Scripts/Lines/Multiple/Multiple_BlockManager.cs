@@ -15,6 +15,8 @@ public class Multiple_BlockManager : MonoBehaviour
     int active_block_count;
     //int current_block;
 
+
+
     void Start()
     {
         window_size = Edges.rightEdge - Edges.leftEdge;
@@ -58,6 +60,8 @@ public class Multiple_BlockManager : MonoBehaviour
                 }
                 if (active_block_count<=0)
                 {
+                    //EventManager.TriggerEvent("LinePassed");
+                    Ball.ball.LinePassed(Ball.ball.sprite_rend.color);
                     line.Disable();
                 }
             }
@@ -73,9 +77,13 @@ public class Multiple_BlockManager : MonoBehaviour
             spawn_position = new Vector3(Edges.leftEdge + block_size / 2.0f + block_size * i, transform.position.y);
             obj = (GameObject)Instantiate(block, spawn_position, Quaternion.identity);
             obj.transform.localScale = new Vector3(block_size + 0.1f, obj.transform.localScale.y, 1.0f);
+
+
             Color color = GameController.game_controller.GetLvlData().colors
             [Random.Range(0, GameController.game_controller.GetLvlData().colors.Length)];
+
             obj.GetComponent<Multiple_Block>().SetColor(color);
+            obj.GetComponent<Multiple_Block>().block_count=block_count;
             obj.transform.SetParent(block_holder);
         }
         block_mas = GetComponentsInChildren<Multiple_Block>();

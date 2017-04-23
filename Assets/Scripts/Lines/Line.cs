@@ -26,7 +26,7 @@ public abstract class Line : MonoBehaviour
     {
         sprite_rend = GetComponent<SpriteRenderer>();
         tran = GetComponent<Transform>();
-        height = sprite_rend.sprite.bounds.extents.y;
+        height = sprite_rend.sprite.bounds.extents.y*transform.localScale.y;
         InitLine();
     }
 

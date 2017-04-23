@@ -75,8 +75,11 @@ public class Multiple_BlockManager : MonoBehaviour
             spawn_position = new Vector3(Edges.leftEdge + block_size / 2.0f + block_size * i, transform.position.y);
             obj = (GameObject)Instantiate(block, spawn_position, Quaternion.identity);
             obj.transform.localScale = new Vector3(block_size + 0.1f, obj.transform.localScale.y, 1.0f);
+
+
             Color color = GameController.game_controller.GetLvlData().colors
             [Random.Range(0, GameController.game_controller.GetLvlData().colors.Length)];
+
             obj.GetComponent<Multiple_Block>().SetColor(color);
             obj.GetComponent<Multiple_Block>().block_count=block_count;
             obj.transform.SetParent(block_holder);

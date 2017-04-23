@@ -9,7 +9,7 @@ public enum PoolType { Normal, Switch, Blocks, Invert_one_color, Invert_two_colo
 public class SpawnWaves : MonoBehaviour
 {
     public static SpawnWaves spawn;
-    float start_delay = 2.0f;
+    float start_delay = 0.2f;
     
     LineHandler[] line_handler;
 

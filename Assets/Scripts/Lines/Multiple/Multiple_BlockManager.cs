@@ -15,6 +15,8 @@ public class Multiple_BlockManager : MonoBehaviour
     int active_block_count;
     //int current_block;
 
+
+
     void Start()
     {
         window_size = Edges.rightEdge - Edges.leftEdge;

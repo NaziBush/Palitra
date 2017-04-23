@@ -9,6 +9,7 @@ public class Line_Block : Line
     protected override void InitLine()
     {
         block_manager = GetComponent<BlockManager>();
+        //tran.position = tran.position - new Vector3(5.0f, 0.0f, 0.0f);
     }
 
     protected override void CheckIfPassed()

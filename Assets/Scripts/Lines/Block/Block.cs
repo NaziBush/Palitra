@@ -19,6 +19,10 @@ public class Block : MonoBehaviour
             [Random.Range(0, GameController.game_controller.GetLvlData().colors.Length)];
     }
 
+    public void SetColor(Color color)
+    {
+        GetComponent<SpriteRenderer>().color = color;
+    }
     void Update()
     {
         collides = CheckIfCollides();

@@ -15,7 +15,7 @@ public class Line_Default : Line
     }
     protected override void InitLine()
     {
-        
+        ChangeColor();
     }
     protected override void CheckIfPassed()
     {

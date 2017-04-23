@@ -196,6 +196,9 @@ public class SpawnWaves : MonoBehaviour
 
         lines_spawned++;
         edge += Dist;
+        //if (current_line==PoolType.Blocks)
+        //    line_handler[(int)current_line].pool.Activate(new Vector2(-5.0f, edge), Quaternion.identity);
+        //else
         line_handler[(int)current_line].pool.Activate(new Vector2(0.0f, edge), Quaternion.identity);
     }
 

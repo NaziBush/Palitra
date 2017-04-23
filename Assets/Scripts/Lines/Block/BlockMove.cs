@@ -16,7 +16,7 @@ public class BlockMove : MonoBehaviour
     {
         transform.Translate(Vector2.right * speed * Time.deltaTime);
 
-        if (transform.position.x - half_window_size > Edges.rightEdge)
+        if (transform.position.x - half_window_size-5.0f > Edges.rightEdge)
         {
             Vector3 new_position = transform.position;
             new_position.x = Edges.leftEdge - half_window_size;

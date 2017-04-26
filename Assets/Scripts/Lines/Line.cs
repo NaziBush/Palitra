@@ -15,7 +15,7 @@ public abstract class Line : MonoBehaviour
 
     protected virtual void CheckIfCrossed()
     {
-        if ((active) && (tran.position.y - height < Ball.ball.tran.position.y))
+        if ((active) && (tran.position.y - height <= Ball.ball.collision_point.position.y))
         {
             CheckIfPassed();
             active = false;
@@ -27,18 +27,18 @@ public abstract class Line : MonoBehaviour
         sprite_rend = GetComponent<SpriteRenderer>();
         tran = GetComponent<Transform>();
         height = sprite_rend.sprite.bounds.extents.y*transform.localScale.y;
-        InitLine();
+        
     }
 
-    protected virtual void InitLine()
+    public virtual void InitLine()
     {
-
+        active = true;
+        ChangeColor();
     }
     
     protected virtual void OnEnable()
     {
-        active = true;
-        ChangeColor();
+        
     }
 
     //IEnumerator Delay()

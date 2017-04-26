@@ -5,8 +5,9 @@ public class Line_Order : Line
 {
     BlockManager_Order block_manager;
 
-    protected override void InitLine()
+    public override void InitLine()
     {
+        active = true;
         block_manager = GetComponent<BlockManager_Order>();
     }
 

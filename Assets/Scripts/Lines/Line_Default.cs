@@ -13,13 +13,14 @@ public class Line_Default : Line
         line_color = new_color;
         base.sprite_rend.color = new_color;
     }
-    protected override void InitLine()
+    public override void InitLine()
     {
+        active = true;
         ChangeColor();
     }
     protected override void CheckIfPassed()
     {
-        if ((active) && (tran.position.y - height < Ball.ball.tran.position.y))
+        if ((active) && (tran.position.y - height < Ball.ball.collision_point.position.y))
         {
             Ball.ball.LinePassed(line_color);
         }

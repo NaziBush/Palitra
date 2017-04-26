@@ -5,10 +5,11 @@ public class Line_Multiple : Line
 {
     Multiple_BlockManager block_manager;
 
-    protected override void InitLine()
+    public override void InitLine()
     {
         block_manager = GetComponent<Multiple_BlockManager>();
     }
+
 	protected override void CheckIfCrossed ()
 	{
 		base.CheckIfCrossed ();

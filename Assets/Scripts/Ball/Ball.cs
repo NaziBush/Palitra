@@ -12,6 +12,7 @@ public class Ball : MonoBehaviour
     [HideInInspector]
     public float size_x;
     bool shield;
+    public Transform collision_point;
 
     int lines_checked;
 

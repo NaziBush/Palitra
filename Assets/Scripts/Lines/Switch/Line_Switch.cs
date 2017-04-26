@@ -27,9 +27,11 @@ public class Line_Switch : Line
         //line_color = new_color;
         //base.sprite_rend.color = new_color;
     }
-    protected override void InitLine()
+    public override void InitLine()
     {
-        
+        active = true;
+        ChangeColor();
+        StartCoroutine(SwitchColor());
     }
     protected override void CheckIfPassed()
     {
@@ -39,8 +41,7 @@ public class Line_Switch : Line
     }
     protected override void OnEnable()
     {
-        base.OnEnable();
-        StartCoroutine(SwitchColor());
+        
     }
     IEnumerator SwitchColor()
     {
@@ -49,7 +50,7 @@ public class Line_Switch : Line
         while (gameObject.activeSelf)
         {
             //print((active) && (tran.position.y - height - Ball.ball.tran.position.y > dist));
-            if ((active) && (tran.position.y - height - Ball.ball.tran.position.y > dist))
+            if ((active) && (tran.position.y - height - Ball.ball.tran.position.y > SpawnWaves.spawn.dist))
             {
                 //line.ChangeColor(GameController.game_controller.GetLvlData().colors[Random.Range(0, GameController.game_controller.GetLvlData().colors.Length)]);
                 ChangeColor();

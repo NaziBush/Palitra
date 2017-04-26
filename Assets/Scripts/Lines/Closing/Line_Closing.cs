@@ -29,7 +29,7 @@ public class Line_Closing : Line
         
     }
 
-    protected override void InitLine()
+    public override void InitLine()
     {
         runt_close = GetComponent<Runtime_Closing>();
     }

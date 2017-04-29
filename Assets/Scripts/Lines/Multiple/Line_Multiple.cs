@@ -7,7 +7,9 @@ public class Line_Multiple : Line
 
     public override void InitLine()
     {
+        
         block_manager = GetComponent<Multiple_BlockManager>();
+        base.InitLine();
     }
 
 	protected override void CheckIfCrossed ()
@@ -29,7 +31,7 @@ public class Line_Multiple : Line
         }
         
 		if ((active) && (tran.position.y - height < 
-            Ball.ball.tran.position.y+1))
+            Ball.ball.tran.position.y+1) && BallMove.ball_move.CheckIfSlowed())
         {
             BallMove.ball_move.SlowDown(deceleration);
         }

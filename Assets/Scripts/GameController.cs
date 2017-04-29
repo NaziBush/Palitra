@@ -48,8 +48,9 @@ public class GameController : MonoBehaviour
         lines_passed++;
         if (lines_passed >= GameController.game_controller.GetLvlData().lines_to_chng_lvl)
         {
-            EventManager.TriggerEvent("ChangeLvl");
+            
             IncreaseLvl();
+            EventManager.TriggerEvent("ChangeLvl");
         }
     }
 

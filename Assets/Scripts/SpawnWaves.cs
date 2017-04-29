@@ -163,6 +163,7 @@ public class SpawnWaves : MonoBehaviour
         lines_passed = 0;
         lines_spawned = 0;
 
+        //GetLineCountData();
         ReserveLines();
         StartCoroutine(Delay());
 

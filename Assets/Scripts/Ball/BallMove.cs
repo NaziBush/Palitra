@@ -36,7 +36,7 @@ public class BallMove : MonoBehaviour
     public void IncreaseSpeed(float acceleration)
     {
         Speed += acceleration;
-        print(Speed);
+        //print(Speed);
     }
 
     public void SlowDown(float deceleration)

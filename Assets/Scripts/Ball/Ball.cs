@@ -50,7 +50,9 @@ public class Ball : MonoBehaviour
     public void LinePassed(Color line_color)
     {
         lines_checked++;
-        if (line_color == sprite_rend.color)
+        //print(((Vector4)line_color-(Vector4) sprite_rend.color).magnitude);
+        //if (line_color == sprite_rend.color)
+        if (((Vector4)line_color - (Vector4)sprite_rend.color).magnitude<0.01f)
         {
             if (lines_checked >= GameController.game_controller.GetLvlData().lines_to_accel)
             {
@@ -82,7 +84,7 @@ public class Ball : MonoBehaviour
 
         foreach (Color item in line_color)
         {
-            if (item == sprite_rend.color)
+            if ((((Vector4)item - (Vector4)sprite_rend.color).magnitude < 0.01f))
             {
                 passed = true;
                 break;

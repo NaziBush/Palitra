@@ -8,7 +8,7 @@ public abstract class Line : MonoBehaviour
     protected Transform tran;
     protected bool active;
 
-    void Update()
+    protected virtual void Update()
     {
         CheckIfCrossed();
     }
@@ -22,7 +22,7 @@ public abstract class Line : MonoBehaviour
         }
     }
 
-    void Awake()
+    protected virtual void Awake()
     {
         sprite_rend = GetComponent<SpriteRenderer>();
         tran = GetComponent<Transform>();

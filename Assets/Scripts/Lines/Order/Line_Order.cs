@@ -7,8 +7,8 @@ public class Line_Order : Line
 
     public override void InitLine()
     {
-        active = true;
         block_manager = GetComponent<BlockManager_Order>();
+        base.InitLine();
     }
 
     protected override void CheckIfPassed()
@@ -21,6 +21,7 @@ public class Line_Order : Line
 
     public override void ChangeColor()
     {
-        StartCoroutine(block_manager.SetRandomColors());
+        //StartCoroutine(block_manager.SetRandomColors());
+        block_manager.InitBlocks();
     }
 }

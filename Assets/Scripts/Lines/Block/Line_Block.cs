@@ -4,7 +4,7 @@ using System;
 
 public class Line_Block : Line
 {
-    public int block_count = 5;
+    int block_count = 5;
     float scrollSpeed = 0.5f;
     private Vector2 savedOffset;
     Renderer rend;
@@ -13,10 +13,10 @@ public class Line_Block : Line
 
     public override void InitLine()
     {
-        base.InitLine();
         left_dir = UnityEngine.Random.value > 0.5f ? true : false;
         scrollSpeed = GameController.game_controller.GetLvlData().block_prop.speed;
         block_count = GameController.game_controller.GetLvlData().block_prop.block_count;
+        base.InitLine();
     }
 
     protected override void CheckIfPassed()

@@ -5,10 +5,12 @@ public class Block_Order : MonoBehaviour
 {
     SpriteRenderer sprite_rend;
     Transform tran;
+    public bool active;
 
     void OnEnable()
     {
-        gameObject.SetActive(true);
+        //gameObject.SetActive(true);
+        //active = true;
     }
 
     void Awake()
@@ -44,12 +46,14 @@ public class Block_Order : MonoBehaviour
 
     public void Disable()
     {
-        gameObject.SetActive(false);
+        //gameObject.SetActive(false);
+        active = false;
     }
 
     public void Enable()
     {
         gameObject.SetActive(true);
+        active = true;
     }
 
     public Color GetColor()

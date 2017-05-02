@@ -20,7 +20,7 @@ MonoBehaviour:
   m_ShowMode: 4
   m_Title: 
   m_RootView: {fileID: 6}
-  m_MinSize: {x: 950, y: 542}
+  m_MinSize: {x: 950, y: 392}
   m_MaxSize: {x: 10000, y: 10000}
 --- !u!114 &2
 MonoBehaviour:
@@ -42,10 +42,10 @@ MonoBehaviour:
     y: 30
     width: 1920
     height: 948
-  m_MinSize: {x: 681, y: 492}
-  m_MaxSize: {x: 14004, y: 14042}
+  m_MinSize: {x: 681, y: 342}
+  m_MaxSize: {x: 12006, y: 8042}
   vertical: 0
-  controlID: 9
+  controlID: 106
 --- !u!114 &3
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -114,14 +114,14 @@ MonoBehaviour:
     y: 672
     width: 1556
     height: 276
-  m_MinSize: {x: 232, y: 271}
-  m_MaxSize: {x: 10002, y: 10021}
-  m_ActualView: {fileID: 12}
+  m_MinSize: {x: 100, y: 100}
+  m_MaxSize: {x: 4000, y: 4000}
+  m_ActualView: {fileID: 17}
   m_Panes:
   - {fileID: 12}
   - {fileID: 17}
-  m_Selected: 0
-  m_LastSelected: 1
+  m_Selected: 1
+  m_LastSelected: 0
 --- !u!114 &6
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -206,10 +206,10 @@ MonoBehaviour:
     y: 0
     width: 1556
     height: 948
-  m_MinSize: {x: 404, y: 492}
-  m_MaxSize: {x: 10002, y: 14042}
+  m_MinSize: {x: 404, y: 342}
+  m_MaxSize: {x: 8004, y: 8042}
   vertical: 1
-  controlID: 10
+  controlID: 107
 --- !u!114 &10
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -233,7 +233,7 @@ MonoBehaviour:
   m_MinSize: {x: 404, y: 221}
   m_MaxSize: {x: 8004, y: 4021}
   vertical: 0
-  controlID: 11
+  controlID: 108
 --- !u!114 &11
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -306,7 +306,7 @@ MonoBehaviour:
   m_LastProjectPath: D:\UnityProjects\Palitra\Palitra_Source\Palitra
   m_IsLocked: 0
   m_FolderTreeState:
-    scrollPos: {x: 0, y: 0}
+    scrollPos: {x: 0, y: 34}
     m_SelectedIDs: 00250000
     m_LastClickedID: 9472
     m_ExpandedIDs: 00000000ca2400003c250000c62600003a270000ffffff7f
@@ -364,8 +364,8 @@ MonoBehaviour:
     m_SearchString: 
     m_ColumnWidths: []
   m_ListAreaState:
-    m_SelectedInstanceIDs: 
-    m_LastClickedInstanceID: 0
+    m_SelectedInstanceIDs: f8240000
+    m_LastClickedInstanceID: 9464
     m_HadKeyboardFocusLastEvent: 1
     m_ExpandedInstanceIDs: e0210000f42100003825000076f7ffff622200000000000012220000f42400007422000040a0ffff0c2400005e230000c8230000d6230000f032000032230000fe230000ac2300008e240000ca240000c6240000bc220000e2220000f224000002250000ba23000022250000e824000072230000
     m_RenameOverlay:
@@ -455,20 +455,20 @@ MonoBehaviour:
     height: 651
   m_TreeViewState:
     scrollPos: {x: 0, y: 0}
-    m_SelectedIDs: 2afcffff
-    m_LastClickedID: -982
-    m_ExpandedIDs: 24fcffff2cfcffff00000000a0280000
+    m_SelectedIDs: 78e8feff
+    m_LastClickedID: -71560
+    m_ExpandedIDs: 78e8feff84e8feff6a08ffff7608ffff2cfcffff00000000b6280000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
-      m_Name: CollisionPoint
-      m_OriginalName: CollisionPoint
+      m_Name: block_order(Clone)
+      m_OriginalName: block_order(Clone)
       m_EditFieldRect:
         serializedVersion: 2
         x: 0
         y: 0
         width: 0
         height: 0
-      m_UserData: 10508
+      m_UserData: -64128
       m_IsWaitingForDelay: 0
       m_IsRenaming: 0
       m_OriginalEventType: 0
@@ -514,14 +514,14 @@ MonoBehaviour:
     width: 1159
     height: 651
   m_SceneLighting: 1
-  lastFramingTime: 6531.858782433539
+  lastFramingTime: 1214.8575973205477
   m_2DMode: 1
   m_isRotationLocked: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: 0.699666, y: 10.586902, z: 0}
+    m_Target: {x: -0.33432686, y: 10.4, z: 0}
     speed: 2
-    m_Value: {x: 0.699666, y: 10.586902, z: 0}
+    m_Value: {x: -0.33432686, y: 10.4, z: 0}
   m_RenderMode: 0
   m_ValidateTrueMetals: 0
   m_SceneViewState:
@@ -548,9 +548,9 @@ MonoBehaviour:
     speed: 2
     m_Value: {x: 0, y: 0, z: 0, w: 1}
   m_Size:
-    m_Target: 6.6077814
+    m_Target: 9.5511055
     speed: 2
-    m_Value: 6.6077814
+    m_Value: 9.5511055
   m_Ortho:
     m_Target: 1
     speed: 2

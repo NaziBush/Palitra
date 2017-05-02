@@ -6,11 +6,13 @@ public class Multiple_Block : MonoBehaviour
     SpriteRenderer sprite_rend;
     Calc_Numbers calc_numb;
     public int block_count;
+    public bool active;
     int hp = 3;
 
     void OnEnable()
     {
-        gameObject.SetActive(true);
+        //gameObject.SetActive(true);
+        active = true;
         
         switch (block_count)
         {
@@ -45,13 +47,14 @@ public class Multiple_Block : MonoBehaviour
     public bool Hit()
     {
         hp--;
+        calc_numb.SetNumber(hp);
         if (hp<=0)
         {
             Disable();
             return true;
         }
 
-        calc_numb.SetNumber(hp);
+        
         return false;
         
         
@@ -59,7 +62,8 @@ public class Multiple_Block : MonoBehaviour
 
     void Disable()
     {
-        gameObject.SetActive(false);
+        //gameObject.SetActive(false);
+        active = false;
     }
 
     public Color GetColor()

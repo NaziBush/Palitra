@@ -109,7 +109,6 @@
     <Compile Include="Assets\Scripts\Lines\Switch\Line_Switch.cs" />
     <Compile Include="Assets\Scripts\Score.cs" />
     <Compile Include="Assets\Scripts\Sector.cs" />
-    <Compile Include="Assets\Scripts\SkinManager.cs" />
     <Compile Include="Assets\Scripts\SpawnWaves.cs" />
     <Compile Include="Assets\Scripts\System\Calc_Numbers.cs" />
     <Compile Include="Assets\Scripts\System\Edges.cs" />
@@ -120,14 +119,10 @@
     <Compile Include="Assets\Scripts\System\Pool.cs" />
     <Compile Include="Assets\Scripts\System\PoolRef.cs" />
     <Compile Include="Assets\Scripts\System\RandomizeMas.cs" />
-    <Compile Include="Assets\Scripts\System\SkinData.cs" />
     <Compile Include="Assets\Scripts\UI\Button_Start.cs" />
     <Compile Include="Assets\Scripts\UI\Continue.cs" />
-    <Compile Include="Assets\Scripts\UI\MainMenu.cs" />
     <Compile Include="Assets\Scripts\UI\Pause.cs" />
-    <Compile Include="Assets\Scripts\UI\SkinChange.cs" />
     <Compile Include="Assets\Scripts\UI\Touchable.cs" />
-    <Compile Include="Assets\Scripts\UI\UI_MainMenu.cs" />
     <Compile Include="Assets\Scripts\UIController.cs" />
     <Compile Include="Assets\SpriteMask\Scripts\ClearStencilBufferComponent.cs" />
     <Compile Include="Assets\SpriteMask\Scripts\SkipMasking.cs" />

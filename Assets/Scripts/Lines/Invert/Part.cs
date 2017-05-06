@@ -23,8 +23,8 @@ public class Part : MonoBehaviour
     {
         if (sprite_rend != null)
         {
-            sprite_rend.color = SkinManager.skin_manager.GetSkin().colors
-                [Random.Range(0, SkinManager.skin_manager.GetSkin().colors.Length)];
+            sprite_rend.color = GameController.game_controller.GetLvlData().colors
+                [Random.Range(0, GameController.game_controller.GetLvlData().colors.Length)];
         }
     }
 

@@ -1,10 +1,9 @@
 fileFormatVersion: 2
 guid: 0a6df3dd01c7eb449ac17e3cc2c3248f
-timeCreated: 1494084617
+timeCreated: 1494080188
 licenseType: Free
 TextureImporter:
-  fileIDToRecycleName:
-    21300000: "\u041E\u0431\u0432\u043E\u0434\u043A\u0430__\u0438\u0433\u0440\u0430\u0442\u044C_0"
+  fileIDToRecycleName: {}
   serializedVersion: 4
   mipmaps:
     mipMapMode: 0
@@ -35,7 +34,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 2
+  spriteMode: 1
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -85,20 +84,7 @@ TextureImporter:
     overridden: 1
   spriteSheet:
     serializedVersion: 2
-    sprites:
-    - serializedVersion: 2
-      name: "\u041E\u0431\u0432\u043E\u0434\u043A\u0430__\u0438\u0433\u0440\u0430\u0442\u044C_0"
-      rect:
-        serializedVersion: 2
-        x: 765
-        y: 514
-        width: 995
-        height: 798
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      tessellationDetail: 0
+    sprites: []
     outline: []
   spritePackingTag: 
   userData: 

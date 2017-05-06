@@ -24,8 +24,13 @@ public class Line_Block : Line
         if ((active) && (tran.position.y - height <= Ball.ball.collision_point.position.y))
         {
             Texture2D texture = (Texture2D)GetComponent<Renderer>().material.mainTexture;
+            //float xx = x;
+            //if ((x > 0.5f) && (x <= 1.0f))
+            //    xx = x - 0.5f;
+           
             int coord_x = (int)(texture.width / 2.0f + texture.width * x);
-            List<Color> colors = new List<Color>();
+            //print(texture.GetPixel(coord_x, (int)(texture.height / 2.0f)));
+            List <Color> colors = new List<Color>();
             for (int i=-1;i<=1;i++)
             {
                 colors.Add(texture.GetPixel(coord_x+i, (int)(texture.height / 2.0f)));
@@ -94,8 +99,15 @@ public class Line_Block : Line
         x = left_dir? Mathf.Repeat(Time.time * scrollSpeed, 1): Mathf.Repeat(-Time.time * scrollSpeed, 1);
         Vector2 offset = new Vector2(x, savedOffset.y);
         rend.material.SetTextureOffset("_MainTex", offset);
-        //if (!left_dir)
-        {
+
+        //if (Input.GetKey(KeyCode.A))
+            //CheckIfPassed();
+
+
+
+
+    //if (!left_dir)
+    {
             //x -= 0.5f;
             //print(texture.GetPixel((int)(texture.width/2.0f + texture.width * x), (int)(texture.height / 2.0f)));
             

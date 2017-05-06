@@ -12,7 +12,14 @@ public abstract class Line : MonoBehaviour
     {
         CheckIfCrossed();
     }
-
+    public Transform GetTransform()
+    {
+        return tran;
+    }
+    public float GetHeight()
+    {
+        return height;
+    }
     protected virtual void CheckIfCrossed()
     {
         if ((active) && (tran.position.y - height <= Ball.ball.collision_point.position.y))

@@ -4,11 +4,13 @@ using System.Collections;
 public class BallMove : MonoBehaviour
 {
 	public static BallMove ball_move;
-	bool slowed;
+    bool slowed = false;
     Transform tran;
     float speed;
+    float saved_speed=1.0f;
+    private IEnumerator coroutine;
 
-	void Awake()
+    void Awake()
 	{
 		ball_move=this;
 	}
@@ -25,7 +27,10 @@ public class BallMove : MonoBehaviour
         }
         set
         {
-			speed = Mathf.Clamp (value, GameController.game_controller.GetLvlData ().min_speed, GameController.game_controller.GetLvlData ().max_speed);
+            if (!slowed)
+                speed = Mathf.Clamp (value, GameController.game_controller.GetLvlData ().min_speed, GameController.game_controller.GetLvlData ().max_speed);
+            else
+                speed = Mathf.Clamp(value, 0.1f, GameController.game_controller.GetLvlData().max_speed);
         }
     }
     void Update()
@@ -35,13 +40,21 @@ public class BallMove : MonoBehaviour
 
     public void IncreaseSpeed(float acceleration)
     {
+        if (slowed)
+            return;
         Speed += acceleration;
         //print(Speed);
     }
 
     public void SlowDown(float deceleration)
     {
-        StartCoroutine(SlowDownCoroutine(deceleration));
+        if (slowed)
+        {
+            StopCoroutine(coroutine);
+            speed = saved_speed;
+        }
+        coroutine = SlowDownCoroutine(deceleration);
+        StartCoroutine(coroutine);
     }
 
 	public bool CheckIfSlowed()
@@ -51,10 +64,23 @@ public class BallMove : MonoBehaviour
 
     IEnumerator SlowDownCoroutine(float deceleration)
     {
-        Speed -= deceleration;
+        if (slowed)
+            yield return null;
+        saved_speed = speed;
+        float x = (Speed - deceleration) / 5.0f;
+        speed = deceleration;
         slowed = true;
-        yield return new WaitForSeconds(1.0f);
-		Speed += deceleration;
+        yield return new WaitForSeconds(0.1f);
+        for (int i=0;i<5;i++)
+        {
+            if (speed+x>=saved_speed)
+            {
+                speed = saved_speed;
+                break;
+            }
+            Speed += x;
+            yield return new WaitForSeconds(1.0f);
+        }
         slowed = false;
     }
 }

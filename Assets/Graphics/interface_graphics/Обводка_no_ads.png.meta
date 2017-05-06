@@ -1,9 +1,10 @@
 fileFormatVersion: 2
 guid: 587ea54fa9530df4e9cebc2b66f8ea7f
-timeCreated: 1494080224
+timeCreated: 1494082186
 licenseType: Free
 TextureImporter:
-  fileIDToRecycleName: {}
+  fileIDToRecycleName:
+    21300000: "\u041E\u0431\u0432\u043E\u0434\u043A\u0430_no_ads_0"
   serializedVersion: 4
   mipmaps:
     mipMapMode: 0
@@ -34,7 +35,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -84,7 +85,20 @@ TextureImporter:
     overridden: 1
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: "\u041E\u0431\u0432\u043E\u0434\u043A\u0430_no_ads_0"
+      rect:
+        serializedVersion: 2
+        x: 4059
+        y: 831
+        width: 351
+        height: 455
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
     outline: []
   spritePackingTag: 
   userData: 

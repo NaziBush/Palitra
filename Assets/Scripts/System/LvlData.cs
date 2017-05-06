@@ -86,7 +86,7 @@ public class LvlData : ScriptableObject
 
 
 
-    [Header("Sectors")]
+    //[Header("Sectors")]
     public Color[] colors;
 
     

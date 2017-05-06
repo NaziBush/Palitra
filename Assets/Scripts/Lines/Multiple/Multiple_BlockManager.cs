@@ -81,8 +81,8 @@ public class Multiple_BlockManager : MonoBehaviour
             obj.transform.localScale = new Vector3(block_size + 0.1f, obj.transform.localScale.y, 1.0f);
 
 
-            Color color = GameController.game_controller.GetLvlData().colors
-            [Random.Range(0, GameController.game_controller.GetLvlData().colors.Length)];
+            Color color = SkinManager.skin_manager.GetSkin().colors
+            [Random.Range(0, SkinManager.skin_manager.GetSkin().colors.Length)];
 
             obj.GetComponent<Multiple_Block>().SetColor(color);
             obj.GetComponent<Multiple_Block>().block_count=block_count;
@@ -99,8 +99,8 @@ public class Multiple_BlockManager : MonoBehaviour
 
 
         //создаем и заполняем массив цветов
-        int color_count = GameController.game_controller.GetLvlData().colors.Length > block_count ?
-            GameController.game_controller.GetLvlData().colors.Length : block_count;
+        int color_count = SkinManager.skin_manager.GetSkin().colors.Length > block_count ?
+            SkinManager.skin_manager.GetSkin().colors.Length : block_count;
 
             Color[] colors = new Color[color_count];
             for (int i = 0; i < color_count; i++)
@@ -108,13 +108,13 @@ public class Multiple_BlockManager : MonoBehaviour
 
                 if (i < 3)
                 {
-                    colors[i] = GameController.game_controller.GetLvlData().colors[i];
+                    colors[i] = SkinManager.skin_manager.GetSkin().colors[i];
                     //Debug.Log(colors[i]);
                 }
                 else
                 {
-                    colors[i] = GameController.game_controller.GetLvlData().colors
-                        [Random.Range(0, GameController.game_controller.GetLvlData().colors.Length)];
+                    colors[i] = SkinManager.skin_manager.GetSkin().colors
+                        [Random.Range(0, SkinManager.skin_manager.GetSkin().colors.Length)];
                 }
             }
             //перемешиваем массив цветов
@@ -140,13 +140,13 @@ public class Multiple_BlockManager : MonoBehaviour
 
     //            if (i < 3)
     //            {
-    //                colors[i] = GameController.game_controller.GetLvlData().colors[i];
+    //                colors[i] = SkinManager.skin_manager.GetSkin().colors[i];
     //                Debug.Log(colors[i]);
     //            }
     //            else
     //            {
-    //                colors[i] = GameController.game_controller.GetLvlData().colors
-    //                    [Random.Range(0, GameController.game_controller.GetLvlData().colors.Length)];
+    //                colors[i] = SkinManager.skin_manager.GetSkin().colors
+    //                    [Random.Range(0, SkinManager.skin_manager.GetSkin().colors.Length)];
     //            }
     //        }
     //        //перемешиваем массив цветов

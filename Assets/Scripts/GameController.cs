@@ -76,26 +76,21 @@ public class GameController : MonoBehaviour
     void InitLvl()
     {
         lines_passed = 0;
-        //if (sectors.Length != lvl_data[lvl_number].colors.Length)
-        //{
-        //    print("число секторов и число цветов не совпадает");
-        //    return;
-        //}
-
-        //for (int i=0;i<sectors.Length;i++)
-        //{
-        //    sectors[i].InitSector(lvl_data[lvl_number].colors[i]);
-        //}
-
-        for (int i = 0; i < sectors.Length; i++)
+        if (sectors.Length != lvl_data[lvl_number].colors.Length)
         {
-            sectors[i].InitSector(SkinManager.skin_manager.GetSkin().colors[i]);
+            print("число секторов и число цветов не совпадает");
+            return;
+        }
+
+        for (int i=0;i<sectors.Length;i++)
+        {
+            sectors[i].InitSector(lvl_data[lvl_number].colors[i]);
         }
 
         //line_prop = new LineProp[2];
         //line_prop[0] = new LineProp();
         //line_prop[1] = new LineChngblData();
-
+        
     }
 
 

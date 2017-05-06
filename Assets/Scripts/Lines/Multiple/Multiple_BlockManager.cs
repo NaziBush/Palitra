@@ -52,7 +52,9 @@ public class Multiple_BlockManager : MonoBehaviour
 
         foreach (Multiple_Block item in block_mas)
         {
-            if ((Ball.ball.sprite_rend.color == item.GetColor())&&(item.gameObject.activeSelf))
+            //if ((Ball.ball.sprite_rend.color == item.GetColor())&&(item.gameObject.activeSelf))
+            if ((line.GetTransform().position.y - line.GetHeight() - Ball.ball.tran.position.y < SpawnWaves.spawn.dist)&&
+                (Ball.ball.sprite_rend.color == item.GetColor()) && (item.active))
             {
                 if (item.Hit())
                 {

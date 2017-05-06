@@ -16,22 +16,16 @@ public class BlockManager_Order : MonoBehaviour
     int current_block;
     
 
-    void Start()
+    void Awake()
     {
-        window_size = Edges.rightEdge - Edges.leftEdge;
-        block_size = window_size / (float)block_count;
+        
         line = GetComponent<Line_Order>();
-        InitBlocks();
     }
 
     void OnEnable()
     {
         //active_block_count = block_count;
-        EventManager.StartListening("BallColorChanged", ColorChanged);
-        current_block = 0;
-        arrow.gameObject.SetActive(true);
-        if (block_mas!=null)
-            arrow.position = block_mas[0].GetPosition();
+        
     }
     void OnDisable()
     {
@@ -69,8 +63,12 @@ public class BlockManager_Order : MonoBehaviour
             }
         }
     }
-    void InitBlocks()
+    public void InitBlocks()
     {
+        EventManager.StartListening("BallColorChanged", ColorChanged);
+        current_block = 0;
+        window_size = Edges.rightEdge - Edges.leftEdge;
+        block_size = window_size / (float)block_count;
         Vector3 spawn_position;
         GameObject obj;
 
@@ -79,50 +77,82 @@ public class BlockManager_Order : MonoBehaviour
             spawn_position = new Vector3(Edges.leftEdge + block_size / 2.0f + block_size * i, transform.position.y);
             obj = (GameObject)Instantiate(block, spawn_position, Quaternion.identity);
             obj.transform.localScale = new Vector3(block_size + 0.1f, obj.transform.localScale.y, 1.0f);
-            Color color = GameController.game_controller.GetLvlData().colors
-            [Random.Range(0, GameController.game_controller.GetLvlData().colors.Length)];
-            obj.GetComponent<Block_Order>().SetColor(color);
+            //Color color = GameController.game_controller.GetLvlData().colors
+            //[Random.Range(0, GameController.game_controller.GetLvlData().colors.Length)];
+            //obj.GetComponent<Block_Order>().SetColor(color);
             obj.transform.SetParent(block_holder);
         }
+        
         block_mas = GetComponentsInChildren<Block_Order>();
+        SetRandomColors();
+        arrow.gameObject.SetActive(true);
+        if (block_mas != null)
+            arrow.position = block_mas[0].GetPosition();
         arrow.position = block_mas[0].GetPosition();
+
     }
 
-    public IEnumerator SetRandomColors()
+
+    void SetRandomColors()
     {
-        //print("sfg");
-        while (block_mas == null)
-            yield return new WaitForEndOfFrame();
-
-
-        //создаем и заполняем массив цветов
-        int color_count = GameController.game_controller.GetLvlData().colors.Length > block_count ?
-            GameController.game_controller.GetLvlData().colors.Length : block_count;
-
-        Color[] colors = new Color[color_count];
-        for (int i = 0; i < color_count; i++)
+        Color[] colors = new Color[block_count];
+        colors[0] = GameController.game_controller.GetLvlData().colors
+       [UnityEngine.Random.Range(0, GameController.game_controller.GetLvlData().colors.Length)];
+        for (int i = 1; i < block_count; i++)
         {
-
-            if (i < 3)
+            Color color = Color.black;
+            for (int j = 0; j < GameController.game_controller.GetLvlData().colors.Length; j++)
             {
-                colors[i] = GameController.game_controller.GetLvlData().colors[i];
-                //Debug.Log(colors[i]);
+                bool cond1 = (GameController.game_controller.GetLvlData().colors[j] != colors[i - 1]);
+                if (cond1)
+                {
+                    color = GameController.game_controller.GetLvlData().colors[j];
+                    break;
+                }
             }
-            else
-            {
-                colors[i] = GameController.game_controller.GetLvlData().colors
-                    [Random.Range(0, GameController.game_controller.GetLvlData().colors.Length)];
-            }
+            colors[i] = color;
         }
-        //перемешиваем массив цветов
-        new System.Random().Shuffle(colors);
-        //присваеваем цвета блокам
+
         for (int i = 0; i < block_count; i++)
         {
             block_mas[i].SetColor(colors[i]);
         }
-
-
     }
-    
+    //public IEnumerator SetRandomColors()
+    //{
+    //    //print("sfg");
+    //    while (block_mas == null)
+    //        yield return new WaitForEndOfFrame();
+
+
+    //    //создаем и заполняем массив цветов
+    //    int color_count = GameController.game_controller.GetLvlData().colors.Length > block_count ?
+    //        GameController.game_controller.GetLvlData().colors.Length : block_count;
+
+    //    Color[] colors = new Color[color_count];
+    //    for (int i = 0; i < color_count; i++)
+    //    {
+
+    //        if (i < 3)
+    //        {
+    //            colors[i] = GameController.game_controller.GetLvlData().colors[i];
+    //            //Debug.Log(colors[i]);
+    //        }
+    //        else
+    //        {
+    //            colors[i] = GameController.game_controller.GetLvlData().colors
+    //                [Random.Range(0, GameController.game_controller.GetLvlData().colors.Length)];
+    //        }
+    //    }
+    //    //перемешиваем массив цветов
+    //    new System.Random().Shuffle(colors);
+    //    //присваеваем цвета блокам
+    //    for (int i = 0; i < block_count; i++)
+    //    {
+    //        block_mas[i].SetColor(colors[i]);
+    //    }
+
+
+    //}
+
 }

@@ -4,11 +4,16 @@ using System.Collections;
 public class Line_Multiple : Line
 {
     Multiple_BlockManager block_manager;
+    float saved_dist;
 
-    protected override void InitLine()
+    public override void InitLine()
     {
+        
         block_manager = GetComponent<Multiple_BlockManager>();
+        saved_dist = SpawnWaves.spawn.dist;
+        base.InitLine();
     }
+
 	protected override void CheckIfCrossed ()
 	{
 		base.CheckIfCrossed ();
@@ -27,8 +32,7 @@ public class Line_Multiple : Line
                 break;
         }
         
-		if ((active) && (tran.position.y - height < 
-            Ball.ball.tran.position.y+1))
+		if ((active) && (tran.position.y - height - Ball.ball.tran.position.y > saved_dist))
         {
             BallMove.ball_move.SlowDown(deceleration);
         }

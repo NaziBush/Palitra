@@ -21,7 +21,8 @@ public class SpawnWaves : MonoBehaviour
 
     [HideInInspector]
     public float dist;
-    float edge;
+    public float edge;
+    public float offset = 0.5f;
     int lines_passed;
     int lines_spawned;
 
@@ -163,6 +164,7 @@ public class SpawnWaves : MonoBehaviour
         lines_passed = 0;
         lines_spawned = 0;
 
+        //GetLineCountData();
         ReserveLines();
         StartCoroutine(Delay());
 
@@ -175,7 +177,7 @@ public class SpawnWaves : MonoBehaviour
         yield return new WaitForSeconds(start_delay);
         
         Dist = GameController.game_controller.GetLvlData().max_dist;
-        edge = Edges.topEdge + Dist + 0.5f;
+        edge = Edges.topEdge + offset;
         //SpawnWave();
         is_spawning = true;
     }
@@ -183,7 +185,7 @@ public class SpawnWaves : MonoBehaviour
     void Update()
     {
         //print(Time.time);
-        if ((is_spawning)&&(Edges.topEdge >= edge+Dist)&&(lines_spawned < GameController.game_controller.GetLvlData().lines_to_chng_lvl))
+        if ((is_spawning)&&(Edges.topEdge >= edge-offset)&&(lines_spawned < GameController.game_controller.GetLvlData().lines_to_chng_lvl))
         {
             SpawnWave();
         }
@@ -195,11 +197,14 @@ public class SpawnWaves : MonoBehaviour
         lines.Remove(current_line);
 
         lines_spawned++;
-        edge += Dist;
+        
         //if (current_line==PoolType.Blocks)
         //    line_handler[(int)current_line].pool.Activate(new Vector2(-5.0f, edge), Quaternion.identity);
         //else
-        line_handler[(int)current_line].pool.Activate(new Vector2(0.0f, edge), Quaternion.identity);
+        GameObject line=line_handler[(int)current_line].pool.Activate(new Vector2(0.0f, edge), Quaternion.identity);
+        edge += Dist;
+        line.GetComponent<Line>().InitLine();
+        
     }
 
 

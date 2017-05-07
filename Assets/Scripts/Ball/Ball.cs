@@ -23,7 +23,7 @@ public class Ball : MonoBehaviour
         shield = false;
         ball_move = GetComponent<BallMove>();
         tran = GetComponent<Transform>();
-        SetColor(GameController.game_controller.GetLvlData().colors[0]);
+        SetColor(SkinManager.skin_manager.GetSkin().colors[0]);
         size_x = sprite_rend.sprite.bounds.extents.x * tran.localScale.x;
     }
 
@@ -122,7 +122,7 @@ public class Ball : MonoBehaviour
     void ChangeLvl()
     {
         shield = true;
-        //SetColor(GameController.game_controller.GetLvlData().colors[0]);
+        //SetColor(SkinManager.skin_manager.GetSkin().colors[0]);
     }
 
 

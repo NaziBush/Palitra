@@ -55,19 +55,19 @@ public class Line_Block : Line
         GetComponent<Renderer>().material.mainTexture = texture;
         //Color prev_color = Color.black;
         Color[] colors = new Color[block_count];
-        colors[0] = GameController.game_controller.GetLvlData().colors
-       [UnityEngine.Random.Range(0, GameController.game_controller.GetLvlData().colors.Length)];
+        colors[0] = SkinManager.skin_manager.GetSkin().colors
+       [UnityEngine.Random.Range(0, SkinManager.skin_manager.GetSkin().colors.Length)];
         for (int i = 1; i < block_count; i++)
         {
             Color color=Color.black;
-            for (int j = 0;j < GameController.game_controller.GetLvlData().colors.Length;j++)
+            for (int j = 0;j < SkinManager.skin_manager.GetSkin().colors.Length;j++)
              {
-                bool cond1 = ((GameController.game_controller.GetLvlData().colors[j] != colors[i - 1]) && (i != block_count - 1));
-                bool cond2 = (i == block_count - 1) && (GameController.game_controller.GetLvlData().colors[j] != colors[i - 1])
-                          && (GameController.game_controller.GetLvlData().colors[j] != colors[0]);
+                bool cond1 = ((SkinManager.skin_manager.GetSkin().colors[j] != colors[i - 1]) && (i != block_count - 1));
+                bool cond2 = (i == block_count - 1) && (SkinManager.skin_manager.GetSkin().colors[j] != colors[i - 1])
+                          && (SkinManager.skin_manager.GetSkin().colors[j] != colors[0]);
                 if (cond1||cond2)
                 {
-                     color = GameController.game_controller.GetLvlData().colors[j];
+                     color = SkinManager.skin_manager.GetSkin().colors[j];
                      break;
                 }
              }

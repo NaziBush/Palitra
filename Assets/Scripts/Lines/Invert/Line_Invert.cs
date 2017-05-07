@@ -9,16 +9,16 @@ public class Line_Invert : Line
     public override void ChangeColor()
     {
         parts[0].SetColor(GameController.game_controller.GetLvlData().
-                colors[UnityEngine.Random.Range(0, GameController.game_controller.GetLvlData().colors.Length)]);
+                colors[UnityEngine.Random.Range(0, SkinManager.skin_manager.GetSkin().colors.Length)]);
         if (parts.Length == 2)
         {
             List<Color> colors = new List<Color>();
             Color part0_color = parts[0].GetColor();
-            for (int i = 0; i < GameController.game_controller.GetLvlData().colors.Length; i++)
+            for (int i = 0; i < SkinManager.skin_manager.GetSkin().colors.Length; i++)
             {
-                if (GameController.game_controller.GetLvlData().colors[i] != part0_color)
+                if (SkinManager.skin_manager.GetSkin().colors[i] != part0_color)
                 {
-                    colors.Add(GameController.game_controller.GetLvlData().colors[i]);
+                    colors.Add(SkinManager.skin_manager.GetSkin().colors[i]);
                 }
             }
 

@@ -52,19 +52,19 @@ public class BlockManager : MonoBehaviour
             obj.transform.localScale = new Vector3(block_size+0.1f, obj.transform.localScale.y, 1.0f);
 
             //obj.GetComponent<Block>().SetRandomColor();
-            Color color= GameController.game_controller.GetLvlData().colors
-            [Random.Range(0, GameController.game_controller.GetLvlData().colors.Length)];
+            Color color= SkinManager.skin_manager.GetSkin().colors
+            [Random.Range(0, SkinManager.skin_manager.GetSkin().colors.Length)];
             if (i!=0)
             {
                 if (color==prev_color)
                 {
-                    if(color== GameController.game_controller.GetLvlData().colors[0])
+                    if(color== SkinManager.skin_manager.GetSkin().colors[0])
                     {
-                        color = GameController.game_controller.GetLvlData().colors[1];
+                        color = SkinManager.skin_manager.GetSkin().colors[1];
                     }
                     else
                     {
-                        color = GameController.game_controller.GetLvlData().colors[0];
+                        color = SkinManager.skin_manager.GetSkin().colors[0];
                     }
                 }
             }

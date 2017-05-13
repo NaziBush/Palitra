@@ -26,13 +26,14 @@ public class GameController : MonoBehaviour
         game_controller = this;
         lvl_number = 0;
         InitLvl();
+       
         //EventManager.TriggerEvent("ChangeLvl");
     }
     void Start()
     {
-        
+        UIController.ui.Game();
     }
-
+    
     void OnEnable()
     {
         EventManager.StartListening("LinePassed", LinePassed);
@@ -89,7 +90,7 @@ public class GameController : MonoBehaviour
 
         for (int i = 0; i < sectors.Length; i++)
         {
-            sectors[i].InitSector(SkinManager.skin_manager.GetSkin().colors[i]);
+            sectors[i].InitSector(SkinManager.skin_manager.GetCurrentSkin().colors[i]);
         }
 
         //line_prop = new LineProp[2];

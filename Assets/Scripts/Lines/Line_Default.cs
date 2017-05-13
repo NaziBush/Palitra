@@ -8,7 +8,7 @@ public class Line_Default : Line
 
     public override void ChangeColor()
     {
-        Color[] colors = SkinManager.skin_manager.GetSkin().colors;
+        Color[] colors = SkinManager.skin_manager.GetCurrentSkin().colors;
         Color new_color=colors[UnityEngine.Random.Range(0, colors.Length)];
         line_color = new_color;
         base.sprite_rend.color = new_color;

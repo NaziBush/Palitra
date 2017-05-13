@@ -75,15 +75,12 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\Scripts\AlphaRaycastFilter.cs" />
     <Compile Include="Assets\Scripts\Ball\Ball.cs" />
     <Compile Include="Assets\Scripts\Ball\BallMove.cs" />
     <Compile Include="Assets\Scripts\GameController.cs" />
+    <Compile Include="Assets\Scripts\LineHandler.cs" />
     <Compile Include="Assets\Scripts\LineProp\BlockProp.cs" />
-    <Compile Include="Assets\Scripts\LineProp\ClosingInvertProp.cs" />
-    <Compile Include="Assets\Scripts\LineProp\ClosingProp.cs" />
     <Compile Include="Assets\Scripts\LineProp\ComboProp.cs" />
-    <Compile Include="Assets\Scripts\LineProp\LineInvertProp.cs" />
     <Compile Include="Assets\Scripts\LineProp\LineProp.cs" />
     <Compile Include="Assets\Scripts\LineProp\MultipleProp.cs" />
     <Compile Include="Assets\Scripts\LineProp\SwitchProp.cs" />
@@ -92,11 +89,7 @@
     <Compile Include="Assets\Scripts\Lines\Block\BlockMove.cs" />
     <Compile Include="Assets\Scripts\Lines\Block\Line_Block.cs" />
     <Compile Include="Assets\Scripts\Lines\ChangeColor.cs" />
-    <Compile Include="Assets\Scripts\Lines\Closing\Line_Closing.cs" />
-    <Compile Include="Assets\Scripts\Lines\Closing\Runtime_Closing.cs" />
     <Compile Include="Assets\Scripts\Lines\DestroyOnExit.cs" />
-    <Compile Include="Assets\Scripts\Lines\Invert\Line_Invert.cs" />
-    <Compile Include="Assets\Scripts\Lines\Invert\Part.cs" />
     <Compile Include="Assets\Scripts\Lines\Line.cs" />
     <Compile Include="Assets\Scripts\Lines\Line_Default.cs" />
     <Compile Include="Assets\Scripts\Lines\Multiple\Line_Multiple.cs" />
@@ -107,40 +100,30 @@
     <Compile Include="Assets\Scripts\Lines\Order\Line_Order.cs" />
     <Compile Include="Assets\Scripts\Lines\SpriteStretch.cs" />
     <Compile Include="Assets\Scripts\Lines\Switch\Line_Switch.cs" />
-    <Compile Include="Assets\Scripts\Score.cs" />
+    <Compile Include="Assets\Scripts\Preload.cs" />
     <Compile Include="Assets\Scripts\Sector.cs" />
     <Compile Include="Assets\Scripts\SkinManager.cs" />
     <Compile Include="Assets\Scripts\SpawnWaves.cs" />
+    <Compile Include="Assets\Scripts\System\AlphaRaycastFilter.cs" />
     <Compile Include="Assets\Scripts\System\Calc_Numbers.cs" />
     <Compile Include="Assets\Scripts\System\Edges.cs" />
     <Compile Include="Assets\Scripts\System\EventManager.cs" />
-    <Compile Include="Assets\Scripts\System\LineHandler.cs" />
-    <Compile Include="Assets\Scripts\System\LvlData.cs" />
     <Compile Include="Assets\Scripts\System\NumberPicData.cs" />
     <Compile Include="Assets\Scripts\System\Pool.cs" />
     <Compile Include="Assets\Scripts\System\PoolRef.cs" />
     <Compile Include="Assets\Scripts\System\RandomizeMas.cs" />
-    <Compile Include="Assets\Scripts\System\SkinData.cs" />
+    <Compile Include="Assets\Scripts\System\SaveLoad\GlobalScore.cs" />
+    <Compile Include="Assets\Scripts\System\SaveLoad\LvlData.cs" />
+    <Compile Include="Assets\Scripts\System\SaveLoad\SkinData.cs" />
     <Compile Include="Assets\Scripts\UI\Button_Start.cs" />
+    <Compile Include="Assets\Scripts\UI\ChangeScene.cs" />
     <Compile Include="Assets\Scripts\UI\Continue.cs" />
-    <Compile Include="Assets\Scripts\UI\MainMenu.cs" />
     <Compile Include="Assets\Scripts\UI\Pause.cs" />
+    <Compile Include="Assets\Scripts\UI\Score.cs" />
     <Compile Include="Assets\Scripts\UI\SkinChange.cs" />
     <Compile Include="Assets\Scripts\UI\Touchable.cs" />
+    <Compile Include="Assets\Scripts\UI\UIController.cs" />
     <Compile Include="Assets\Scripts\UI\UI_MainMenu.cs" />
-    <Compile Include="Assets\Scripts\UIController.cs" />
-    <Compile Include="Assets\SpriteMask\Scripts\ClearStencilBufferComponent.cs" />
-    <Compile Include="Assets\SpriteMask\Scripts\SkipMasking.cs" />
-    <Compile Include="Assets\SpriteMask\Scripts\SpriteMask.cs" />
-    <Compile Include="Assets\SpriteMask\Scripts\SpriteMaskingComponent.cs" />
-    <Compile Include="Assets\SpriteMask\Scripts\SpriteMaskingPart.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Assets\SpriteMask\Readme.txt" />
-    <None Include="Assets\SpriteMask\Resources\ClearStencil.shader" />
-    <None Include="Assets\SpriteMask\Resources\SpriteDefault.shader" />
-    <None Include="Assets\SpriteMask\Resources\SpriteDiffuse.shader" />
-    <None Include="Assets\SpriteMask\Resources\SpriteMask.shader" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="GenerateTargetFrameworkMonikerAttribute" />

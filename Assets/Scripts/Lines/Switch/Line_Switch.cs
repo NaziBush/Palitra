@@ -13,17 +13,17 @@ public class Line_Switch : Line
     {
         
             List<Color> colors = new List<Color>();
-            for (int i = 0; i < SkinManager.skin_manager.GetSkin().colors.Length; i++)
+            for (int i = 0; i < SkinManager.skin_manager.GetCurrentSkin().colors.Length; i++)
             {
-                if (SkinManager.skin_manager.GetSkin().colors[i] != base.sprite_rend.color)
+                if (SkinManager.skin_manager.GetCurrentSkin().colors[i] != base.sprite_rend.color)
                 {
-                    colors.Add(SkinManager.skin_manager.GetSkin().colors[i]);
+                    colors.Add(SkinManager.skin_manager.GetCurrentSkin().colors[i]);
                 }
             }
 
         base.sprite_rend.color=colors[UnityEngine.Random.Range(0, colors.Count)];
 
-        //Color[] colors = SkinManager.skin_manager.GetSkin().colors;
+        //Color[] colors = SkinManager.skin_manager.GetCurrentSkin().colors;
         //Color new_color = colors[UnityEngine.Random.Range(0, colors.Length)];
         //line_color = new_color;
         //base.sprite_rend.color = new_color;
@@ -54,7 +54,7 @@ public class Line_Switch : Line
             //print((active) && (tran.position.y - height - Ball.ball.tran.position.y > dist));
             if ((active) && (tran.position.y - height - Ball.ball.tran.position.y > saved_dist))
             {
-                //line.ChangeColor(SkinManager.skin_manager.GetSkin().colors[Random.Range(0, SkinManager.skin_manager.GetSkin().colors.Length)]);
+                //line.ChangeColor(SkinManager.skin_manager.GetCurrentSkin().colors[Random.Range(0, SkinManager.skin_manager.GetCurrentSkin().colors.Length)]);
                 ChangeColor();
                 //print("dfh");
             }

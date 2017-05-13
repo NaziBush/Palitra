@@ -26,7 +26,7 @@ public class ChangeColor : MonoBehaviour
         yield return new WaitForSeconds(0.2f);
         while (tran.position.y - Ball.ball.gameObject.transform.position.y > dist)
         {
-            //line.ChangeColor(SkinManager.skin_manager.GetSkin().colors[Random.Range(0, SkinManager.skin_manager.GetSkin().colors.Length)]);
+            //line.ChangeColor(SkinManager.skin_manager.GetCurrentSkin().colors[Random.Range(0, SkinManager.skin_manager.GetCurrentSkin().colors.Length)]);
             line.ChangeColor();
             yield return new WaitForSeconds(1.0f);
         }

@@ -2,8 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 
-public enum PoolType { Normal, Switch, Blocks, Invert_one_color, Invert_two_colors, Closing_invert_one_color,
-    Closing_invert_two_colors, Multiple_1_part, Multiple_2_parts, Multiple_3_parts,
+public enum PoolType { Normal, Switch, Blocks,Multiple_1_part, Multiple_2_parts, Multiple_3_parts,
     Combo_3_parts,Combo_4_parts,Combo_5_parts, Count };
 
 public class SpawnWaves : MonoBehaviour
@@ -48,10 +47,8 @@ public class SpawnWaves : MonoBehaviour
 
     void Start ()
     {
-
-        Pool[] pool;// = new Pool[(int)PoolType.Count];
+        Pool[] pool;
         pool = GetComponentsInChildren<Pool>();
-
 
         line_handler = new LineHandler[(int)PoolType.Count];
         for (int i=0;i<line_handler.Length;i++)
@@ -74,9 +71,6 @@ public class SpawnWaves : MonoBehaviour
         }
 
         ChangeLvl();
-        //ReserveLines();
-        //lines_passed = 0;
-        //lines_spawned = 0;
         StartCoroutine(Delay());
     }
     void OnEnable()
@@ -96,12 +90,6 @@ public class SpawnWaves : MonoBehaviour
         line_handler[(int)PoolType.Normal].count = GameController.game_controller.GetLvlData().line_prop.count;
         line_handler[(int)PoolType.Switch].count = GameController.game_controller.GetLvlData().switch_prop.count;
         line_handler[(int)PoolType.Blocks].count = GameController.game_controller.GetLvlData().block_prop.count;
-        line_handler[(int)PoolType.Invert_one_color].count = GameController.game_controller.GetLvlData().invert_prop_1_color.count;
-        line_handler[(int)PoolType.Invert_two_colors].count = GameController.game_controller.GetLvlData().invert_prop_2_colors.count;
-        line_handler[(int)PoolType.Closing_invert_one_color].count = 
-            GameController.game_controller.GetLvlData().closing_invert_prop_1_color.count;
-        line_handler[(int)PoolType.Closing_invert_two_colors].count = 
-            GameController.game_controller.GetLvlData().closing_invert_prop_2_colors.count;
         line_handler[(int)PoolType.Multiple_1_part].count = GameController.game_controller.GetLvlData().multiple_prop_1_part.count;
         line_handler[(int)PoolType.Multiple_2_parts].count = GameController.game_controller.GetLvlData().multiple_prop_2_parts.count;
         line_handler[(int)PoolType.Multiple_3_parts].count = GameController.game_controller.GetLvlData().multiple_prop_3_parts.count;
@@ -115,16 +103,6 @@ public class SpawnWaves : MonoBehaviour
         lines.Clear();
 
         GetLineCountData();
-
-        //вычисляем количество стандратных линий
-        //int normal_count = GameController.game_controller.GetLvlData().lines_to_chng_lvl;
-        //for (int i = 1; i < (int)PoolType.Count; i++)
-        //{
-        //    normal_count -= line_handler[i].count;
-        //}
-        //if (normal_count < 0)
-        //    normal_count = 0;
-        //line_handler[0].count = normal_count;
 
         //вычисляем общее количество линий на уровне
         GameController.game_controller.GetLvlData().lines_to_chng_lvl=0;
@@ -144,11 +122,6 @@ public class SpawnWaves : MonoBehaviour
         }
     }
 
-    //Pool GetPool(PoolType id)
-    //{
-    //    return pool[(int)id];
-    //}
-
     void LinePassed()
     {
         lines_passed++;
@@ -163,8 +136,7 @@ public class SpawnWaves : MonoBehaviour
     {
         lines_passed = 0;
         lines_spawned = 0;
-
-        //GetLineCountData();
+        
         ReserveLines();
         StartCoroutine(Delay());
 
@@ -178,7 +150,6 @@ public class SpawnWaves : MonoBehaviour
         
         Dist = GameController.game_controller.GetLvlData().max_dist;
         edge = Edges.topEdge + offset;
-        //SpawnWave();
         is_spawning = true;
     }
 
@@ -197,10 +168,6 @@ public class SpawnWaves : MonoBehaviour
         lines.Remove(current_line);
 
         lines_spawned++;
-        
-        //if (current_line==PoolType.Blocks)
-        //    line_handler[(int)current_line].pool.Activate(new Vector2(-5.0f, edge), Quaternion.identity);
-        //else
         GameObject line=line_handler[(int)current_line].pool.Activate(new Vector2(0.0f, edge), Quaternion.identity);
         edge += Dist;
         line.GetComponent<Line>().InitLine();

@@ -79,6 +79,7 @@
     <Compile Include="Assets\Scripts\Ball\Ball.cs" />
     <Compile Include="Assets\Scripts\Ball\BallMove.cs" />
     <Compile Include="Assets\Scripts\GameController.cs" />
+    <Compile Include="Assets\Scripts\GlobalScore.cs" />
     <Compile Include="Assets\Scripts\LineProp\BlockProp.cs" />
     <Compile Include="Assets\Scripts\LineProp\ClosingInvertProp.cs" />
     <Compile Include="Assets\Scripts\LineProp\ClosingProp.cs" />
@@ -107,6 +108,7 @@
     <Compile Include="Assets\Scripts\Lines\Order\Line_Order.cs" />
     <Compile Include="Assets\Scripts\Lines\SpriteStretch.cs" />
     <Compile Include="Assets\Scripts\Lines\Switch\Line_Switch.cs" />
+    <Compile Include="Assets\Scripts\Preload.cs" />
     <Compile Include="Assets\Scripts\Score.cs" />
     <Compile Include="Assets\Scripts\Sector.cs" />
     <Compile Include="Assets\Scripts\SkinManager.cs" />
@@ -120,10 +122,12 @@
     <Compile Include="Assets\Scripts\System\Pool.cs" />
     <Compile Include="Assets\Scripts\System\PoolRef.cs" />
     <Compile Include="Assets\Scripts\System\RandomizeMas.cs" />
+    <Compile Include="Assets\Scripts\System\SaveLoad\SaveLoad.cs" />
+    <Compile Include="Assets\Scripts\System\SaveLoad\SavedGame.cs" />
     <Compile Include="Assets\Scripts\System\SkinData.cs" />
     <Compile Include="Assets\Scripts\UI\Button_Start.cs" />
+    <Compile Include="Assets\Scripts\UI\ChangeScene.cs" />
     <Compile Include="Assets\Scripts\UI\Continue.cs" />
-    <Compile Include="Assets\Scripts\UI\MainMenu.cs" />
     <Compile Include="Assets\Scripts\UI\Pause.cs" />
     <Compile Include="Assets\Scripts\UI\SkinChange.cs" />
     <Compile Include="Assets\Scripts\UI\Touchable.cs" />

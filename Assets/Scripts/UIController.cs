@@ -11,7 +11,7 @@ public class UIController : MonoBehaviour
     public GameObject skin_menu;
     public Text current_lvl;
     static bool is_paused;
-    static float saved_time_scale;
+    static float saved_time_scale=1.0f;
 
     void Awake ()
     {
@@ -28,7 +28,7 @@ public class UIController : MonoBehaviour
         current_lvl.text = GameController.game_controller.GetCurrentLvl().ToString();
 
         pause_menu.SetActive(true);
-        skin_menu.SetActive(false);
+       // skin_menu.SetActive(false);
     }
 
     public void Game()

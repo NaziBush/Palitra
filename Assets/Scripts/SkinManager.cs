@@ -8,11 +8,16 @@ public class SkinManager : MonoBehaviour
     [SerializeField]
     SkinData[] skin_data;
     int totalSkinCount=1;
-    int skin_number=0;
+    int active_skin=0;
 
     public int GetSkinNumber()
     {
-        return skin_number;
+        return active_skin;
+    }
+
+    public void SetActiveSkin(int new_skin_number)
+    {
+        active_skin = Mathf.Clamp(new_skin_number, 0, totalSkinCount);
     }
 
     public int GetTotalSkinCount()
@@ -26,35 +31,18 @@ public class SkinManager : MonoBehaviour
         totalSkinCount = skin_data.Length;
     }
 
-    public void NextSkin()
+ 
+
+    public SkinData GetCurrentSkin()
     {
-        
-        if (skin_number == skin_data.Length-1)
-        {
-            skin_number = 0;
-        }
-        else
-        {
-            skin_number++;
-        }
+        return skin_data[active_skin];
     }
 
-    public void PrevSkin()
+    public SkinData GetSkinByNumber(int number)
     {
-        if (skin_number == 0)
-        {
-            skin_number = skin_data.Length - 1;
-        }
-        else
-        {
-            skin_number--;
-        }
+        return skin_data[number];
     }
 
-    public SkinData GetSkin()
-    {
-        return skin_data[skin_number];
-    }
 }
 
 

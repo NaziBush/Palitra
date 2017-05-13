@@ -12,8 +12,8 @@ public class Line_Closing : Line
     {
         if (same_color)
         {
-            Color color= SkinManager.skin_manager.GetSkin().colors
-                [Random.Range(0, SkinManager.skin_manager.GetSkin().colors.Length)];
+            Color color= SkinManager.skin_manager.GetCurrentSkin().colors
+                [Random.Range(0, SkinManager.skin_manager.GetCurrentSkin().colors.Length)];
             foreach (Part item in parts)
             {
                 item.SetColor(color);

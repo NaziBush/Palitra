@@ -15,8 +15,8 @@ public class Block : MonoBehaviour
     }
     public void SetRandomColor()
     {
-        GetComponent<SpriteRenderer>().color = SkinManager.skin_manager.GetSkin().colors
-            [Random.Range(0, SkinManager.skin_manager.GetSkin().colors.Length)];
+        GetComponent<SpriteRenderer>().color = SkinManager.skin_manager.GetCurrentSkin().colors
+            [Random.Range(0, SkinManager.skin_manager.GetCurrentSkin().colors.Length)];
     }
 
     public void SetColor(Color color)

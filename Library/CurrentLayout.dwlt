@@ -20,7 +20,7 @@ MonoBehaviour:
   m_ShowMode: 4
   m_Title: 
   m_RootView: {fileID: 7}
-  m_MinSize: {x: 950, y: 542}
+  m_MinSize: {x: 950, y: 300}
   m_MaxSize: {x: 10000, y: 10000}
 --- !u!114 &2
 MonoBehaviour:
@@ -71,7 +71,7 @@ MonoBehaviour:
   m_MinSize: {x: 887, y: 492}
   m_MaxSize: {x: 18008, y: 14042}
   vertical: 0
-  controlID: 82
+  controlID: 131
 --- !u!114 &4
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -169,7 +169,7 @@ MonoBehaviour:
     y: 0
     width: 1600
     height: 818
-  m_MinSize: {x: 950, y: 542}
+  m_MinSize: {x: 950, y: 300}
   m_MaxSize: {x: 10000, y: 10000}
 --- !u!114 &8
 MonoBehaviour:
@@ -235,7 +235,7 @@ MonoBehaviour:
   m_MinSize: {x: 406, y: 492}
   m_MaxSize: {x: 10002, y: 14042}
   vertical: 1
-  controlID: 83
+  controlID: 69
 --- !u!114 &11
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -259,7 +259,7 @@ MonoBehaviour:
   m_MinSize: {x: 406, y: 221}
   m_MaxSize: {x: 8006, y: 4021}
   vertical: 0
-  controlID: 84
+  controlID: 46
 --- !u!114 &12
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -331,10 +331,10 @@ MonoBehaviour:
   m_LastProjectPath: D:\UnityProjects\Palitra\Palitra_Source\Palitra
   m_IsLocked: 0
   m_FolderTreeState:
-    scrollPos: {x: 0, y: 94}
-    m_SelectedIDs: da250000
-    m_LastClickedID: 9690
-    m_ExpandedIDs: 00000000de240000182500005a2500000427000014270000ae270000d8270000ffffff7f
+    scrollPos: {x: 0, y: 78}
+    m_SelectedIDs: d8250000
+    m_LastClickedID: 9688
+    m_ExpandedIDs: 00000000dc240000162500005825000012270000ac270000d6270000ffffff7f
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -363,7 +363,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 274}
     m_SelectedIDs: 90250000
     m_LastClickedID: 0
-    m_ExpandedIDs: 00000000de240000182500005a25000014270000ae270000d8270000
+    m_ExpandedIDs: 00000000dc240000162500005825000012270000ac270000d6270000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -392,7 +392,7 @@ MonoBehaviour:
     m_SelectedInstanceIDs: 
     m_LastClickedInstanceID: 0
     m_HadKeyboardFocusLastEvent: 1
-    m_ExpandedInstanceIDs: e0210000f42100003825000076f7ffff6222000012220000f42400007422000040a0ffff0c2400005e230000c8230000d6230000f032000032230000fe230000ac2300008e240000ca240000c6240000bc220000e2220000f224000002250000ba23000022250000e824000072230000ea260000522b0000062e0000c627000084330000082800000000000062270000
+    m_ExpandedInstanceIDs: e0210000f42100003825000076f7ffff6222000012220000f42400007422000040a0ffff0c2400005e230000c8230000d6230000f032000032230000fe230000ac2300008e240000ca240000c6240000bc220000e2220000f224000002250000ba23000022250000e824000072230000ea260000522b0000062e0000c6270000843300000828000000000000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -480,9 +480,9 @@ MonoBehaviour:
     height: 403
   m_TreeViewState:
     scrollPos: {x: 0, y: 0}
-    m_SelectedIDs: 9a270000
+    m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 84b0ffffa6b6ffff32ccffff56cdffffdcdfffff2cfcffff00000000322b000010300000c6300000e8310000
+    m_ExpandedIDs: 2471ffff5872ffffec88fffff288ffff1289ffffbca9ffffa8acffff2cd1ffff2ed1ffff32d1ffff52d1ffff6ae4ffff8ae4ffff56e6ffff62eaffff82eaffff2cfcffff00000000a63600005c370000f03e0000a63f0000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -539,14 +539,14 @@ MonoBehaviour:
     width: 473
     height: 403
   m_SceneLighting: 1
-  lastFramingTime: 1556.514272702281
+  lastFramingTime: 1548.0468757275446
   m_2DMode: 1
   m_isRotationLocked: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: 145.79721, y: 72.07531, z: 0}
+    m_Target: {x: 134.433, y: 236.69911, z: 0}
     speed: 2
-    m_Value: {x: 145.79721, y: 72.07531, z: 0}
+    m_Value: {x: 134.433, y: 236.69911, z: 0}
   m_RenderMode: 0
   m_ValidateTrueMetals: 0
   m_SceneViewState:
@@ -573,9 +573,9 @@ MonoBehaviour:
     speed: 2
     m_Value: {x: 0, y: 0, z: 0, w: 1}
   m_Size:
-    m_Target: 405.5111
+    m_Target: 169.56644
     speed: 2
-    m_Value: 405.5111
+    m_Value: 169.56644
   m_Ortho:
     m_Target: 1
     speed: 2

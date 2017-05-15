@@ -7,19 +7,6 @@ public class Calc_Numbers : MonoBehaviour
     int number=0;
     //Sprite[] number_pic;
 
-
-    int Number
-    {
-        get
-        {
-            return number;
-        }
-        set
-        {
-            number = Mathf.Clamp(value, NumberPicData.Instance.min, NumberPicData.Instance.max);
-        }
-    }
-
 	void Start ()
     {
         //sprite_rend = GetComponent<SpriteRenderer>();
@@ -29,19 +16,19 @@ public class Calc_Numbers : MonoBehaviour
 
     public void Increase()
     {
-        Number++;
+        number++;
         sprite_rend.sprite = NumberPicData.Instance.number_pic[number];
     }
 	
 	public void Decrease()
     {
-        Number--;
+        number--;
         sprite_rend.sprite = NumberPicData.Instance.number_pic[number];
     }
 
     public void SetNumber(int value)
     {
-        Number = value;
+        number = value;
         sprite_rend.sprite = NumberPicData.Instance.number_pic[number];
     }
 }

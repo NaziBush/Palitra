@@ -18,6 +18,7 @@ public class SkinManager : MonoBehaviour
     public void SetActiveSkin(int new_skin_number)
     {
         active_skin = Mathf.Clamp(new_skin_number, 0, totalSkinCount);
+        EventManager.TriggerEvent("SkinChanged");
     }
 
     public int GetTotalSkinCount()

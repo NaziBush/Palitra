@@ -22,6 +22,18 @@ public class ChangeToSkinColor : MonoBehaviour
 
     void ChangeColor()
     {
-        GetComponent<Image>().color = SkinManager.skin_manager.GetCurrentSkin().colors[(int)color];
+        Image image = GetComponent<Image>();
+        if (image!=null)
+        {
+            image.color = SkinManager.skin_manager.GetCurrentSkin().colors[(int)color];
+        }
+        else
+        {
+            SpriteRenderer sprite_rend = GetComponent<SpriteRenderer>();
+            if (sprite_rend!=null)
+            {
+                sprite_rend.color = SkinManager.skin_manager.GetCurrentSkin().colors[(int)color];
+            }
+        }
     }
 }

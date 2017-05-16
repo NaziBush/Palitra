@@ -84,8 +84,9 @@ public class Multiple_BlockManager : MonoBehaviour
             Color color = SkinManager.skin_manager.GetCurrentSkin().colors
             [Random.Range(0, SkinManager.skin_manager.GetCurrentSkin().colors.Length)];
 
-            obj.GetComponent<Multiple_Block>().SetColor(color);
-            obj.GetComponent<Multiple_Block>().block_count=block_count;
+            //obj.GetComponent<Multiple_Block>().SetColor(color);
+            //obj.GetComponent<Multiple_Block>().block_count=block_count;
+            obj.GetComponent<Multiple_Block>().InitBlock(block_count,color);
             obj.transform.SetParent(block_holder);
         }
         block_mas = GetComponentsInChildren<Multiple_Block>();
@@ -105,7 +106,6 @@ public class Multiple_BlockManager : MonoBehaviour
             Color[] colors = new Color[color_count];
             for (int i = 0; i < color_count; i++)
             {
-
                 if (i < 3)
                 {
                     colors[i] = SkinManager.skin_manager.GetCurrentSkin().colors[i];

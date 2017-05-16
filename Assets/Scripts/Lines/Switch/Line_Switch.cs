@@ -11,7 +11,6 @@ public class Line_Switch : Line
 
     public override void ChangeColor()
     {
-        
             List<Color> colors = new List<Color>();
             for (int i = 0; i < SkinManager.skin_manager.GetCurrentSkin().colors.Length; i++)
             {

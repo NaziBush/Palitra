@@ -18,6 +18,8 @@ public class SkinManager : MonoBehaviour
     public void SetActiveSkin(int new_skin_number)
     {
         active_skin = Mathf.Clamp(new_skin_number, 0, totalSkinCount);
+       // PlayerPrefs.SetInt("ActiveSkin", new_skin_number);
+        EventManager.TriggerEvent("SkinChanged");
     }
 
     public int GetTotalSkinCount()
@@ -29,6 +31,10 @@ public class SkinManager : MonoBehaviour
         skin_manager = this;
         Object.DontDestroyOnLoad(gameObject);
         totalSkinCount = skin_data.Length;
+        //if (PlayerPrefs.HasKey("ActiveSkin"))&&(PlayerPrefs.HasKey())
+        //{
+        //    SetActiveSkin(PlayerPrefs.GetInt("ActiveSkin"));
+        //}
     }
 
  

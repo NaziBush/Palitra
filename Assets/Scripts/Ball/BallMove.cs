@@ -36,6 +36,7 @@ public class BallMove : MonoBehaviour
     void Update()
     {
         tran.Translate(Vector2.up * speed * Time.deltaTime);
+        print(speed);
     }
 
     public void IncreaseSpeed(float acceleration)

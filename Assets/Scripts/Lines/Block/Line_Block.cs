@@ -57,6 +57,7 @@ public class Line_Block : Line
         Color[] colors = new Color[block_count];
         colors[0] = SkinManager.skin_manager.GetCurrentSkin().colors
        [UnityEngine.Random.Range(0, SkinManager.skin_manager.GetCurrentSkin().colors.Length)];
+
         for (int i = 1; i < block_count; i++)
         {
             Color color=Color.black;
@@ -65,6 +66,7 @@ public class Line_Block : Line
                 bool cond1 = ((SkinManager.skin_manager.GetCurrentSkin().colors[j] != colors[i - 1]) && (i != block_count - 1));
                 bool cond2 = (i == block_count - 1) && (SkinManager.skin_manager.GetCurrentSkin().colors[j] != colors[i - 1])
                           && (SkinManager.skin_manager.GetCurrentSkin().colors[j] != colors[0]);
+
                 if (cond1||cond2)
                 {
                      color = SkinManager.skin_manager.GetCurrentSkin().colors[j];
@@ -84,89 +86,20 @@ public class Line_Block : Line
                 }
             }
         }
-        
-
         texture.Apply();
-        //GetComponent<SpriteRenderer>().sprite = Sprite.Create
-        //    (texture, new Rect(0, 0, texture.width, texture.height), new Vector2(0.5f, 0.5f));
     }
 
     protected override void Update()
     {
         base.Update();
-        
-
         x = left_dir? Mathf.Repeat(Time.time * scrollSpeed, 1): Mathf.Repeat(-Time.time * scrollSpeed, 1);
         Vector2 offset = new Vector2(x, savedOffset.y);
-        rend.material.SetTextureOffset("_MainTex", offset);
-
-        //if (Input.GetKey(KeyCode.A))
-            //CheckIfPassed();
-
-
-
-
-    //if (!left_dir)
-    {
-            //x -= 0.5f;
-            //print(texture.GetPixel((int)(texture.width/2.0f + texture.width * x), (int)(texture.height / 2.0f)));
-            
-        }
-        
+        rend.material.SetTextureOffset("_MainTex", offset);      
     }
-
-    //void func1(int[] mas, int x, int y, out int vozvrat, out int vozvrat2)//x,y просто от балды sooqa blyat nahhooooy
-    //{
-    //    for (int i = 0; i < mas.Length; i++)
-    //    {
-    //        //делаем хуйню с массивом
-    //    }
-    //    vozvrat = 213543456;//возвращаем хуйню, которую тебе надо вытащить
-    //    vozvrat2 = 457567567;
-    //}
-
-    //void func2(int[] mas, int vozvrat, int vozvrat2)
-    //{
-    //    //делаем еще какую-то хуйню с массивом
-    //}
-
-    //void main_func()//отсюда типа вызываем funkцii понел да blyat
-    //{
-    //    int[] mas = new int[10];
-
-    //    int vozvrat, vozvrat2;
-    //    func1(mas, 1, 2, out vozvrat, out vozvrat2);//типа операция с массивом, и вернули значения которые нужны ок да азазаз
-    //    func2(mas, vozvrat, vozvrat2);//сюда передали сохраненные значения
-    //    //вообще ниибу оно скомпилится или нет, рандомную поебту набросал фастом
-    //}
 }
 
 
-    //BlockManager block_manager;
-
-
-    //public override void InitLine()
-    //{
-    //    active = true;
-    //    block_manager = GetComponent<BlockManager>();
-    //    block_manager.InitBlocks();
-    //    //tran.position = tran.position - new Vector3(5.0f, 0.0f, 0.0f);
-    //}
-
-    //protected override void CheckIfPassed()
-    //{
-    //    if ((active) && (tran.position.y - height <= Ball.ball.collision_point.position.y))
-    //    {
-    //        List<Color> colors = block_manager.CheckCollisions();
-    //        Ball.ball.LinePassed(colors,false);
-    //    }
-    //}
-
-    //public override void ChangeColor()
-    //{
-    //    block_manager.SetRandomColors();
-    //}
-
+  
 
 
 

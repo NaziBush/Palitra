@@ -81,6 +81,7 @@ public class SkinChange : MonoBehaviour
         {
             sectors[i].color = SkinManager.skin_manager.GetSkinByNumber(skin_number).colors[i];
         }
+
     }
 
     void UpdateText()

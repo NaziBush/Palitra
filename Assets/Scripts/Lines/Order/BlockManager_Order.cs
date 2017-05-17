@@ -45,6 +45,7 @@ public class BlockManager_Order : MonoBehaviour
                 if (current_block >= block_count)
                 {
                     line.Disable();
+                    BallMove.ball_move.ResumeSpeed();
                     EventManager.TriggerEvent("LinePassed");
                     arrow.gameObject.SetActive(false);
 

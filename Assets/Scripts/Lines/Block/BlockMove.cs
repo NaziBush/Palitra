@@ -9,8 +9,6 @@ public class BlockMove : MonoBehaviour
 	void Start ()
     {
         half_window_size = (Edges.rightEdge - Edges.leftEdge)/2.0f;
-
-        //print(half_window_size);
     }
 
 	void Update ()

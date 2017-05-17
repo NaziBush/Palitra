@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class ChangeToSkinColor : MonoBehaviour
 {
-    public enum SkinColors { Color_1,Color_2,Color_3};
+    public enum SkinColors { Color_1,Color_2,Color_3,Background};
     public SkinColors color;
 	
     void OnEnable()
@@ -22,17 +22,27 @@ public class ChangeToSkinColor : MonoBehaviour
 
     void ChangeColor()
     {
+        Color apply_color;
+        if (color==SkinColors.Background)
+        {
+            apply_color = SkinManager.skin_manager.GetCurrentSkin().bg_color;
+        }
+        else
+        {
+            apply_color = SkinManager.skin_manager.GetCurrentSkin().colors[(int)color];
+        }    
+        
         Image image = GetComponent<Image>();
         if (image!=null)
         {
-            image.color = SkinManager.skin_manager.GetCurrentSkin().colors[(int)color];
+            image.color = apply_color;
         }
         else
         {
             SpriteRenderer sprite_rend = GetComponent<SpriteRenderer>();
             if (sprite_rend!=null)
             {
-                sprite_rend.color = SkinManager.skin_manager.GetCurrentSkin().colors[(int)color];
+                sprite_rend.color = apply_color;
             }
         }
     }

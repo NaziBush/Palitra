@@ -27,11 +27,6 @@ public class Ball : MonoBehaviour
         size_x = sprite_rend.sprite.bounds.extents.x * tran.localScale.x;
     }
 
-    void Start()
-    {
-        
-    }
-
 	public void SetColor(Color color)
     {
         sprite_rend.color = color;
@@ -50,8 +45,6 @@ public class Ball : MonoBehaviour
     public void LinePassed(Color line_color)
     {
         lines_checked++;
-        //print(((Vector4)line_color-(Vector4) sprite_rend.color).magnitude);
-        //if (line_color == sprite_rend.color)
         if (((Vector4)line_color - (Vector4)sprite_rend.color).magnitude<0.01f)
         {
             if (lines_checked >= GameController.game_controller.GetLvlData().lines_to_accel)
@@ -62,8 +55,6 @@ public class Ball : MonoBehaviour
         }
         else
         {
-            //print(line_color);
-            //print(sprite_rend.color);
             if (shield)
             {
                 shield = false;
@@ -104,8 +95,6 @@ public class Ball : MonoBehaviour
         }
         else
         {
-            //print(line_color);
-            //print(sprite_rend.color);
             if (shield)
             {
                 shield = false;
@@ -122,38 +111,5 @@ public class Ball : MonoBehaviour
     void ChangeLvl()
     {
         shield = true;
-        //SetColor(SkinManager.skin_manager.GetCurrentSkin().colors[0]);
     }
-
-
-    
-
-    //void OnTriggerEnter2D(Collider2D other)
-    //{
-    //    if (other.CompareTag("Line"))
-    //    {
-    //        EventManager.TriggerEvent("LinePassed");
-
-    //        if (sprite_rend.color == other.GetComponent<SpriteRenderer>().color)
-    //        {
-    //            lines_checked++;
-    //            if (lines_checked >= GameController.game_controller.GetLvlData().lines_to_accel)
-    //            {
-    //                ball_move.IncreaseSpeed(GameController.game_controller.GetLvlData().accel);
-    //                lines_checked = 0;
-    //            }
-    //        }
-    //        else
-    //        {
-    //            if (shield)
-    //            {
-    //                shield = false;
-    //            }
-    //            else
-    //            {
-    //                GameController.game_controller.GameOver();
-    //            }
-    //        }
-    //    }
-    //}
 }

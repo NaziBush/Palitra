@@ -63,8 +63,9 @@ public class Multiple_BlockManager : MonoBehaviour
                 if (active_block_count<=0)
                 {
                     //EventManager.TriggerEvent("LinePassed");
-                    Ball.ball.LinePassed(Ball.ball.sprite_rend.color);
                     line.Disable();
+                    Ball.ball.LinePassed(Ball.ball.sprite_rend.color);
+                    BallMove.ball_move.ResumeSpeed();
                 }
             }
         }

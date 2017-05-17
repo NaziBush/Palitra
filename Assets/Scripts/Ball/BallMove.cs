@@ -5,6 +5,9 @@ public class BallMove : MonoBehaviour
 {
 	public static BallMove ball_move;
     bool slowed = false;
+    bool resuming = false;
+    enum State { normal,slowed,resuming};
+    State current_state=State.normal;
     Transform tran;
     float speed;
     float saved_speed=1.0f;
@@ -18,6 +21,7 @@ public class BallMove : MonoBehaviour
     {
         tran = GetComponent<Transform>();
         speed = GameController.game_controller.GetLvlData().min_speed;
+        current_state = State.normal;
     }
     float Speed
     {
@@ -36,7 +40,7 @@ public class BallMove : MonoBehaviour
     void Update()
     {
         tran.Translate(Vector2.up * speed * Time.deltaTime);
-        print(speed);
+        //print(speed);
     }
 
     public void IncreaseSpeed(float acceleration)
@@ -52,7 +56,8 @@ public class BallMove : MonoBehaviour
         if (slowed)
         {
             StopCoroutine(coroutine);
-            speed = saved_speed;
+            resuming = false;
+            //Speed = saved_speed;
         }
         coroutine = SlowDownCoroutine(deceleration);
         StartCoroutine(coroutine);
@@ -65,23 +70,39 @@ public class BallMove : MonoBehaviour
 
     IEnumerator SlowDownCoroutine(float deceleration)
     {
-        if (slowed)
-            yield return null;
-        saved_speed = speed;
+        if (!slowed)
+            saved_speed = Speed;
+        else
+        {
+            Speed = saved_speed;
+        }
         float x = (Speed - deceleration) / 5.0f;
-        speed = deceleration;
+        Speed = deceleration;
         slowed = true;
-        yield return new WaitForSeconds(0.1f);
+        
+        while ((slowed)&&(!resuming))
+        {
+            yield return new WaitForSeconds(0.1f);
+        }
+        
         for (int i=0;i<5;i++)
         {
-            if (speed+x>=saved_speed)
+            if (Speed+x>=saved_speed)
             {
-                speed = saved_speed;
+                Speed = saved_speed;
                 break;
             }
             Speed += x;
             yield return new WaitForSeconds(1.0f);
         }
         slowed = false;
+        resuming = false;
     }
+
+    public void ResumeSpeed()
+    {
+        resuming = true;
+    }
+
+
 }

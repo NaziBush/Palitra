@@ -10,6 +10,6 @@ public class MultipleProp
     public int min_taps;
     [Tooltip("Максимально возможное кол-во нажатий , которое необходимо для прохождения")]
     public int max_taps;
-    [Tooltip("Значение, на которое замедляется игра")]
+    [Tooltip("Значение, до которого замедляется шар")]
     public float slowing;
 }

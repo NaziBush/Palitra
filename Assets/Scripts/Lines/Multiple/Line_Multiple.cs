@@ -5,12 +5,13 @@ public class Line_Multiple : Line
 {
     Multiple_BlockManager block_manager;
     float saved_dist;
+    bool crossed=false;
 
     public override void InitLine()
     {
-        
         block_manager = GetComponent<Multiple_BlockManager>();
         saved_dist = SpawnWaves.spawn.dist;
+        crossed = false;
         base.InitLine();
     }
 
@@ -32,9 +33,10 @@ public class Line_Multiple : Line
                 break;
         }
         
-		if ((active) && (tran.position.y - height - Ball.ball.tran.position.y > saved_dist))
+		if ((active) && (tran.position.y - height - Ball.ball.tran.position.y > saved_dist)&&(!crossed))
         {
             BallMove.ball_move.SlowDown(deceleration);
+            crossed = true;
         }
 
 	}

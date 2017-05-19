@@ -6,12 +6,14 @@ public class Line_Order : Line
     BlockManager_Order block_manager;
     bool crossed = false;
     public int line_spawn_number;
+    public float prev_edge;
 
     public override void InitLine()
     {
         block_manager = GetComponent<BlockManager_Order>();
         line_spawn_number = SpawnWaves.spawn.GetLineSpawnedNumber();
         crossed = false;
+        prev_edge = SpawnWaves.spawn.prev_edge;
         base.InitLine();
     }
 
@@ -41,7 +43,12 @@ public class Line_Order : Line
                 deceleration = GameController.game_controller.GetLvlData().combo_prop_5_parts.slowing;
                 break;
         }
-        if ((active) && (GameController.game_controller.GetLinesPassedNumber() == line_spawn_number - 1) && (!crossed))
+        //if ((active) && (GameController.game_controller.GetLinesPassedNumber() == line_spawn_number - 1) && (!crossed))
+        //{
+        //    BallMove.ball_move.SlowDown(deceleration);
+        //    crossed = true;
+        //}
+        if ((active) && (Ball.ball.tran.position.y > prev_edge) && (!crossed))
         {
             BallMove.ball_move.SlowDown(deceleration);
             crossed = true;

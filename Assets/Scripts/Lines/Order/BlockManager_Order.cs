@@ -35,7 +35,8 @@ public class BlockManager_Order : MonoBehaviour
     {
         if (line.CheckIfActive())
         {
-            if (Ball.ball.sprite_rend.color == block_mas[current_block].GetColor())
+            if ((GameController.game_controller.GetLinesPassedNumber() == line.line_spawn_number - 1) && 
+                    (Ball.ball.sprite_rend.color == block_mas[current_block].GetColor()))
             {
                 //active_block_count--;
                 block_mas[current_block].Disable();

@@ -4,12 +4,14 @@ using System.Collections;
 public class Line_Order : Line
 {
     BlockManager_Order block_manager;
-    float saved_dist;
+    bool crossed = false;
+    public int line_spawn_number;
 
     public override void InitLine()
     {
         block_manager = GetComponent<BlockManager_Order>();
-        saved_dist = SpawnWaves.spawn.dist;
+        line_spawn_number = SpawnWaves.spawn.GetLineSpawnedNumber();
+        crossed = false;
         base.InitLine();
     }
 
@@ -39,9 +41,10 @@ public class Line_Order : Line
                 deceleration = GameController.game_controller.GetLvlData().combo_prop_5_parts.slowing;
                 break;
         }
-        if ((active) && (tran.position.y - height - Ball.ball.tran.position.y > saved_dist))
+        if ((active) && (GameController.game_controller.GetLinesPassedNumber() == line_spawn_number - 1) && (!crossed))
         {
             BallMove.ball_move.SlowDown(deceleration);
+            crossed = true;
         }
     }
 

@@ -67,7 +67,10 @@ public class Ball : MonoBehaviour
         EventManager.TriggerEvent("LinePassed");
         
     }
-
+    public int GetLinesCheckedNumber()
+    {
+        return lines_checked;
+    }
 
     public void LinePassed(List<Color> line_color,bool invert)
     {

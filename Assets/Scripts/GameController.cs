@@ -21,6 +21,10 @@ public class GameController : MonoBehaviour
         return lvl_number;
     }
 
+    public int GetLinesPassedNumber()
+    {
+        return lines_passed;
+    }
     void Awake()
     {
         game_controller = this;

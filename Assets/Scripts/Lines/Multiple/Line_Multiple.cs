@@ -4,13 +4,13 @@ using System.Collections;
 public class Line_Multiple : Line
 {
     Multiple_BlockManager block_manager;
-    float saved_dist;
+    public int line_spawn_number;
     bool crossed=false;
 
     public override void InitLine()
     {
         block_manager = GetComponent<Multiple_BlockManager>();
-        saved_dist = SpawnWaves.spawn.dist;
+        line_spawn_number = SpawnWaves.spawn.GetLineSpawnedNumber();
         crossed = false;
         base.InitLine();
     }
@@ -32,14 +32,18 @@ public class Line_Multiple : Line
                 deceleration = GameController.game_controller.GetLvlData().multiple_prop_3_parts.slowing;
                 break;
         }
-        
-		if ((active) && (tran.position.y - height - Ball.ball.tran.position.y > saved_dist)&&(!crossed))
+
+        //if (SpawnWaves.spawn.GetLinePassedNumber() == line_spawn_number-1)
+        //{
+        //    print(SpawnWaves.spawn.GetLinePassedNumber());
+        //}
+        if ((active) && (GameController.game_controller.GetLinesPassedNumber() == line_spawn_number - 1) && (!crossed))
         {
             BallMove.ball_move.SlowDown(deceleration);
             crossed = true;
         }
 
-	}
+    }
     protected override void CheckIfPassed()
     {
         //if ((active) && (tran.position.y - height < Ball.ball.tran.position.y))

@@ -174,8 +174,14 @@ public class SpawnWaves : MonoBehaviour
         
     }
 
+    public int GetLinePassedNumber()
+    {
+        return lines_passed;
+    }
 
-
-
+    public int GetLineSpawnedNumber()
+    {
+        return lines_spawned;
+    }
 
 }

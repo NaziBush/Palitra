@@ -10,6 +10,7 @@ public class SkinChange : MonoBehaviour
     public Text price_text;
     public Text score_text;
     public Text set_skin_text;
+    public Image BG;
     int skin_number;
 
     public void NextSkin()
@@ -56,16 +57,24 @@ public class SkinChange : MonoBehaviour
         }
         
         UpdateText();
-        
-        
     }
 
     void Start()
     {
+        
+    }
+
+    void OnEnable()
+    {
+        InitMenu();
+    }
+
+    public void InitMenu()
+    {
         skin_number = SkinManager.skin_manager.GetSkinNumber();
-        for (int i=0;i<SkinManager.skin_manager.GetTotalSkinCount();i++)
+        for (int i = 0; i < SkinManager.skin_manager.GetTotalSkinCount(); i++)
         {
-            if ((!CheckIfAvailable(i))&&(SkinManager.skin_manager.GetSkinByNumber(i).price==0))
+            if ((!CheckIfAvailable(i)) && (SkinManager.skin_manager.GetSkinByNumber(i).price == 0))
             {
                 PlayerPrefs.SetInt(SkinManager.skin_manager.GetSkinByNumber(i).name, 1);
             }
@@ -73,6 +82,7 @@ public class SkinChange : MonoBehaviour
         UpdateSkin();
         UpdateText();
         UpdateScore();
+
     }
 
     void UpdateSkin()
@@ -81,7 +91,7 @@ public class SkinChange : MonoBehaviour
         {
             sectors[i].color = SkinManager.skin_manager.GetSkinByNumber(skin_number).colors[i];
         }
-
+        BG.color = SkinManager.skin_manager.GetSkinByNumber(skin_number).bg_color;
     }
 
     void UpdateText()

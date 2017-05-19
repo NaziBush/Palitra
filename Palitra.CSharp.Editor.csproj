@@ -140,15 +140,6 @@
   <ItemGroup>
     <Compile Include="Assets\Editor\LineEditor.cs" />
     <Compile Include="Assets\Editor\LinePropDrawer.cs" />
-    <Compile Include="Assets\SpriteMask\Scripts\Editor\ClearStencilBufferComponentEditor.cs" />
-    <Compile Include="Assets\SpriteMask\Scripts\Editor\SpriteMaskEditor.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Assets\SpriteMask\Readme.txt" />
-    <None Include="Assets\SpriteMask\Resources\ClearStencil.shader" />
-    <None Include="Assets\SpriteMask\Resources\SpriteDefault.shader" />
-    <None Include="Assets\SpriteMask\Resources\SpriteDiffuse.shader" />
-    <None Include="Assets\SpriteMask\Resources\SpriteMask.shader" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\SyntaxTree\UnityVS\2015\UnityVS.CSharp.targets" />
 </Project>

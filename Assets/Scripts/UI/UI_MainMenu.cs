@@ -2,11 +2,13 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class UI_MainMenu : MonoBehaviour
 {
     public GameObject SkinMenu;
     public GameObject StartMenu;
+    //public Image BG;
 
     public void OpenSkinMenu()
     {
@@ -19,5 +21,6 @@ public class UI_MainMenu : MonoBehaviour
     {
         SkinMenu.SetActive(false);
         StartMenu.SetActive(true);
+        
     }
 }

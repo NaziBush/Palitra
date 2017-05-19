@@ -4,13 +4,12 @@ using System.Collections;
 public class BallMove : MonoBehaviour
 {
 	public static BallMove ball_move;
-    bool slowed = false;
-    bool resuming = false;
-    enum State { normal,slowed,resuming};
+    public enum State { normal,slowed,resuming};
     State current_state=State.normal;
     Transform tran;
     float speed;
     float saved_speed=1.0f;
+    float x = 0.2f;
     private IEnumerator coroutine;
 
     void Awake()
@@ -31,7 +30,7 @@ public class BallMove : MonoBehaviour
         }
         set
         {
-            if (!slowed)
+            if (current_state==State.normal)
                 speed = Mathf.Clamp (value, GameController.game_controller.GetLvlData ().min_speed, GameController.game_controller.GetLvlData ().max_speed);
             else
                 speed = Mathf.Clamp(value, 0.1f, GameController.game_controller.GetLvlData().max_speed);
@@ -45,7 +44,7 @@ public class BallMove : MonoBehaviour
 
     public void IncreaseSpeed(float acceleration)
     {
-        if (slowed)
+        if (current_state != State.normal)
             return;
         Speed += acceleration;
         //print(Speed);
@@ -53,38 +52,36 @@ public class BallMove : MonoBehaviour
 
     public void SlowDown(float deceleration)
     {
-        if (slowed)
+        //if (slowed)
+        //{
+        //    StopCoroutine(coroutine);
+        //    resuming = false;
+        //    //Speed = saved_speed;
+        //}
+        if (current_state!=State.normal)
         {
-            StopCoroutine(coroutine);
-            resuming = false;
-            //Speed = saved_speed;
-        }
-        coroutine = SlowDownCoroutine(deceleration);
-        StartCoroutine(coroutine);
-    }
-
-	public bool CheckIfSlowed()
-	{
-		return slowed;
-	}
-
-    IEnumerator SlowDownCoroutine(float deceleration)
-    {
-        if (!slowed)
-            saved_speed = Speed;
-        else
-        {
+            StopAllCoroutines();
             Speed = saved_speed;
         }
-        float x = (Speed - deceleration) / 5.0f;
-        Speed = deceleration;
-        slowed = true;
-        
-        while ((slowed)&&(!resuming))
+
         {
-            yield return new WaitForSeconds(0.1f);
+            current_state = State.slowed;
+            x = (Speed - deceleration) / 5.0f;
+            saved_speed = Speed;
+            Speed = deceleration;
         }
         
+        
+        
+    }
+
+	public State CheckState()
+	{
+		return current_state;
+	}
+
+    IEnumerator SlowDownCoroutine(float x)
+    {
         for (int i=0;i<5;i++)
         {
             if (Speed+x>=saved_speed)
@@ -95,13 +92,14 @@ public class BallMove : MonoBehaviour
             Speed += x;
             yield return new WaitForSeconds(1.0f);
         }
-        slowed = false;
-        resuming = false;
+        current_state = State.normal;
     }
 
     public void ResumeSpeed()
     {
-        resuming = true;
+        current_state = State.resuming;
+        coroutine = SlowDownCoroutine(x);
+        StartCoroutine(coroutine);
     }
 
 

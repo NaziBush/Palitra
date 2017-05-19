@@ -31,6 +31,8 @@ public class SkinManager : MonoBehaviour
         skin_manager = this;
         Object.DontDestroyOnLoad(gameObject);
         totalSkinCount = skin_data.Length;
+        //PlayerPrefs.DeleteAll();
+
         //if (PlayerPrefs.HasKey("ActiveSkin"))&&(PlayerPrefs.HasKey())
         //{
         //    SetActiveSkin(PlayerPrefs.GetInt("ActiveSkin"));

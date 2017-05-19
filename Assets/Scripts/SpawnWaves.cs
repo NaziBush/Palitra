@@ -8,6 +8,7 @@ public enum PoolType { Normal, Switch, Blocks,Multiple_1_part, Multiple_2_parts,
 public class SpawnWaves : MonoBehaviour
 {
     public static SpawnWaves spawn;
+    public float prev_edge=0.0f;
     float start_delay = 0.2f;
     
     LineHandler[] line_handler;
@@ -136,7 +137,8 @@ public class SpawnWaves : MonoBehaviour
     {
         lines_passed = 0;
         lines_spawned = 0;
-        
+        prev_edge = Ball.ball.tran.position.y;
+
         ReserveLines();
         StartCoroutine(Delay());
 
@@ -166,12 +168,14 @@ public class SpawnWaves : MonoBehaviour
     {
         PoolType current_line = lines[Random.Range(0,lines.Count)];
         lines.Remove(current_line);
-
-        lines_spawned++;
-        GameObject line=line_handler[(int)current_line].pool.Activate(new Vector2(0.0f, edge), Quaternion.identity);
-        edge += Dist;
-        line.GetComponent<Line>().InitLine();
         
+        lines_spawned++;
+        
+        GameObject line=line_handler[(int)current_line].pool.Activate(new Vector2(0.0f, edge), Quaternion.identity);
+        
+        line.GetComponent<Line>().InitLine();
+        prev_edge = edge;
+        edge += Dist;
     }
 
     public int GetLinePassedNumber()

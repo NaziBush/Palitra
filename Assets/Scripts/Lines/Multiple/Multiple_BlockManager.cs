@@ -54,7 +54,9 @@ public class Multiple_BlockManager : MonoBehaviour
         {
             //if ((line.GetTransform().position.y - line.GetHeight() - Ball.ball.tran.position.y < SpawnWaves.spawn.dist)&&
             //    (Ball.ball.sprite_rend.color == item.GetColor()) && (item.active))
-            if ((GameController.game_controller.GetLinesPassedNumber() == line.line_spawn_number - 1) &&
+            //if ((GameController.game_controller.GetLinesPassedNumber() == line.line_spawn_number - 1) &&
+            //    (Ball.ball.sprite_rend.color == item.GetColor()) && (item.active))
+            if ((Ball.ball.tran.position.y> line.prev_edge) &&
                 (Ball.ball.sprite_rend.color == item.GetColor()) && (item.active))
             {
                 if (item.Hit())

@@ -5,6 +5,7 @@ public class Line_Multiple : Line
 {
     Multiple_BlockManager block_manager;
     public int line_spawn_number;
+    public float prev_edge;
     bool crossed=false;
 
     public override void InitLine()
@@ -12,6 +13,7 @@ public class Line_Multiple : Line
         block_manager = GetComponent<Multiple_BlockManager>();
         line_spawn_number = SpawnWaves.spawn.GetLineSpawnedNumber();
         crossed = false;
+        prev_edge = SpawnWaves.spawn.prev_edge;
         base.InitLine();
     }
 
@@ -37,12 +39,17 @@ public class Line_Multiple : Line
         //{
         //    print(SpawnWaves.spawn.GetLinePassedNumber());
         //}
-        if ((active) && (GameController.game_controller.GetLinesPassedNumber() == line_spawn_number - 1) && (!crossed))
+        //if ((active) && (GameController.game_controller.GetLinesPassedNumber() == line_spawn_number - 1) && (!crossed))
+        //{
+        //    BallMove.ball_move.SlowDown(deceleration);
+        //    crossed = true;
+        //}
+
+        if ((active) && (Ball.ball.tran.position.y > prev_edge) && (!crossed))
         {
             BallMove.ball_move.SlowDown(deceleration);
             crossed = true;
         }
-
     }
     protected override void CheckIfPassed()
     {

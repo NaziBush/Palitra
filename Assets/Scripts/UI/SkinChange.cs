@@ -9,7 +9,9 @@ public class SkinChange : MonoBehaviour
     public Text skin_count_text;
     public Text price_text;
     public Text score_text;
-    public Text set_skin_text;
+    //public Text set_skin_text;
+    public GameObject buy_button;
+    public GameObject set_button;
     public Image BG;
     int skin_number;
 
@@ -23,6 +25,7 @@ public class SkinChange : MonoBehaviour
         {
             skin_number++;
         }
+        SkinManager.skin_manager.SetActiveSkin(skin_number);
         UpdateSkin();
         UpdateText();
     }
@@ -37,6 +40,7 @@ public class SkinChange : MonoBehaviour
         {
             skin_number--;
         }
+        SkinManager.skin_manager.SetActiveSkin(skin_number);
         UpdateSkin();
         UpdateText();
     }
@@ -46,6 +50,7 @@ public class SkinChange : MonoBehaviour
         if (CheckIfAvailable(skin_number))
         {
             SkinManager.skin_manager.SetActiveSkin(skin_number);
+            SkinManager.skin_manager.SaveActiveSkin();
         }
         else
         {
@@ -81,7 +86,7 @@ public class SkinChange : MonoBehaviour
         }
         UpdateSkin();
         UpdateText();
-        UpdateScore();
+        //UpdateScore();
 
     }
 
@@ -92,6 +97,7 @@ public class SkinChange : MonoBehaviour
             sectors[i].color = SkinManager.skin_manager.GetSkinByNumber(skin_number).colors[i];
         }
         BG.color = SkinManager.skin_manager.GetSkinByNumber(skin_number).bg_color;
+        //EventManager.TriggerEvent("SkinChanged");
     }
 
     void UpdateText()
@@ -101,18 +107,22 @@ public class SkinChange : MonoBehaviour
         score_text.text = GlobalScore.global_score.Score.ToString();
         if (CheckIfAvailable(skin_number))
         {
-            set_skin_text.text = "Set";
+            //set_skin_text.text = "Set";
+            set_button.SetActive(true);
+            buy_button.SetActive(false);
         }
         else
         {
-            set_skin_text.text = "Buy";
+            //set_skin_text.text = "Buy";
+            set_button.SetActive(false);
+            buy_button.SetActive(true);
         }
     }
 
-    void UpdateScore()
-    {
-        score_text.text = GlobalScore.global_score.Score.ToString();
-    }
+    //void UpdateScore()
+    //{
+    //    score_text.text = GlobalScore.global_score.Score.ToString();
+    //}
 	
     bool CheckIfAvailable(int number)
     {

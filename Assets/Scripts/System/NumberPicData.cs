@@ -15,6 +15,7 @@ public class NumberPicData : MonoBehaviour
     {
         Instance = this;
         min = 0;
-        max = number_pic.Length-1;
+        //max = number_pic.Length-1;
+        max = 55;
     }
 }

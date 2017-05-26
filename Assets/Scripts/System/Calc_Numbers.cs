@@ -31,4 +31,9 @@ public class Calc_Numbers : MonoBehaviour
         number = value;
         sprite_rend.sprite = NumberPicData.Instance.number_pic[number];
     }
+
+    void Calculate()
+    {
+
+    }
 }

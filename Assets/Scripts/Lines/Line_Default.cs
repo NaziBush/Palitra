@@ -5,6 +5,7 @@ using System;
 public class Line_Default : Line
 {
     Color line_color;
+    public AnimationComponent anim;
 
     public override void ChangeColor()
     {
@@ -20,11 +21,15 @@ public class Line_Default : Line
     }
     protected override void CheckIfPassed()
     {
-        if ((active) && (tran.position.y - height < Ball.ball.collision_point.position.y))
+        if ((active) && (tran.position.y - height <= Ball.ball.collision_point.position.y))
         {
+            Debug.DrawLine(new Vector3(1.0f, tran.position.y - height, 0.0f),
+            new Vector3(1.0f, tran.position.y + height, 0.0f), Color.black, 10.0f);
+            anim.BeginAnimation(height, Ball.ball.collision_point.position.y, tran.position.y);
             Ball.ball.LinePassed(line_color);
-            GetComponent<Animator>().SetTrigger("cut");
-            Animator anim = GetComponent<Animator>();
+            
+            //GetComponent<Animator>().SetTrigger("cut");
+            //Animator anim = GetComponent<Animator>();
         }
     }
 }

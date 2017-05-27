@@ -15,12 +15,19 @@ public class UI_MainMenu : MonoBehaviour
         //SceneManager.LoadScene("Main");
         SkinMenu.SetActive(true);
         StartMenu.SetActive(false);
+        
     }
 
     public void OpenStartMenu()
     {
+        SkinManager.skin_manager.LoadSavedSkin();
         SkinMenu.SetActive(false);
         StartMenu.SetActive(true);
-        
+        //EventManager.TriggerEvent("SkinChanged");
+    }
+
+    void OnAwake()
+    {
+        OpenStartMenu();
     }
 }

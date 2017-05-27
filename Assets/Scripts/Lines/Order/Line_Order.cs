@@ -51,6 +51,7 @@ public class Line_Order : Line
         if ((active) && (Ball.ball.tran.position.y > prev_edge) && (!crossed))
         {
             BallMove.ball_move.SlowDown(deceleration);
+            EventManager.TriggerEvent("BallColorChanged");
             crossed = true;
         }
     }

@@ -10,7 +10,6 @@ public class ChangeToSkinColor : MonoBehaviour
 	
     void OnEnable()
     {
-
         EventManager.StartListening("SkinChanged", ChangeColor);
         ChangeColor();
     }
@@ -37,13 +36,17 @@ public class ChangeToSkinColor : MonoBehaviour
         {
             image.color = apply_color;
         }
-        else
+        
+        SpriteRenderer sprite_rend = GetComponent<SpriteRenderer>();
+        if (sprite_rend != null)
         {
-            SpriteRenderer sprite_rend = GetComponent<SpriteRenderer>();
-            if (sprite_rend!=null)
-            {
-                sprite_rend.color = apply_color;
-            }
+            sprite_rend.color = apply_color;
+        }
+
+        Text text = GetComponent<Text>();
+        if (text != null)
+        {
+            text.color = apply_color;
         }
     }
 }

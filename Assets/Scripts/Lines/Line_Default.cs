@@ -23,6 +23,8 @@ public class Line_Default : Line
         if ((active) && (tran.position.y - height < Ball.ball.collision_point.position.y))
         {
             Ball.ball.LinePassed(line_color);
+            GetComponent<Animator>().SetTrigger("cut");
+            Animator anim = GetComponent<Animator>();
         }
     }
 }

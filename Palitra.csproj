@@ -104,6 +104,7 @@
     <Compile Include="Assets\Scripts\Preload.cs" />
     <Compile Include="Assets\Scripts\Sector.cs" />
     <Compile Include="Assets\Scripts\SkinManager.cs" />
+    <Compile Include="Assets\Scripts\SoundManager.cs" />
     <Compile Include="Assets\Scripts\SpawnWaves.cs" />
     <Compile Include="Assets\Scripts\System\AlphaRaycastFilter.cs" />
     <Compile Include="Assets\Scripts\System\Calc_Numbers.cs" />

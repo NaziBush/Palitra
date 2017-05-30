@@ -16,7 +16,7 @@ public class AnimationComponent : MonoBehaviour
 
     void Awake()
     {
-        print(sprites[0].border);
+        //print(sprites[0].border);
         //sprites[0].border.w
         //BeginAnimation();
     }

@@ -86,10 +86,11 @@ public class Line_Block : Line
                 }
             }
         }
-
+        //texture.wrapMode = TextureWrapMode.Repeat;
         texture.Apply();
         //GetComponent<SpriteRenderer>().material = GetComponent<Renderer>().material;
-        //Sprite sprite = Sprite.Create(texture, new Rect(0, 0, texture.width, texture.height), new Vector2(0.5f, 0.5f), 100);
+        //Sprite sprite = Sprite.Create(texture, new Rect(0, 0, texture.width, texture.height), 
+        //    new Vector2(0.5f, 0.5f), 100);
         //GetComponent<SpriteRenderer>().sprite = sprite;
     }
 
@@ -98,8 +99,11 @@ public class Line_Block : Line
         base.Update();
         x = left_dir? Mathf.Repeat(Time.time * scrollSpeed, 1): Mathf.Repeat(-Time.time * scrollSpeed, 1);
         Vector2 offset = new Vector2(x, savedOffset.y);
-        rend.material.SetTextureOffset("_MainTex", offset);      
+        rend.material.SetTextureOffset("_MainTex", offset);
+        //rend.material.mainTextureOffset=offset;
     }
+
+
 }
 
 

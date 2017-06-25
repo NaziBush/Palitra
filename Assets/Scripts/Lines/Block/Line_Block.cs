@@ -10,13 +10,16 @@ public class Line_Block : Line
     Renderer rend;
     bool left_dir = true;
     float x;
+    public AnimationComponent anim;
 
     public override void InitLine()
     {
         left_dir = UnityEngine.Random.value > 0.5f ? true : false;
         scrollSpeed = GameController.game_controller.GetLvlData().block_prop.speed;
         block_count = GameController.game_controller.GetLvlData().block_prop.block_count;
+        //anim.ResetAnimation();
         base.InitLine();
+        
     }
 
     protected override void CheckIfPassed()
@@ -36,6 +39,7 @@ public class Line_Block : Line
                 colors.Add(texture.GetPixel(coord_x+i, (int)(texture.height / 2.0f)));
             }
             Ball.ball.LinePassed(colors,false);
+            //anim.BeginAnimation(height, Ball.ball.collision_point.position.y, tran.position.y);
         }
     }
 
@@ -45,6 +49,8 @@ public class Line_Block : Line
         tran = GetComponent<Transform>();
         rend = GetComponent<Renderer>();
         savedOffset = rend.sharedMaterial.GetTextureOffset("_MainTex");
+        
+        
     }
     public override void ChangeColor()
     {
@@ -86,6 +92,7 @@ public class Line_Block : Line
                 }
             }
         }
+        //UnityEditor.AssetDatabase.CreateAsset(texture, "Assets/test.asset");
         //texture.wrapMode = TextureWrapMode.Repeat;
         texture.Apply();
         //GetComponent<SpriteRenderer>().material = GetComponent<Renderer>().material;

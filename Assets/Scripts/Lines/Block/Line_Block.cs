@@ -20,13 +20,13 @@ public class Line_Block : Line
         block_count = GameController.game_controller.GetLvlData().block_prop.block_count;
         //anim.ResetAnimation();
         base.InitLine();
-        
+        height = left.GetComponent<Renderer>().bounds.extents.y;
     }
 
     protected override void CheckIfPassed()
     {
-        if ((active) && (tran.position.y - height <= Ball.ball.collision_point.position.y))
-        {
+        //if ((active) && (tran.position.y - height <= Ball.ball.collision_point.position.y))
+        //{
             
             //float xx = x;
             //if ((x > 0.5f) && (x <= 1.0f))
@@ -39,15 +39,17 @@ public class Line_Block : Line
             {
                 colors.Add(main_texture.GetPixel(coord_x+i, (int)(main_texture.height / 2.0f)));
             }
-            Ball.ball.LinePassed(colors,false);
-            anim.BeginAnimation();
-            //anim.BeginAnimation(height, Ball.ball.collision_point.position.y, tran.position.y);
-        }
+        anim.BeginAnimation();
+        Ball.ball.LinePassed(colors,false);
+            
+
+        //anim.BeginAnimation(height, Ball.ball.collision_point.position.y, tran.position.y);
+        //}
     }
 
     protected override void Awake()
     {
-        //base.Awake();
+        base.Awake();
         tran = GetComponent<Transform>();
         left_rend=left.GetComponent<Renderer>();
         right_rend=right.GetComponent<Renderer>();
@@ -59,8 +61,11 @@ public class Line_Block : Line
     {
         Color[] colors = SkinManager.skin_manager.GetCurrentSkin().colors;
         Texture2D[] texture = TextureHandler.CreateTexture(colors,block_count,out main_texture);
+        
         SetTexture(texture);
-        right.GetComponent<MeshRenderer>().materials[0].mainTextureScale = new Vector2(-1, 1);
+        //right.GetComponent<MeshRenderer>().materials[1].mainTextureOffset=Vector2.zero;
+        //right.GetComponent<MeshRenderer>().materials[1].mainTextureScale = Vector2.one;
+        //right.GetComponent<MeshRenderer>().materials[0].mainTextureScale = new Vector2(-1, 1);
         // Texture2D texture = new Texture2D(125, 80);
 
         // height = texture.height*Edges.pix_size*transform.localScale.y/2.0f;
@@ -112,17 +117,21 @@ public class Line_Block : Line
     protected override void Update()
     {
         base.Update();
-        //x = left_dir? Mathf.Repeat(Time.time * scrollSpeed, 1): Mathf.Repeat(-Time.time * scrollSpeed, 1);
-        //Vector2 offset = new Vector2(x, savedOffset.y);
-        ////Vector2 offset_right = new Vector2(-x, savedOffset.y);
+       // if (active)
+        {
+            x = left_dir ? Mathf.Repeat(Time.time * scrollSpeed, 1) : Mathf.Repeat(-Time.time * scrollSpeed, 1);
+            Vector2 offset = new Vector2(x, savedOffset.y);
+            Vector2 offset_right = new Vector2(x + 0.5f, savedOffset.y);
 
 
-        //left_rend.materials[0].SetTextureOffset("_MainTex", offset);
-        //left_rend.materials[1].SetTextureOffset("_MainTex", offset);
+            left_rend.materials[0].SetTextureOffset("_MainTex", offset);
+            left_rend.materials[1].SetTextureOffset("_MainTex", offset);
 
-        //right_rend.materials[0].SetTextureOffset("_MainTex", offset);
-        //right_rend.materials[1].SetTextureOffset("_MainTex", offset);
-        //rend.material.mainTextureOffset=offset;
+            right_rend.materials[0].SetTextureOffset("_MainTex", offset);
+            right_rend.materials[1].SetTextureOffset("_MainTex", offset);
+            //rend.material.mainTextureOffset=offset;
+        }
+
     }
 
 

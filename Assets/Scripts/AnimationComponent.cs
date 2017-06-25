@@ -30,8 +30,7 @@ public class AnimationComponent : MonoBehaviour
     //public void BeginAnimation(float height,float ball_start, float line_position)
     public void BeginAnimation()
     {
-        
-        
+        print("begin animation");
         StartCoroutine(AnimationCoroutine());
     }
 
@@ -43,6 +42,7 @@ public class AnimationComponent : MonoBehaviour
     // IEnumerator AnimationCoroutine(float new_height, float ball_start, float line_position)
     IEnumerator AnimationCoroutine()
     {
+        print("animation coroutine");
         float ball_start = Ball.ball.collision_point.position.y;
         float height = line.GetHeight();
         current_mesh = start_mesh;

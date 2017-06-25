@@ -83,7 +83,7 @@ public class TextureHandler
                 texture[1].SetPixel(x, y, text.GetPixel(x + 64, y));
             }
         }
-        
+
         //for (int x = 0; x < 64; x++)
         //{
         //    for (int y = 0; y < text.height; y++)
@@ -91,9 +91,15 @@ public class TextureHandler
         //        texture[1].SetPixel(64-x, y, text.GetPixel(x+64, y));
         //    }
         //}
+
+        text.Apply();
         texture[0].Apply();
         texture[1].Apply();
 
+        ////
+        texture[0]=text;
+        texture[1] = text;
+        ////
         main_text = text;
         return texture;
     }

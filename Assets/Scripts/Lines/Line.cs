@@ -27,8 +27,9 @@ public abstract class Line : MonoBehaviour
     {
         if ((active) && (tran.position.y - height <= Ball.ball.collision_point.position.y))
         {
-            CheckIfPassed();
             active = false;
+            CheckIfPassed();
+           
         }
     }
 
@@ -41,16 +42,16 @@ public abstract class Line : MonoBehaviour
         height = left.GetComponent<Renderer>().bounds.extents.y;
         // Debug.DrawLine(new Vector3(0.0f, transform.position.y - height, 0.0f), 
         //   new Vector3(0.0f, transform.position.y + height, 0.0f), Color.red, 10.0f);
-        SetPartsPosition();
+        //SetPartsPosition();
         InitLine();
     }
 
 
-    void SetPartsPosition()
-    {
-        float width = left.GetComponent<Renderer>().bounds.extents.x;
-        float screen_size = Edges.rightEdge - Edges.leftEdge;
-    }
+    //void SetPartsPosition()
+    //{
+    //    float width = left.GetComponent<Renderer>().bounds.extents.x;
+    //    float screen_size = Edges.rightEdge - Edges.leftEdge;
+    //}
 
     public virtual void InitLine()
     {

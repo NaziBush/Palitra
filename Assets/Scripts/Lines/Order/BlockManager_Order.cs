@@ -15,6 +15,7 @@ public class BlockManager_Order : MonoBehaviour
     //int active_block_count;
     int current_block;
     
+    
 
     void Awake()
     {
@@ -25,7 +26,7 @@ public class BlockManager_Order : MonoBehaviour
     void OnEnable()
     {
         //active_block_count = block_count;
-        
+        //EventManager.StartListening("BallColorChanged", ColorChanged);
     }
     void OnDisable()
     {
@@ -37,9 +38,15 @@ public class BlockManager_Order : MonoBehaviour
         {
             //if ((GameController.game_controller.GetLinesPassedNumber() == line.line_spawn_number - 1) && 
             //        (Ball.ball.sprite_rend.color == block_mas[current_block].GetColor()))
+            //print(block_mas[current_block].GetColor() + " " + Ball.ball.ball_color);
+            //print("colors "+ (Ball.ball.ball_color == block_mas[current_block].GetColor()));
+            //print("edge"+(Ball.ball.tran.position.y > line.prev_edge));
             if ((Ball.ball.tran.position.y > line.prev_edge) &&
-                    (Ball.ball.sprite_rend.color == block_mas[current_block].GetColor()))
+                    (Ball.ball.sprite_rend.color == block_mas[current_block].GetColor())
+                    //(((Vector4)Ball.ball.sprite_rend.color - (Vector4)block_mas[current_block].GetColor()).magnitude<0.1f)
+                    )
             {
+                //print("dfh");
                 //active_block_count--;
                 block_mas[current_block].Disable();
                 current_block++;
@@ -47,9 +54,10 @@ public class BlockManager_Order : MonoBehaviour
 
                 if (current_block >= block_count)
                 {
-                    line.Disable();
+                    //line.Disable();
+                    line.finished = true;
                     BallMove.ball_move.ResumeSpeed();
-                    EventManager.TriggerEvent("LinePassed");
+                    //EventManager.TriggerEvent("LinePassed");
                     arrow.gameObject.SetActive(false);
 
                     return;
@@ -58,6 +66,7 @@ public class BlockManager_Order : MonoBehaviour
             }
             else
             {
+                //print("wrong color");
                 foreach (Block_Order item in block_mas)
                 {
                     item.Enable();
@@ -88,12 +97,25 @@ public class BlockManager_Order : MonoBehaviour
         }
         
         block_mas = GetComponentsInChildren<Block_Order>();
-        SetRandomColors();
+        //SetRandomColors();
+        SetColors();
         arrow.gameObject.SetActive(true);
         if (block_mas != null)
             arrow.position = block_mas[0].GetPosition();
         arrow.position = block_mas[0].GetPosition();
 
+    }
+
+    void SetColors()
+    {
+        Color[] colors = SkinManager.skin_manager.GetCurrentSkin().colors;
+        Color[] new_colors;
+        Texture2D[] texture = TextureHandler.CreateTexture(colors, block_count, out new_colors);
+        for (int i = 0; i < block_count; i++)
+        {
+            block_mas[i].SetColor(new_colors[i]);
+        }
+        line.SetTexture(texture);
     }
 
 

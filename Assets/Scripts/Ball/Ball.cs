@@ -13,6 +13,7 @@ public class Ball : MonoBehaviour
     public float size_x;
     bool shield;
     public Transform collision_point;
+    public Color ball_color;
 
     int lines_checked;
 
@@ -29,8 +30,13 @@ public class Ball : MonoBehaviour
 
 	public void SetColor(Color color)
     {
-        sprite_rend.color = color;
-        EventManager.TriggerEvent("BallColorChanged");
+        if (color!= ball_color)
+        {
+            ball_color = color;
+            sprite_rend.color = color;
+            EventManager.TriggerEvent("BallColorChanged");
+        }
+        
     }
 
     void OnEnable()

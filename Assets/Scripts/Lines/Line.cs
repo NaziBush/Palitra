@@ -43,7 +43,7 @@ public abstract class Line : MonoBehaviour
         // Debug.DrawLine(new Vector3(0.0f, transform.position.y - height, 0.0f), 
         //   new Vector3(0.0f, transform.position.y + height, 0.0f), Color.red, 10.0f);
         //SetPartsPosition();
-        InitLine();
+        //InitLine();
     }
 
 
@@ -59,7 +59,7 @@ public abstract class Line : MonoBehaviour
         ChangeColor();
     }
 
-    protected void SetTexture(Texture2D[] texture)
+    public void SetTexture(Texture2D[] texture)
     {
         left.GetComponent<MeshRenderer>().materials[1].mainTexture = texture[0];
         right.GetComponent<MeshRenderer>().materials[1].mainTexture = texture[1];

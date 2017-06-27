@@ -30,13 +30,13 @@ public class Sector : MonoBehaviour, IPointerClickHandler, IPointerEnterHandler
     public void OnPointerClick(PointerEventData eventData)
     {
         //print("Clicked me!"+gameObject.name);
-        Ball.ball.SetColor(sect_color);
+        Ball.ball.SetColor(sect_color,true);
     }
 
     public void OnPointerEnter(PointerEventData eventData)
     {
         //print("Clicked me!"+gameObject.name);
-        Ball.ball.SetColor(sect_color);
+        Ball.ball.SetColor(sect_color,false);
     }
 
     public void InitSector(Color color)

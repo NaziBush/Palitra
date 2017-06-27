@@ -11,7 +11,12 @@ public class BallMove : MonoBehaviour
     float saved_speed=1.0f;
     float x = 0.2f;
     private IEnumerator coroutine;
+    bool stop = false;
 
+    public void Stop()
+    {
+        stop = true;
+    }
     void Awake()
 	{
 		ball_move=this;
@@ -38,7 +43,8 @@ public class BallMove : MonoBehaviour
     }
     void Update()
     {
-        tran.Translate(Vector2.up * speed * Time.deltaTime);
+        if (!stop)
+            tran.Translate(Vector2.up * speed * Time.deltaTime);
         //print(speed);
     }
 

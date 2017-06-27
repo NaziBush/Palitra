@@ -7,6 +7,7 @@ public class Line_Multiple : Line
     public int line_spawn_number;
     public float prev_edge;
     bool crossed=false;
+    public bool finished = false;
 
     public override void InitLine()
     {
@@ -14,7 +15,9 @@ public class Line_Multiple : Line
         line_spawn_number = SpawnWaves.spawn.GetLineSpawnedNumber();
         crossed = false;
         prev_edge = SpawnWaves.spawn.prev_edge;
+
         base.InitLine();
+        //block_manager.InitBlocks();
     }
 
 	protected override void CheckIfCrossed ()
@@ -57,12 +60,23 @@ public class Line_Multiple : Line
         //{
         //если линия активна, то не проходит
         //событие LinePassed вызывается в BlockManager
-            Ball.ball.LinePassed(Color.black);
+            //Ball.ball.LinePassed(Color.black);
         //}
+        if (!finished)
+        {
+            Ball.ball.LinePassed(Color.black);
+        }
+        else
+        {
+            anim.BeginAnimation();
+            active = false;
+            Ball.ball.LinePassed(Ball.ball.sprite_rend.color);
+        }
     }
 
     public override void ChangeColor()
     {
-        StartCoroutine(block_manager.SetRandomColors());
+        //StartCoroutine(block_manager.SetRandomColors());
+        block_manager.InitBlocks();
     }
 }

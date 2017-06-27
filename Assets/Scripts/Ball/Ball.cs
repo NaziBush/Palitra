@@ -14,8 +14,16 @@ public class Ball : MonoBehaviour
     bool shield;
     public Transform collision_point;
     public Color ball_color;
+    public GameObject death;
 
     int lines_checked;
+
+    public void Stop()
+    {
+        ball_move.Stop();
+        sprite_rend.gameObject.SetActive(false);
+        Instantiate(death, tran.position, Quaternion.identity);
+    }
 
 	void Awake()
     {
@@ -24,13 +32,13 @@ public class Ball : MonoBehaviour
         shield = false;
         ball_move = GetComponent<BallMove>();
         tran = GetComponent<Transform>();
-        SetColor(SkinManager.skin_manager.GetCurrentSkin().colors[0]);
+        SetColor(SkinManager.skin_manager.GetCurrentSkin().colors[0],true);
         size_x = sprite_rend.sprite.bounds.extents.x * tran.localScale.x;
     }
 
-	public void SetColor(Color color)
+	public void SetColor(Color color,bool tap)
     {
-        if (color!= ball_color)
+        if ((color!= ball_color)||(tap))
         {
             ball_color = color;
             sprite_rend.color = color;

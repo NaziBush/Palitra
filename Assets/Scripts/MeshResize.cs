@@ -45,11 +45,18 @@ public class MeshResize : MonoBehaviour
         float k = left ? -1.0f : 1.0f;
 
         _thisTransform.localScale = new Vector3
-            (-k*ratioScale, _thisTransform.localScale.y, _thisTransform.localScale.z);
+            (-k, _thisTransform.localScale.y, _thisTransform.localScale.z);
 
-        
-        _thisTransform.position = new Vector3(k*(rightEdge-leftEdge)/4.0f,
+
+        _thisTransform.position = new Vector3(-k* (((rightEdge + leftEdge) / 2.0f)- mesh.bounds.size.x/2.0f),
             _thisTransform.position.y, _thisTransform.position.z);
+
+        //_thisTransform.localScale = new Vector3
+        //    (-k*ratioScale, _thisTransform.localScale.y, _thisTransform.localScale.z);
+
+
+        //_thisTransform.position = new Vector3(k*(rightEdge-leftEdge)/4.0f,
+        //    _thisTransform.position.y, _thisTransform.position.z);
 
 
     }

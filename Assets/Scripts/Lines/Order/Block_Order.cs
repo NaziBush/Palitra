@@ -6,11 +6,12 @@ public class Block_Order : MonoBehaviour
     SpriteRenderer sprite_rend;
     Transform tran;
     public bool active;
+    public Color color;
 
     void OnEnable()
     {
         //gameObject.SetActive(true);
-        //active = true;
+        active = true;
     }
 
     void Awake()
@@ -19,9 +20,10 @@ public class Block_Order : MonoBehaviour
         tran = GetComponent<Transform>();
     }
 
-    public void SetColor(Color color)
+    public void SetColor(Color new_color)
     {
-        sprite_rend.color = color;
+        //sprite_rend.color = color;
+        color = new_color;
     }
 
     public Vector3 GetPosition()
@@ -58,6 +60,7 @@ public class Block_Order : MonoBehaviour
 
     public Color GetColor()
     {
-        return sprite_rend.color;
+        //return sprite_rend.color;
+        return color;
     }
 }

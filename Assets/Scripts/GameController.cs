@@ -107,6 +107,14 @@ public class GameController : MonoBehaviour
 
     public void GameOver()
     {
+
+        StartCoroutine(GameOverCoroutine());
+    }
+
+    IEnumerator GameOverCoroutine()
+    {
+        Ball.ball.Stop();
+        yield return new WaitForSeconds(2.0f);
         SceneManager.LoadScene("Main");
     }
 }

@@ -6,26 +6,25 @@ public class Line_Switch : Line
 {
     float dist;
     //float saved_dist;
-    //Color line_color;
+    Color line_color;
 
 
     public override void ChangeColor()
     {
-            List<Color> colors = new List<Color>();
-            for (int i = 0; i < SkinManager.skin_manager.GetCurrentSkin().colors.Length; i++)
+        List<Color> colors = new List<Color>();
+        for (int i = 0; i < SkinManager.skin_manager.GetCurrentSkin().colors.Length; i++)
+        {
+            if (SkinManager.skin_manager.GetCurrentSkin().colors[i] != line_color)
             {
-                if (SkinManager.skin_manager.GetCurrentSkin().colors[i] != base.sprite_rend.color)
-                {
-                    colors.Add(SkinManager.skin_manager.GetCurrentSkin().colors[i]);
-                }
+                colors.Add(SkinManager.skin_manager.GetCurrentSkin().colors[i]);
             }
+        }
+        
+        Color new_color = colors[UnityEngine.Random.Range(0, colors.Count)];
+        line_color = new_color;
+        Texture2D[] texture=TextureHandler.CreateTexture(new_color);
+        SetTexture(texture);
 
-        base.sprite_rend.color=colors[UnityEngine.Random.Range(0, colors.Count)];
-
-        //Color[] colors = SkinManager.skin_manager.GetCurrentSkin().colors;
-        //Color new_color = colors[UnityEngine.Random.Range(0, colors.Length)];
-        //line_color = new_color;
-        //base.sprite_rend.color = new_color;
     }
     public override void InitLine()
     {
@@ -37,9 +36,14 @@ public class Line_Switch : Line
     }
     protected override void CheckIfPassed()
     {
-        
-       Ball.ball.LinePassed(base.sprite_rend.color);
-        
+
+        if ((active) && (tran.position.y - height <= Ball.ball.collision_point.position.y))
+        {
+            // Debug.DrawLine(new Vector3(1.0f, tran.position.y - height, 0.0f),
+            //new Vector3(1.0f, tran.position.y + height, 0.0f), Color.black, 10.0f);
+            anim.BeginAnimation();
+            Ball.ball.LinePassed(line_color);
+        }
     }
     protected override void OnEnable()
     {

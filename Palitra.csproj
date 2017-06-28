@@ -75,6 +75,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\Scenes\anum.cs" />
     <Compile Include="Assets\Scripts\AnimationComponent.cs" />
     <Compile Include="Assets\Scripts\Ball\Ball.cs" />
     <Compile Include="Assets\Scripts\Ball\BallMove.cs" />
@@ -101,6 +102,9 @@
     <Compile Include="Assets\Scripts\Lines\Order\Line_Order.cs" />
     <Compile Include="Assets\Scripts\Lines\SpriteStretch.cs" />
     <Compile Include="Assets\Scripts\Lines\Switch\Line_Switch.cs" />
+    <Compile Include="Assets\Scripts\MeshConverter.cs" />
+    <Compile Include="Assets\Scripts\MeshData.cs" />
+    <Compile Include="Assets\Scripts\MeshResize.cs" />
     <Compile Include="Assets\Scripts\Preload.cs" />
     <Compile Include="Assets\Scripts\Sector.cs" />
     <Compile Include="Assets\Scripts\SkinManager.cs" />
@@ -118,6 +122,7 @@
     <Compile Include="Assets\Scripts\System\SaveLoad\LvlData.cs" />
     <Compile Include="Assets\Scripts\System\SaveLoad\SkinData.cs" />
     <Compile Include="Assets\Scripts\System\SpriteData.cs" />
+    <Compile Include="Assets\Scripts\System\TextureHandler.cs" />
     <Compile Include="Assets\Scripts\UI\Button_Start.cs" />
     <Compile Include="Assets\Scripts\UI\ChangeScene.cs" />
     <Compile Include="Assets\Scripts\UI\Continue.cs" />
@@ -128,6 +133,10 @@
     <Compile Include="Assets\Scripts\UI\Touchable.cs" />
     <Compile Include="Assets\Scripts\UI\UIController.cs" />
     <Compile Include="Assets\Scripts\UI\UI_MainMenu.cs" />
+    <Compile Include="Assets\test\CalcUV.cs" />
+    <Compile Include="Assets\test\CalcUV2.cs" />
+    <Compile Include="Assets\test\SetMeshes.cs" />
+    <Compile Include="Assets\test\printuv.cs" />
     <Compile Include="Assets\test\test.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

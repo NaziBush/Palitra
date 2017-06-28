@@ -7,21 +7,38 @@ public class Line_Order : Line
     bool crossed = false;
     public int line_spawn_number;
     public float prev_edge;
+    public bool finished = false;
 
     public override void InitLine()
     {
+        
         block_manager = GetComponent<BlockManager_Order>();
+        base.InitLine();
         line_spawn_number = SpawnWaves.spawn.GetLineSpawnedNumber();
         crossed = false;
+        finished = false;
         prev_edge = SpawnWaves.spawn.prev_edge;
-        base.InitLine();
+    }
+
+    void Start()
+    {
+        
+        
     }
 
     protected override void CheckIfPassed()
     {
-        //если линия активна, то она в любом случае не проходит
         //событие LinePassed вызывается в BlockManager
-        Ball.ball.LinePassed(Color.black);
+        if (!finished)
+        {
+            Ball.ball.LinePassed(Color.black);
+        }
+        else
+        {
+            anim.BeginAnimation();
+            active = false;
+            Ball.ball.LinePassed(Ball.ball.sprite_rend.color);
+        }
         
     }
 

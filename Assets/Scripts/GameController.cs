@@ -11,6 +11,7 @@ public class GameController : MonoBehaviour
     [SerializeField]
     Sector[] sectors;
     int lvl_number;
+    public bool gameIsOver=false;
 
     //LineProp[] line_prop;
 
@@ -27,6 +28,7 @@ public class GameController : MonoBehaviour
     }
     void Awake()
     {
+        gameIsOver = false;
         game_controller = this;
         lvl_number = 0;
         InitLvl();
@@ -113,8 +115,9 @@ public class GameController : MonoBehaviour
 
     IEnumerator GameOverCoroutine()
     {
+        gameIsOver = true;
         Ball.ball.Stop();
         yield return new WaitForSeconds(2.0f);
-        SceneManager.LoadScene("Main");
+        UIController.ui.Pause();
     }
 }

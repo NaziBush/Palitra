@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class UIController : MonoBehaviour
 {
@@ -8,7 +9,7 @@ public class UIController : MonoBehaviour
     //enum UI_State { Game, Pause, Skin, Count };
     //UI_State state;
     public GameObject pause_menu;
-    public GameObject skin_menu;
+    //public GameObject skin_menu;
     public Text current_lvl;
     static bool is_paused;
     static float saved_time_scale=1.0f;
@@ -36,17 +37,23 @@ public class UIController : MonoBehaviour
         pause_menu.SetActive(false);
         Time.timeScale = saved_time_scale;
         is_paused = false;
+        if (GameController.game_controller.gameIsOver)
+        {
+            SceneManager.LoadScene("Main");
+        }
+        
+
     }
 
-    public void Skin()
-    {
-        Time.timeScale = 0.0f;
-        is_paused = true;
-        current_lvl.text = GameController.game_controller.GetCurrentLvl().ToString();
+    //public void Skin()
+    //{
+    //    Time.timeScale = 0.0f;
+    //    is_paused = true;
+    //    current_lvl.text = GameController.game_controller.GetCurrentLvl().ToString();
 
-        pause_menu.SetActive(false);
-        skin_menu.SetActive(true);
-    }
+    //    pause_menu.SetActive(false);
+    //    skin_menu.SetActive(true);
+    //}
 
     
 }

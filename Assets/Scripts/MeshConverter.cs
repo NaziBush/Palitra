@@ -2,7 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 using System;
+#if UNITY_EDITOR
 using UnityEditor;
+#endif
 
 public class MeshConverter:MonoBehaviour
 {
@@ -12,7 +14,9 @@ public class MeshConverter:MonoBehaviour
         for (int i=0;i<sprites.Length;i++)
         {
             Mesh mesh = SpriteToMesh(sprites[i]);
+#if UNITY_EDITOR
             AssetDatabase.CreateAsset(mesh, "Assets/Meshes/new/mesh_"+i+".asset");
+#endif
         }
     }
     void Start()

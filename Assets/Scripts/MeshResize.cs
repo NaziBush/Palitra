@@ -48,7 +48,7 @@ public class MeshResize : MonoBehaviour
             (-k, _thisTransform.localScale.y, _thisTransform.localScale.z);
 
 
-        _thisTransform.position = new Vector3(-k* (((rightEdge + leftEdge) / 2.0f)- mesh.bounds.size.x/2.0f),
+        _thisTransform.position = new Vector3(-k* (((rightEdge + leftEdge) / 2.0f)- mesh.bounds.extents.x),
             _thisTransform.position.y, _thisTransform.position.z);
 
         //_thisTransform.localScale = new Vector3

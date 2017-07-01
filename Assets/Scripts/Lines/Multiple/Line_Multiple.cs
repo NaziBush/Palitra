@@ -48,7 +48,7 @@ public class Line_Multiple : Line
         //    crossed = true;
         //}
 
-        if ((active) && (Ball.ball.tran.position.y > prev_edge) && (!crossed))
+        if ((active) && (Ball.ball.GetPosition().y > prev_edge) && (!crossed))
         {
             BallMove.ball_move.SlowDown(deceleration);
             crossed = true;
@@ -56,7 +56,7 @@ public class Line_Multiple : Line
     }
     protected override void CheckIfPassed()
     {
-        //if ((active) && (tran.position.y - height < Ball.ball.tran.position.y))
+        //if ((active) && (tran.position.y - height < Ball.ball.GetPosition().y))
         //{
         //если линия активна, то не проходит
         //событие LinePassed вызывается в BlockManager
@@ -70,7 +70,7 @@ public class Line_Multiple : Line
         {
             anim.BeginAnimation();
             active = false;
-            Ball.ball.LinePassed(Ball.ball.sprite_rend.color);
+            Ball.ball.LinePassed(Ball.ball.GetColor());
         }
     }
 

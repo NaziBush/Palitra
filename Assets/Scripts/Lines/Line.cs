@@ -25,7 +25,7 @@ public abstract class Line : MonoBehaviour
     }
     protected virtual void CheckIfCrossed()
     {
-        if ((active) && (tran.position.y - height <= Ball.ball.collision_point.position.y))
+        if ((active) && (tran.position.y - height <= Ball.ball.GetCollisionPosition().y))
         {
             active = false;
             CheckIfPassed();

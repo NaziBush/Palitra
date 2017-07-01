@@ -5,13 +5,14 @@ using System;
 public class Line_Default : Line
 {
     Color line_color;
+    static Color prev_color=Color.black;
     static int same_colors = 1;
     
     public override void ChangeColor()
     {
         Color[] colors = SkinManager.skin_manager.GetCurrentSkin().colors;
          Color new_color=colors[UnityEngine.Random.Range(0, colors.Length)];
-        if (new_color==line_color)
+        if (new_color==prev_color)
         {
             same_colors++;
         }
@@ -21,7 +22,7 @@ public class Line_Default : Line
             int k = 0;
             for (int i=0;i<colors.Length;i++)
             {
-                if (colors[i]!=line_color)
+                if (colors[i]!= new_color)
                 {
                     avail_col[k] = colors[i];
                     k++;
@@ -34,6 +35,7 @@ public class Line_Default : Line
         Texture2D[] texture = TextureHandler.CreateTexture(new_color);
         SetTexture(texture);
         line_color = new_color;
+        prev_color = line_color;
         // base.sprite_rend.color = new_color;
     }
     public override void InitLine()
@@ -43,12 +45,13 @@ public class Line_Default : Line
     }
     protected override void CheckIfPassed()
     {
-        //if ((active) && (tran.position.y - height <= Ball.ball.collision_point.position.y))
+        //if ((active) && (tran.position.y - height <= Ball.ball.GetCollisionPosition().y))
         //{
            // Debug.DrawLine(new Vector3(1.0f, tran.position.y - height, 0.0f),
             //new Vector3(1.0f, tran.position.y + height, 0.0f), Color.black, 10.0f);
-            anim.BeginAnimation();
+            
             Ball.ball.LinePassed(line_color);
+            anim.BeginAnimation();
             active = false;
         //}
     }

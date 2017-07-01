@@ -137,7 +137,7 @@ public class SpawnWaves : MonoBehaviour
     {
         lines_passed = 0;
         lines_spawned = 0;
-        prev_edge = Ball.ball.tran.position.y;
+        prev_edge = Ball.ball.GetPosition().y;
 
         ReserveLines();
         StartCoroutine(Delay());

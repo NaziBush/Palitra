@@ -9,5 +9,7 @@ public class Button_Start : MonoBehaviour
 	public void BeginGame()
     {
         SceneManager.LoadScene("Main");
+        RectTransform tran = GetComponent<RectTransform>();
+        //tran.
     }
 }

@@ -37,7 +37,7 @@ public class Line_Order : Line
         {
             anim.BeginAnimation();
             active = false;
-            Ball.ball.LinePassed(Ball.ball.sprite_rend.color);
+            Ball.ball.LinePassed(Ball.ball.GetColor());
         }
         
     }
@@ -65,7 +65,7 @@ public class Line_Order : Line
         //    BallMove.ball_move.SlowDown(deceleration);
         //    crossed = true;
         //}
-        if ((active) && (Ball.ball.tran.position.y > prev_edge) && (!crossed))
+        if ((active) && (Ball.ball.GetPosition().y > prev_edge) && (!crossed))
         {
             BallMove.ball_move.SlowDown(deceleration);
             EventManager.TriggerEvent("BallColorChanged");

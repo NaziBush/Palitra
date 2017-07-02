@@ -128,6 +128,7 @@
     <Compile Include="Assets\Scripts\UI\Pause.cs" />
     <Compile Include="Assets\Scripts\UI\Score.cs" />
     <Compile Include="Assets\Scripts\UI\SkinChange.cs" />
+    <Compile Include="Assets\Scripts\UI\StartAnimation.cs" />
     <Compile Include="Assets\Scripts\UI\Start_panel.cs" />
     <Compile Include="Assets\Scripts\UI\Touchable.cs" />
     <Compile Include="Assets\Scripts\UI\UIController.cs" />

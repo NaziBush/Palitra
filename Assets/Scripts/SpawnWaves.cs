@@ -8,14 +8,14 @@ public enum PoolType { Normal, Switch, Blocks,Multiple_1_part, Multiple_2_parts,
 public class SpawnWaves : MonoBehaviour
 {
     public static SpawnWaves spawn;
-    public float prev_edge=0.0f;
+    public float prev_edge = 0.0f;
     float start_delay = 0.2f;
-    
+
     LineHandler[] line_handler;
 
     [Space(20)]
     public float startWait;
-    
+
     List<PoolType> lines = new List<PoolType>();
     int normal_lines_count;
 
@@ -46,22 +46,22 @@ public class SpawnWaves : MonoBehaviour
         spawn = this;
     }
 
-    void Start ()
+    void Start()
     {
         Pool[] pool;
         pool = GetComponentsInChildren<Pool>();
 
         line_handler = new LineHandler[(int)PoolType.Count];
-        for (int i=0;i<line_handler.Length;i++)
+        for (int i = 0; i < line_handler.Length; i++)
         {
-            line_handler[i]=ScriptableObject.CreateInstance<LineHandler>();
+            line_handler[i] = ScriptableObject.CreateInstance<LineHandler>();
         }
-        
+
         //print(line_handler.Length);
-        for (int i=0;i<(int)PoolType.Count;i++)
+        for (int i = 0; i < (int)PoolType.Count; i++)
         {
             line_handler[i].pool_type = (PoolType)i;
-            for (int k=0;k < (int)PoolType.Count;k++)
+            for (int k = 0; k < (int)PoolType.Count; k++)
             {
                 if (pool[k].pool_type == (PoolType)i)
                 {
@@ -71,6 +71,11 @@ public class SpawnWaves : MonoBehaviour
             }
         }
 
+        
+    }
+
+    void BeginGame()
+    {
         ChangeLvl();
         StartCoroutine(Delay());
     }
@@ -78,11 +83,12 @@ public class SpawnWaves : MonoBehaviour
     {
         EventManager.StartListening("LinePassed", LinePassed);
         EventManager.StartListening("ChangeLvl", ChangeLvl);
+        EventManager.StartListening("BeginGame", BeginGame);
     }
     void OnDisable()
     { 
         EventManager.StopListening("LinePassed", LinePassed);
-        EventManager.StopListening("ChangeLvl", ChangeLvl);
+        EventManager.StopListening("BeginGame", BeginGame);
     }
 
 

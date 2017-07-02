@@ -24,8 +24,20 @@ public class BallMove : MonoBehaviour
     void Start()
     {
         tran = GetComponent<Transform>();
+        
+    }
+    void BeginGame()
+    {
         speed = GameController.game_controller.GetLvlData().min_speed;
         current_state = State.normal;
+    }
+    void OnEnable()
+    {
+        EventManager.StartListening("BeginGame", BeginGame);
+    }
+    void OnDisable()
+    {
+        EventManager.StopListening("BeginGame", BeginGame);
     }
     float Speed
     {

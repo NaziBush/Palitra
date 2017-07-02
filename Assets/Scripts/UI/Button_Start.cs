@@ -8,7 +8,8 @@ public class Button_Start : MonoBehaviour
 
 	public void BeginGame()
     {
-        UI_MainMenu.ui.BeginGame();
+        //UIController.ui.BeginGame();
+        GameController.game_controller.BeginGame();
 
         //SceneManager.LoadScene("Main");
         

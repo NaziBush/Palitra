@@ -39,7 +39,7 @@ public class Multiple_BlockManager : MonoBehaviour
     {
         //if (current_block<block_mas.Length)
         //{
-        //    if (Ball.ball.sprite_rend.color == block_mas[current_block].GetColor())
+        //    if (Ball.ball.GetColor() == block_mas[current_block].GetColor())
         //    {
         //        block_mas[current_block].Hit();
         //        current_block++;
@@ -52,12 +52,12 @@ public class Multiple_BlockManager : MonoBehaviour
 
         foreach (Multiple_Block item in block_mas)
         {
-            //if ((line.GetTransform().position.y - line.GetHeight() - Ball.ball.tran.position.y < SpawnWaves.spawn.dist)&&
-            //    (Ball.ball.sprite_rend.color == item.GetColor()) && (item.active))
+            //if ((line.GetTransform().position.y - line.GetHeight() - Ball.ball.GetPosition().y < SpawnWaves.spawn.dist)&&
+            //    (Ball.ball.GetColor() == item.GetColor()) && (item.active))
             //if ((GameController.game_controller.GetLinesPassedNumber() == line.line_spawn_number - 1) &&
-            //    (Ball.ball.sprite_rend.color == item.GetColor()) && (item.active))
-            if ((Ball.ball.tran.position.y> line.prev_edge) &&
-                (Ball.ball.sprite_rend.color == item.GetColor()) && (item.active))
+            //    (Ball.ball.GetColor() == item.GetColor()) && (item.active))
+            if ((Ball.ball.GetPosition().y> line.prev_edge) &&
+                (Ball.ball.GetColor() == item.GetColor()) && (item.active))
             {
                 if (item.Hit())
                 {
@@ -68,7 +68,7 @@ public class Multiple_BlockManager : MonoBehaviour
                     //EventManager.TriggerEvent("LinePassed");
                     //line.Disable();
                     line.finished = true;
-                    Ball.ball.LinePassed(Ball.ball.sprite_rend.color);
+                    Ball.ball.LinePassed(Ball.ball.GetColor());
                     BallMove.ball_move.ResumeSpeed();
                 }
             }

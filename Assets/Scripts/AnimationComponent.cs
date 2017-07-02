@@ -43,7 +43,7 @@ public class AnimationComponent : MonoBehaviour
     IEnumerator AnimationCoroutine()
     {
         //print("animation coroutine");
-        float ball_start = Ball.ball.collision_point.position.y;
+        float ball_start = Ball.ball.GetCollisionPosition().y;
         float height = line.GetHeight();
         current_mesh = start_mesh;
         //print(sprites[0].border);
@@ -63,7 +63,7 @@ public class AnimationComponent : MonoBehaviour
         //while (current_sprite <= end_sprite)
         while (current_mesh < mesh_data.meshes.Length - start_mesh - 1)
         {
-            float position = Ball.ball.collision_point.position.y - ball_start;
+            float position = Ball.ball.GetCollisionPosition().y - ball_start;
             current_mesh = (int)(position / cell);
             //print("position " + position + " currentsprite " + current_mesh);
             //sprite_rend.sprite = sprite_data.sprites[current_sprite+start_sprite];
@@ -90,8 +90,8 @@ public class AnimationComponent : MonoBehaviour
 
     public void ResetAnimation()
     {
-        current_mesh = start_mesh;
-
+        current_mesh = 0;
+        SetMesh(mesh_data.meshes[current_mesh]);
         //SetPicture(mesh_data.meshes[current_mesh]);
     }
 }

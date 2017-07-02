@@ -25,7 +25,7 @@ public class Line_Block : Line
 
     protected override void CheckIfPassed()
     {
-        //if ((active) && (tran.position.y - height <= Ball.ball.collision_point.position.y))
+        //if ((active) && (tran.position.y - height <= Ball.ball.GetCollisionPosition().y))
         //{
             
             //float xx = x;
@@ -43,7 +43,7 @@ public class Line_Block : Line
         Ball.ball.LinePassed(colors,false);
             
 
-        //anim.BeginAnimation(height, Ball.ball.collision_point.position.y, tran.position.y);
+        //anim.BeginAnimation(height, Ball.ball.GetCollisionPosition().y, tran.position.y);
         //}
     }
 

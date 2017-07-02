@@ -38,13 +38,13 @@ public class BlockManager_Order : MonoBehaviour
         if (!line.finished)
         {
             //if ((GameController.game_controller.GetLinesPassedNumber() == line.line_spawn_number - 1) && 
-            //        (Ball.ball.sprite_rend.color == block_mas[current_block].GetColor()))
+            //        (Ball.ball.GetColor() == block_mas[current_block].GetColor()))
             //print(block_mas[current_block].GetColor() + " " + Ball.ball.ball_color);
             //print("colors "+ (Ball.ball.ball_color == block_mas[current_block].GetColor()));
-            //print("edge"+(Ball.ball.tran.position.y > line.prev_edge));
-            if ((Ball.ball.tran.position.y > line.prev_edge) &&
-                    (Ball.ball.sprite_rend.color == block_mas[current_block].GetColor())
-                    //(((Vector4)Ball.ball.sprite_rend.color - (Vector4)block_mas[current_block].GetColor()).magnitude<0.1f)
+            //print("edge"+(Ball.ball.GetPosition().y > line.prev_edge));
+            if ((Ball.ball.GetPosition().y > line.prev_edge) &&
+                    (Ball.ball.GetColor() == block_mas[current_block].GetColor())
+                    //(((Vector4)Ball.ball.GetColor() - (Vector4)block_mas[current_block].GetColor()).magnitude<0.1f)
                     )
             {
                 //print("dfh");

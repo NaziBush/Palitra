@@ -75,23 +75,25 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets\Scripts\AnimationComponent.cs" />
     <Compile Include="Assets\Scripts\Ball\Ball.cs" />
     <Compile Include="Assets\Scripts\Ball\BallMove.cs" />
-    <Compile Include="Assets\Scripts\ChangeToSkinColor.cs" />
-    <Compile Include="Assets\Scripts\GameController.cs" />
-    <Compile Include="Assets\Scripts\LineHandler.cs" />
+    <Compile Include="Assets\Scripts\CameraSetDefault.cs" />
+    <Compile Include="Assets\Scripts\GameLogic\GameController.cs" />
+    <Compile Include="Assets\Scripts\GameLogic\Preload.cs" />
+    <Compile Include="Assets\Scripts\GameLogic\SpawnWaves.cs" />
     <Compile Include="Assets\Scripts\LineProp\BlockProp.cs" />
     <Compile Include="Assets\Scripts\LineProp\ComboProp.cs" />
     <Compile Include="Assets\Scripts\LineProp\LineProp.cs" />
     <Compile Include="Assets\Scripts\LineProp\MultipleProp.cs" />
     <Compile Include="Assets\Scripts\LineProp\SwitchProp.cs" />
+    <Compile Include="Assets\Scripts\Lines\AnimationComponent.cs" />
     <Compile Include="Assets\Scripts\Lines\Block\Block.cs" />
     <Compile Include="Assets\Scripts\Lines\Block\BlockManager.cs" />
     <Compile Include="Assets\Scripts\Lines\Block\BlockMove.cs" />
     <Compile Include="Assets\Scripts\Lines\Block\Line_Block.cs" />
     <Compile Include="Assets\Scripts\Lines\DestroyOnExit.cs" />
     <Compile Include="Assets\Scripts\Lines\Line.cs" />
+    <Compile Include="Assets\Scripts\Lines\LineHandler.cs" />
     <Compile Include="Assets\Scripts\Lines\Line_Default.cs" />
     <Compile Include="Assets\Scripts\Lines\Multiple\Line_Multiple.cs" />
     <Compile Include="Assets\Scripts\Lines\Multiple\Multiple_Block.cs" />
@@ -101,14 +103,10 @@
     <Compile Include="Assets\Scripts\Lines\Order\Line_Order.cs" />
     <Compile Include="Assets\Scripts\Lines\SpriteStretch.cs" />
     <Compile Include="Assets\Scripts\Lines\Switch\Line_Switch.cs" />
-    <Compile Include="Assets\Scripts\MeshConverter.cs" />
     <Compile Include="Assets\Scripts\MeshData.cs" />
     <Compile Include="Assets\Scripts\MeshResize.cs" />
-    <Compile Include="Assets\Scripts\Preload.cs" />
-    <Compile Include="Assets\Scripts\Sector.cs" />
     <Compile Include="Assets\Scripts\SkinManager.cs" />
     <Compile Include="Assets\Scripts\SoundManager.cs" />
-    <Compile Include="Assets\Scripts\SpawnWaves.cs" />
     <Compile Include="Assets\Scripts\System\AlphaRaycastFilter.cs" />
     <Compile Include="Assets\Scripts\System\Calc_Numbers.cs" />
     <Compile Include="Assets\Scripts\System\Edges.cs" />
@@ -120,13 +118,14 @@
     <Compile Include="Assets\Scripts\System\SaveLoad\GlobalScore.cs" />
     <Compile Include="Assets\Scripts\System\SaveLoad\LvlData.cs" />
     <Compile Include="Assets\Scripts\System\SaveLoad\SkinData.cs" />
-    <Compile Include="Assets\Scripts\System\SpriteData.cs" />
     <Compile Include="Assets\Scripts\System\TextureHandler.cs" />
     <Compile Include="Assets\Scripts\UI\Button_Start.cs" />
     <Compile Include="Assets\Scripts\UI\ChangeScene.cs" />
+    <Compile Include="Assets\Scripts\UI\ChangeToSkinColor.cs" />
     <Compile Include="Assets\Scripts\UI\Continue.cs" />
     <Compile Include="Assets\Scripts\UI\Pause.cs" />
     <Compile Include="Assets\Scripts\UI\Score.cs" />
+    <Compile Include="Assets\Scripts\UI\Sector.cs" />
     <Compile Include="Assets\Scripts\UI\SkinChange.cs" />
     <Compile Include="Assets\Scripts\UI\StartAnimation.cs" />
     <Compile Include="Assets\Scripts\UI\Start_panel.cs" />

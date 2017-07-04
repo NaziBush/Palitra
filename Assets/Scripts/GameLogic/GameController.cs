@@ -3,22 +3,25 @@ using System.Collections;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
+public enum GameState { MainMenu, Game, Pause, GameOver };
+
 public class GameController : MonoBehaviour
 {
     public static GameController game_controller;
-    enum GameState { MainMenu,Game,Pause};
+    
     GameState game_state;
     [SerializeField]
     LvlData[] lvl_data;
     [SerializeField]
     Sector[] sectors;
     int lvl_number;
-    public bool gameIsOver=false;
-
-    //LineProp[] line_prop;
 
     int lines_passed;
 
+    public GameState GetState()
+    {
+        return game_state;
+    }
     public int GetCurrentLvl()
     {
         return lvl_number;
@@ -35,6 +38,7 @@ public class GameController : MonoBehaviour
         InitLvl();
         StartCoroutine(BeginGameCoroutine());
     }
+
     IEnumerator BeginGameCoroutine()
     {
         EventManager.TriggerEvent("BeginGameAnimation");
@@ -42,18 +46,12 @@ public class GameController : MonoBehaviour
         UIController.ui.Game();
         EventManager.TriggerEvent("BeginGame");
     }
+
     void Awake()
     {
         game_state = GameState.MainMenu;
-        gameIsOver = false;
         game_controller = this;
-        
-        
         //EventManager.TriggerEvent("ChangeLvl");
-    }
-    void Start()
-    {
-        
     }
     
     void OnEnable()
@@ -71,7 +69,6 @@ public class GameController : MonoBehaviour
         lines_passed++;
         if (lines_passed >= GameController.game_controller.GetLvlData().lines_to_chng_lvl)
         {
-            
             IncreaseLvl();
             EventManager.TriggerEvent("ChangeLvl");
         }
@@ -99,39 +96,22 @@ public class GameController : MonoBehaviour
     void InitLvl()
     {
         lines_passed = 0;
-        //if (sectors.Length != lvl_data[lvl_number].colors.Length)
-        //{
-        //    print("число секторов и число цветов не совпадает");
-        //    return;
-        //}
-
-        //for (int i=0;i<sectors.Length;i++)
-        //{
-        //    sectors[i].InitSector(lvl_data[lvl_number].colors[i]);
-        //}
 
         for (int i = 0; i < sectors.Length; i++)
         {
             sectors[i].InitSector(SkinManager.skin_manager.GetCurrentSkin().colors[i]);
         }
-
-        //line_prop = new LineProp[2];
-        //line_prop[0] = new LineProp();
-        //line_prop[1] = new LineChngblData();
-
     }
-
-
 
     public void GameOver()
     {
-
         StartCoroutine(GameOverCoroutine());
     }
 
     IEnumerator GameOverCoroutine()
     {
-        gameIsOver = true;
+        game_state = GameState.GameOver;
+        EventManager.TriggerEvent("GameOver");
         Ball.ball.Stop();
         yield return new WaitForSeconds(2.0f);
         UIController.ui.Pause();

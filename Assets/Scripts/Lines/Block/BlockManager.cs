@@ -13,28 +13,6 @@ public class BlockManager : MonoBehaviour
     float window_size;
     public static float spawn_point;
 
-
-    //public void InitMan(Vector3 man_position)
-    //{
-    //    float line_height = GetComponent<SpriteRenderer>().sprite.bounds.extents.y * transform.lossyScale.y;
-    //    float man_height = man.gameObject.GetComponent<SpriteRenderer>().sprite.bounds.extents.y * man.lossyScale.y;
-    //    float man_width= man.gameObject.GetComponent<SpriteRenderer>().sprite.bounds.size.x * man.lossyScale.x;
-
-    //    float k = line_height / man_height;
-
-    //    //print(k);
-    //    man.localScale=new Vector3(man.localScale.x*k, man.localScale.y*k, man.localScale.z);
-    //    man.position = new Vector3(man_position.x+man_width,man_position.y,man_position.z);
-    //}
-
-    void Start()
-    {
-        
-
-        //InitBlocks();
-
-    }
-
     public void InitBlocks()
     {
         window_size = Edges.rightEdge - Edges.leftEdge;
@@ -69,15 +47,10 @@ public class BlockManager : MonoBehaviour
                 }
             }
             obj.GetComponent<Block>().SetColor(color);
-            //else
-            //{
-
-            //}
             prev_color = color;
             obj.transform.SetParent(block_holder);
         }
-        //InitMan(new Vector3(Edges.leftEdge+block_size / 2.0f + block_size * (block_count-1), transform.position.y));
-        //InitMan(new Vector3(Edges.leftEdge + block_size / 2.0f + block_size * (block_count - 1) + offset, transform.position.y));
+
         spawn_position = new Vector3(Edges.leftEdge-window_size/ 2.0f, transform.position.y, 0.0f);
         obj = (GameObject)Instantiate(block_holder.gameObject, spawn_position, Quaternion.identity,transform);
         block_mas = GetComponentsInChildren<Block>();
@@ -111,7 +84,6 @@ public class BlockManager : MonoBehaviour
             item.SetRandomColor();
         }
     }
-	
 }
 
 

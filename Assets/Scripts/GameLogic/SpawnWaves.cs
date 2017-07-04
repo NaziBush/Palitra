@@ -57,7 +57,6 @@ public class SpawnWaves : MonoBehaviour
             line_handler[i] = ScriptableObject.CreateInstance<LineHandler>();
         }
 
-        //print(line_handler.Length);
         for (int i = 0; i < (int)PoolType.Count; i++)
         {
             line_handler[i].pool_type = (PoolType)i;
@@ -69,9 +68,7 @@ public class SpawnWaves : MonoBehaviour
                     break;
                 }
             }
-        }
-
-        
+        }  
     }
 
     void BeginGame()
@@ -79,18 +76,19 @@ public class SpawnWaves : MonoBehaviour
         ChangeLvl();
         StartCoroutine(Delay());
     }
+
     void OnEnable()
     {
         EventManager.StartListening("LinePassed", LinePassed);
         EventManager.StartListening("ChangeLvl", ChangeLvl);
         EventManager.StartListening("BeginGame", BeginGame);
     }
+
     void OnDisable()
     { 
         EventManager.StopListening("LinePassed", LinePassed);
         EventManager.StopListening("BeginGame", BeginGame);
     }
-
 
     void GetLineCountData()
     {
@@ -117,7 +115,6 @@ public class SpawnWaves : MonoBehaviour
         {
             GameController.game_controller.GetLvlData().lines_to_chng_lvl += line_handler[i].count;
         }
-
 
         //заполняем массив линий
         for (int i=0;i<(int)PoolType.Count;i++)
@@ -147,7 +144,6 @@ public class SpawnWaves : MonoBehaviour
 
         ReserveLines();
         StartCoroutine(Delay());
-
     }
 
     IEnumerator Delay()
@@ -163,7 +159,6 @@ public class SpawnWaves : MonoBehaviour
 
     void Update()
     {
-        //print(Time.time);
         if ((is_spawning)&&(Edges.topEdge >= edge-offset)&&(lines_spawned < GameController.game_controller.GetLvlData().lines_to_chng_lvl))
         {
             SpawnWave();
@@ -193,5 +188,4 @@ public class SpawnWaves : MonoBehaviour
     {
         return lines_spawned;
     }
-
 }

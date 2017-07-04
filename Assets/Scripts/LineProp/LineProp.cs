@@ -6,5 +6,4 @@ public class LineProp
 {
     [Tooltip("Количество линий")]
     public int count;
-	
 }

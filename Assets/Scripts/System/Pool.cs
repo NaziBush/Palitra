@@ -8,7 +8,6 @@ public class Pool : MonoBehaviour
     public GameObject obj;
     public int size;
 
-
     public void Awake() 
     {
         stck = new GameObject[size];
@@ -58,7 +57,4 @@ public class Pool : MonoBehaviour
         tos--;
         return stck[tos];
     }
-
-
-
 }

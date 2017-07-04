@@ -38,16 +38,6 @@ public class Line_Multiple : Line
                 break;
         }
 
-        //if (SpawnWaves.spawn.GetLinePassedNumber() == line_spawn_number-1)
-        //{
-        //    print(SpawnWaves.spawn.GetLinePassedNumber());
-        //}
-        //if ((active) && (GameController.game_controller.GetLinesPassedNumber() == line_spawn_number - 1) && (!crossed))
-        //{
-        //    BallMove.ball_move.SlowDown(deceleration);
-        //    crossed = true;
-        //}
-
         if ((active) && (Ball.ball.GetPosition().y > prev_edge) && (!crossed))
         {
             BallMove.ball_move.SlowDown(deceleration);
@@ -56,12 +46,6 @@ public class Line_Multiple : Line
     }
     protected override void CheckIfPassed()
     {
-        //if ((active) && (tran.position.y - height < Ball.ball.GetPosition().y))
-        //{
-        //если линия активна, то не проходит
-        //событие LinePassed вызывается в BlockManager
-            //Ball.ball.LinePassed(Color.black);
-        //}
         if (!finished)
         {
             Ball.ball.LinePassed(Color.black);
@@ -76,7 +60,6 @@ public class Line_Multiple : Line
 
     public override void ChangeColor()
     {
-        //StartCoroutine(block_manager.SetRandomColors());
         block_manager.InitBlocks();
     }
 }

@@ -43,7 +43,7 @@ public class UIController : MonoBehaviour
         StartMenu.SetActive(false);
         pause_menu.SetActive(false);
         Game_UI.SetActive(true);
-        UI_triangle.GetComponent<RectTransform>().SetParent(Game_UI.transform);
+        //UI_triangle.GetComponent<RectTransform>().SetParent(Game_UI.transform);
         //Game_triangle.transform.position = UI_triangle.transform.position;
         //Game_triangle.transform.rotation = UI_triangle.transform.rotation;
         //Game_triangle.transform.localScale = UI_triangle.transform.localScale;

@@ -126,7 +126,7 @@ public class GameController : MonoBehaviour
     public void GameOver()
     {
 
-        //StartCoroutine(GameOverCoroutine());
+        StartCoroutine(GameOverCoroutine());
     }
 
     IEnumerator GameOverCoroutine()

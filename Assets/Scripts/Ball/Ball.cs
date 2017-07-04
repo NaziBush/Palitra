@@ -60,7 +60,7 @@ public class Ball : MonoBehaviour
         image = GetComponent<Image>();
         //tran = GetComponent<Transform>();
         tran = GetComponent<RectTransform>();
-        SetColor(SkinManager.skin_manager.GetCurrentSkin().colors[0],true);
+        //SetColor(SkinManager.skin_manager.GetCurrentSkin().colors[0],true);
         // size_x = sprite_rend.sprite.bounds.extents.x * tran.localScale.x;
     }
 
@@ -73,7 +73,7 @@ public class Ball : MonoBehaviour
             image.color = color;
             EventManager.TriggerEvent("BallColorChanged");
         }
-        
+        print(ball_color);
     }
 
     void OnEnable()

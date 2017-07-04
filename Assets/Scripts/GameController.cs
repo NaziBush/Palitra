@@ -6,6 +6,8 @@ using UnityEngine.SceneManagement;
 public class GameController : MonoBehaviour
 {
     public static GameController game_controller;
+    enum GameState { MainMenu,Game,Pause};
+    GameState game_state;
     [SerializeField]
     LvlData[] lvl_data;
     [SerializeField]
@@ -26,18 +28,32 @@ public class GameController : MonoBehaviour
     {
         return lines_passed;
     }
-    void Awake()
+
+    public void BeginGame()
     {
-        gameIsOver = false;
-        game_controller = this;
         lvl_number = 0;
         InitLvl();
-       
+        StartCoroutine(BeginGameCoroutine());
+    }
+    IEnumerator BeginGameCoroutine()
+    {
+        EventManager.TriggerEvent("BeginGameAnimation");
+        yield return new WaitForSeconds(3.0f);
+        UIController.ui.Game();
+        EventManager.TriggerEvent("BeginGame");
+    }
+    void Awake()
+    {
+        game_state = GameState.MainMenu;
+        gameIsOver = false;
+        game_controller = this;
+        
+        
         //EventManager.TriggerEvent("ChangeLvl");
     }
     void Start()
     {
-        UIController.ui.Game();
+        
     }
     
     void OnEnable()

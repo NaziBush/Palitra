@@ -8,6 +8,6 @@ public class SwitchProp
     public int count;
     [Tooltip("Расстояние, после которого полоса перестает менять цвет")]
     public float dist;
-    [Tooltip("Здаержка перед сменой линии")]
+    [Tooltip("Задержка перед сменой линии")]
     public float time_to_change;
 }

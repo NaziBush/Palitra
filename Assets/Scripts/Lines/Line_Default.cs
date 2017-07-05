@@ -31,30 +31,22 @@ public class Line_Default : Line
             new_color = avail_col[UnityEngine.Random.Range(0, avail_col.Length)];
             same_colors = 1;
         }
-        //Color new_color = Color.green;
         Texture2D[] texture = TextureHandler.CreateTexture(new_color);
         SetTexture(texture);
         line_color = new_color;
         prev_color = line_color;
-        // base.sprite_rend.color = new_color;
     }
+
     public override void InitLine()
     {
         active = true;
         ChangeColor();
     }
+
     protected override void CheckIfPassed()
     {
-        //if ((active) && (tran.position.y - height <= Ball.ball.GetCollisionPosition().y))
-        //{
-           // Debug.DrawLine(new Vector3(1.0f, tran.position.y - height, 0.0f),
-            //new Vector3(1.0f, tran.position.y + height, 0.0f), Color.black, 10.0f);
-            
-            Ball.ball.LinePassed(line_color);
-            anim.BeginAnimation();
-            active = false;
-        //}
+        Ball.ball.LinePassed(line_color);
+        anim.BeginAnimation();
+        active = false;
     }
-
-    
 }

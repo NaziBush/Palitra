@@ -15,7 +15,6 @@ public class Edges : MonoBehaviour
         pix_size = (topEdge - botEdge) / Screen.height;
     }
 	
-	// Update is called once per frame
 	void Update ()
     {
         topEdge = Camera.main.ScreenToWorldPoint(new Vector2(0, Screen.height)).y;

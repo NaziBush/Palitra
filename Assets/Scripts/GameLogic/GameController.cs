@@ -58,6 +58,7 @@ public class GameController : MonoBehaviour
         }
         ChangeState(GameState.Game);
         UIController.ui.UpdateUI();
+        SoundManager.sound_manager.GameTheme();
         EventManager.TriggerEvent("BeginGame");
     }
 
@@ -145,6 +146,7 @@ public class GameController : MonoBehaviour
         Time.timeScale = saved_time_scale;
         
         UIController.ui.UpdateUI();
+        SoundManager.sound_manager.MainMenuTheme();
         EventManager.TriggerEvent("EndGame");
     }
 

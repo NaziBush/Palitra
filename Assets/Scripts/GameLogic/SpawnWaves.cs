@@ -76,10 +76,12 @@ public class SpawnWaves : MonoBehaviour
         ChangeLvl();
         StartCoroutine(Delay());
     }
+
     void EndGame()
     {
         is_spawning = false;
     }
+
     void OnEnable()
     {
         EventManager.StartListening("LinePassed", LinePassed);

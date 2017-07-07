@@ -65,8 +65,8 @@ MonoBehaviour:
     y: 0
     width: 435
     height: 768
-  m_MinSize: {x: 202, y: 221}
-  m_MaxSize: {x: 4002, y: 4021}
+  m_MinSize: {x: 200, y: 200}
+  m_MaxSize: {x: 4000, y: 4000}
   m_ActualView: {fileID: 19}
   m_Panes:
   - {fileID: 19}
@@ -93,10 +93,10 @@ MonoBehaviour:
     y: 30
     width: 1600
     height: 768
-  m_MinSize: {x: 887, y: 492}
-  m_MaxSize: {x: 18008, y: 14042}
+  m_MinSize: {x: 885, y: 492}
+  m_MaxSize: {x: 18006, y: 14042}
   vertical: 0
-  controlID: 132
+  controlID: 109
 --- !u!114 &5
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -235,7 +235,7 @@ MonoBehaviour:
   m_MinSize: {x: 406, y: 492}
   m_MaxSize: {x: 10002, y: 14042}
   vertical: 1
-  controlID: 88
+  controlID: 110
 --- !u!114 &11
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -259,7 +259,7 @@ MonoBehaviour:
   m_MinSize: {x: 406, y: 221}
   m_MaxSize: {x: 8006, y: 4021}
   vertical: 0
-  controlID: 62
+  controlID: 88
 --- !u!114 &12
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -278,8 +278,8 @@ MonoBehaviour:
     y: 0
     width: 539
     height: 495
-  m_MinSize: {x: 200, y: 200}
-  m_MaxSize: {x: 4000, y: 4000}
+  m_MinSize: {x: 204, y: 221}
+  m_MaxSize: {x: 4004, y: 4021}
   m_ActualView: {fileID: 18}
   m_Panes:
   - {fileID: 18}
@@ -343,10 +343,10 @@ MonoBehaviour:
     m_KeySerializationHelper: []
     m_ValueSerializationHelper: []
   m_PreviewAnimator: {fileID: 0}
-  m_AnimatorController: {fileID: 9100000, guid: b99d9b7bcfad91846b6423b97fc49ee7,
+  m_AnimatorController: {fileID: 9100000, guid: 168f5c4dfd42c404aa62f05d61e9ddc2,
     type: 2}
   m_BreadCrumbs:
-  - m_Target: {fileID: 1107550668058046912, guid: b99d9b7bcfad91846b6423b97fc49ee7,
+  - m_Target: {fileID: 1107261284784152756, guid: 168f5c4dfd42c404aa62f05d61e9ddc2,
       type: 2}
     m_ScrollPosition: {x: 0, y: 0}
   stateMachineGraph: {fileID: 0}
@@ -429,19 +429,19 @@ MonoBehaviour:
     m_ShowAllHits: 0
     m_SearchArea: 0
     m_Folders:
-    - Assets/Scenes
+    - Assets/color_palette_music_fx
   m_ViewMode: 1
   m_StartGridSize: 64
   m_LastFolders:
-  - Assets/Scenes
+  - Assets/color_palette_music_fx
   m_LastFoldersGridSize: -1
   m_LastProjectPath: D:\UnityProjects\Palitra\Palitra_Source\Palitra
   m_IsLocked: 0
   m_FolderTreeState:
-    scrollPos: {x: 0, y: 193}
-    m_SelectedIDs: b8260000
-    m_LastClickedID: 9912
-    m_ExpandedIDs: 00000000e42400000e260000b8260000262800005a2800006e2900009a290000d22900006432000066320000683200006a3200006c320000ffffff7f
+    scrollPos: {x: 0, y: 0}
+    m_SelectedIDs: 92320000
+    m_LastClickedID: 12946
+    m_ExpandedIDs: 00000000d2240000fc250000a626000014280000482800005c290000c02900005c3200005e320000603200006232000064320000ffffff7f
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -470,7 +470,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 4}
     m_SelectedIDs: b82b0000
     m_LastClickedID: 11192
-    m_ExpandedIDs: 00000000e42400000e260000b8260000262800005a2800006e2900009a290000d22900006432000066320000683200006a3200006c320000
+    m_ExpandedIDs: 00000000d2240000fc250000a626000014280000482800005c29000088290000c02900005c3200005e320000603200006232000064320000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -554,9 +554,9 @@ MonoBehaviour:
     height: 474
   m_TreeViewState:
     scrollPos: {x: 0, y: 0}
-    m_SelectedIDs: 90290000
+    m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: b2dcffff90e1ffff02f8ffff20f9ffff2afcffff0000000092350000d03800005a390000
+    m_ExpandedIDs: 04a7ffff40dcffffaae3ffff9ef5ffff2cfcffff000000009a2d0000504a0000b84c0000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -582,7 +582,7 @@ MonoBehaviour:
     m_SearchString: 
     m_ColumnWidths: []
   m_ExpandedScenes:
-  - Preload
+  - New Main
   m_CurrenRootInstanceID: 0
   m_Locked: 0
   m_CurrentSortingName: TransformSorting
@@ -613,7 +613,7 @@ MonoBehaviour:
     width: 535
     height: 474
   m_SceneLighting: 1
-  lastFramingTime: 374.1781707567157
+  lastFramingTime: 1157.7621211744301
   m_2DMode: 1
   m_isRotationLocked: 0
   m_AudioPlay: 0
@@ -647,9 +647,9 @@ MonoBehaviour:
     speed: 2
     m_Value: {x: 0, y: 0, z: 0, w: 1}
   m_Size:
-    m_Target: 1991.8065
+    m_Target: 217.748
     speed: 2
-    m_Value: 1991.8065
+    m_Value: 217.748
   m_Ortho:
     m_Target: 1
     speed: 2

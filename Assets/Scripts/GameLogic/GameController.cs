@@ -147,6 +147,12 @@ public class GameController : MonoBehaviour
         EventManager.TriggerEvent("EndGame");
     }
 
+    public void ToSkinMenu()
+    {
+        ChangeState(GameState.SkinMenu);
+        UIController.ui.UpdateUI();
+    }
+
     public void GameOver()
     {
         StartCoroutine(GameOverCoroutine());

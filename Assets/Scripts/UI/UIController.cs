@@ -43,7 +43,7 @@ public class UIController : MonoBehaviour
                 skin_menu.SetActive(true);
                 start_menu.SetActive(false);
                 pause_menu.SetActive(false);
-                round.SetActive(true);
+                round.SetActive(false);
                 triangle.SetActive(false);
                 triangle_fon.SetActive(false);
                 break;

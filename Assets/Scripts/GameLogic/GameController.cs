@@ -51,10 +51,11 @@ public class GameController : MonoBehaviour
 
     IEnumerator BeginGameCoroutine()
     {
-        EventManager.TriggerEvent("BeginGameAnimation");
-        yield return new WaitForSeconds(3.0f);
-        //UIController.ui.Game();
-        //game_state = GameState.Game;
+        if (game_state == GameState.MainMenu)
+        {
+            EventManager.TriggerEvent("BeginGameAnimation");
+            yield return new WaitForSeconds(3.0f);
+        }
         ChangeState(GameState.Game);
         UIController.ui.UpdateUI();
         EventManager.TriggerEvent("BeginGame");

@@ -29,6 +29,7 @@ public class UIController : MonoBehaviour
         switch(GameController.game_controller.GetState())
         {
             case GameState.MainMenu:
+                SkinManager.skin_manager.LoadSavedSkin();
                 Game_UI.SetActive(false);
                 skin_menu.SetActive(false);
                 start_menu.SetActive(true);

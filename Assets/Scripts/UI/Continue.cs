@@ -5,7 +5,7 @@ public class Continue : MonoBehaviour {
 
     public void ContinueGame()
     {
-        UIController.ui.Game();
+        GameController.game_controller.Continue();
 
     }
 }

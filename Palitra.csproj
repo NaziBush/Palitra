@@ -92,6 +92,7 @@
     <Compile Include="Assets\Scripts\Lines\Block\BlockMove.cs" />
     <Compile Include="Assets\Scripts\Lines\Block\Line_Block.cs" />
     <Compile Include="Assets\Scripts\Lines\DestroyOnExit.cs" />
+    <Compile Include="Assets\Scripts\Lines\DestroyOnReload.cs" />
     <Compile Include="Assets\Scripts\Lines\Line.cs" />
     <Compile Include="Assets\Scripts\Lines\LineHandler.cs" />
     <Compile Include="Assets\Scripts\Lines\Line_Default.cs" />
@@ -120,7 +121,7 @@
     <Compile Include="Assets\Scripts\System\SaveLoad\SkinData.cs" />
     <Compile Include="Assets\Scripts\System\TextureHandler.cs" />
     <Compile Include="Assets\Scripts\UI\Button_Start.cs" />
-    <Compile Include="Assets\Scripts\UI\ChangeScene.cs" />
+    <Compile Include="Assets\Scripts\UI\Button_ToMainMenu.cs" />
     <Compile Include="Assets\Scripts\UI\ChangeToSkinColor.cs" />
     <Compile Include="Assets\Scripts\UI\Continue.cs" />
     <Compile Include="Assets\Scripts\UI\Pause.cs" />

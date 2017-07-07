@@ -76,18 +76,24 @@ public class SpawnWaves : MonoBehaviour
         ChangeLvl();
         StartCoroutine(Delay());
     }
-
+    void EndGame()
+    {
+        is_spawning = false;
+    }
     void OnEnable()
     {
         EventManager.StartListening("LinePassed", LinePassed);
         EventManager.StartListening("ChangeLvl", ChangeLvl);
         EventManager.StartListening("BeginGame", BeginGame);
+        EventManager.StartListening("EndGame", EndGame);
     }
 
     void OnDisable()
     { 
         EventManager.StopListening("LinePassed", LinePassed);
+        EventManager.StopListening("ChangeLvl", ChangeLvl);
         EventManager.StopListening("BeginGame", BeginGame);
+        EventManager.StopListening("EndGame", EndGame);
     }
 
     void GetLineCountData()

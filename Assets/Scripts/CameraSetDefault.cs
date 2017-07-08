@@ -19,11 +19,11 @@ public class CameraSetDefault : MonoBehaviour
 
     void OnEnable()
     {
-        EventManager.StartListening("GameOver", SetDefaultPosition);
+        EventManager.StartListening("EndGame", SetDefaultPosition);
     }
 
     void OnDisable()
     {
-        EventManager.StopListening("GameOver",SetDefaultPosition);
+        EventManager.StopListening("EndGame",SetDefaultPosition);
     }
 }

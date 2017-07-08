@@ -23,7 +23,10 @@ public class AnimationComponent : MonoBehaviour
    
     public void BeginAnimation()
     {
-        StartCoroutine(AnimationCoroutine());
+        if (GameController.game_controller.GetState()==GameState.Game)
+        {
+            StartCoroutine(AnimationCoroutine());
+        }
     }
 
     void OnEnable()

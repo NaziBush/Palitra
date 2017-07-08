@@ -30,6 +30,7 @@ public class BallMove : MonoBehaviour
     {
         speed = GameController.game_controller.GetLvlData().min_speed;
         current_state = State.normal;
+        stop = false;
     }
     void OnEnable()
     {
@@ -55,7 +56,7 @@ public class BallMove : MonoBehaviour
     }
     void Update()
     {
-        if (!stop)
+        if ((!stop)&&(GameController.game_controller.GetState()==GameState.Game))
             tran.Translate(Vector2.up * speed * Time.deltaTime);
         //print(speed);
     }

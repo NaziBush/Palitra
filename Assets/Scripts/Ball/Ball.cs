@@ -73,12 +73,16 @@ public class Ball : MonoBehaviour
             image.color = color;
             EventManager.TriggerEvent("BallColorChanged");
         }
-        print(ball_color);
+        //print(ball_color);
     }
 
     void OnEnable()
     {
         EventManager.StartListening("ChangeLvl", ChangeLvl);
+        if (GameController.game_controller.GetState()!=GameState.GameOver)
+        {
+            image.enabled = true;
+        }
     }
     void OnDisable()
     {

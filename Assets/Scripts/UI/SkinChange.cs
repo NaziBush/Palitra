@@ -17,6 +17,7 @@ public class SkinChange : MonoBehaviour
 
     public void NextSkin()
     {
+        SoundManager.sound_manager.SingleSound(SoundSample.ScrollSkin);
         if (skin_number == SkinManager.skin_manager.GetTotalSkinCount() - 1)
         {
             skin_number = 0;
@@ -32,6 +33,7 @@ public class SkinChange : MonoBehaviour
 
     public void PrevSkin()
     {
+        SoundManager.sound_manager.SingleSound(SoundSample.ScrollSkin);
         if (skin_number == 0)
         {
             skin_number = SkinManager.skin_manager.GetTotalSkinCount() - 1;
@@ -49,6 +51,7 @@ public class SkinChange : MonoBehaviour
     {
         if (CheckIfAvailable(skin_number))
         {
+            SoundManager.sound_manager.SingleSound(SoundSample.SetSkin);
             SkinManager.skin_manager.SetActiveSkin(skin_number);
             SkinManager.skin_manager.SaveActiveSkin();
         }
@@ -56,8 +59,13 @@ public class SkinChange : MonoBehaviour
         {
             if (GlobalScore.global_score.Score >= SkinManager.skin_manager.GetSkinByNumber(skin_number).price)
             {
+                SoundManager.sound_manager.SingleSound(SoundSample.Buy);
                 GlobalScore.global_score.Score -= SkinManager.skin_manager.GetSkinByNumber(skin_number).price;
                 PlayerPrefs.SetInt(SkinManager.skin_manager.GetSkinByNumber(skin_number).name, 1);
+            }
+            else
+            {
+                SoundManager.sound_manager.SingleSound(SoundSample.Error);
             }
         }
         

@@ -14,13 +14,13 @@ public class StartAnimation : MonoBehaviour
     void OnEnable()
     {
         EventManager.StartListening("BeginGameAnimation", Animate);
-        EventManager.StartListening("ResetGameAnimation", Reset);
+        EventManager.StartListening("EndGame", Reset);
     }
 
     void OnDisable()
     {
         EventManager.StopListening("BeginGameAnimation", Animate);
-        EventManager.StopListening("ResetGameAnimation", Reset);
+        EventManager.StopListening("EndGame", Reset);
     }
 
     void Animate()
